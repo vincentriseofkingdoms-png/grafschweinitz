@@ -52,7 +52,7 @@ body {
 /* HERO */
 .hero {
     text-align: center;
-    padding: 180px 20px 260px;
+    padding: 200px 20px 280px;
     position: relative;
     overflow: hidden;
 }
@@ -67,8 +67,8 @@ body {
     height: 1800px;
     background: url('wappen.png') no-repeat center top;
     background-size: cover;
-    opacity: 0.07;
-    transform: translateX(-50%);
+    opacity: 0.09;
+    transform: translateX(-44%);
 }
 
 .hero * { position: relative; z-index: 1; }
@@ -85,7 +85,6 @@ body {
     font-size: 22px;
     letter-spacing: 2px;
     margin-bottom: 40px;
-    color: #222;
 }
 
 /* HEADLINE */
@@ -173,16 +172,15 @@ p {
 .slide h3 {
     font-family: 'Playfair Display', serif;
     font-size: 30px;
-    margin-bottom: 20px;
 }
 
 .slide p {
     color: #ccc;
     max-width: 500px;
-    margin: 0 auto 30px;
+    margin: 20px auto;
 }
 
-/* SLIDER BUTTON */
+/* BUTTON */
 .slider-btn {
     display: inline-block;
     padding: 10px 25px;
@@ -209,7 +207,6 @@ p {
     border: none;
     cursor: pointer;
     opacity: 0.7;
-    transition: 0.3s;
 }
 
 .arrow:hover { opacity: 1; }
@@ -232,10 +229,8 @@ p {
 h2 {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
-    font-weight: 400;
 }
 
-/* CARDS */
 .cards {
     display: flex;
     gap: 40px;
@@ -249,12 +244,6 @@ h2 {
     background: white;
     padding: 50px;
     border-radius: 6px;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
 
 ul {
@@ -266,11 +255,11 @@ ul {
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <div class="navbar">
     <a href="#">Start</a>
     <a href="#leistungen">Leistungen</a>
-    <a href="#about">Über uns</a>
+    <a href="ueber-uns.html">Über uns</a>
 </div>
 
 <!-- HERO -->
@@ -306,7 +295,7 @@ ul {
 </div>
 
 <!-- SLIDER -->
-<div id="about" class="slider-section">
+<div class="slider-section">
 
     <div class="slider">
 
@@ -316,6 +305,7 @@ ul {
             <h3>Meine Werte</h3>
             <p>
                 Verlässlichkeit, Diskretion und Präzision bilden das Fundament meiner Arbeit.
+                Jedes Mandat wird mit höchstem Anspruch und persönlicher Verantwortung begleitet.
             </p>
             <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
         </div>
@@ -323,7 +313,8 @@ ul {
         <div class="slide">
             <h3>Meine Geschichte</h3>
             <p>
-                Tradition und strategisches Denken verbinden sich zu nachhaltigen Lösungen.
+                Geprägt von Tradition und strategischem Denken verbinde ich gewachsene Werte
+                mit modernen Lösungen – für nachhaltigen Erfolg über Generationen hinweg.
             </p>
             <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
         </div>
@@ -338,19 +329,27 @@ ul {
 <div id="leistungen" class="section">
 
     <div class="container">
+        
         <h2>
             <span class="highlight">Strukturberatung</span> & Umsetzung
         </h2>
 
         <p>
-            Klare Strukturen sind der Schlüssel zu nachhaltigem Erfolg.
+            In einem anspruchsvollen wirtschaftlichen Umfeld ist die richtige Struktur
+            entscheidend für langfristigen Erfolg. Wir begleiten Unternehmer dabei,
+            klare, belastbare und zukunftssichere Lösungen zu entwickeln.
         </p>
+
     </div>
 
     <div class="cards">
 
         <div class="card">
             <h3>Strukturen gestalten</h3>
+            <p>
+                Entwicklung maßgeschneiderter Unternehmensstrukturen mit Fokus auf
+                Effizienz, Kontrolle und Wachstum.
+            </p>
             <ul>
                 <li>Holding-Strukturen</li>
                 <li>Rechtsformwahl</li>
@@ -361,6 +360,9 @@ ul {
 
         <div class="card">
             <h3>Vermögen sichern</h3>
+            <p>
+                Schutz und nachhaltige Sicherung von Vermögenswerten über Generationen hinweg.
+            </p>
             <ul>
                 <li>Asset Protection</li>
                 <li>Nachfolgeplanung</li>
@@ -392,6 +394,7 @@ function prevSlide() {
     showSlide(currentSlide);
 }
 
+/* AUTO PLAY 10s */
 setInterval(nextSlide, 10000);
 </script>
 
