@@ -7,9 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
@@ -35,11 +33,9 @@ body {
     text-decoration: none;
     color: #111;
     font-family: 'Playfair Display', serif;
-    font-size: 16px;
     position: relative;
 }
 
-/* Hover Linie */
 .navbar a::after {
     content: "";
     position: absolute;
@@ -51,19 +47,17 @@ body {
     transition: 0.3s;
 }
 
-.navbar a:hover::after {
-    width: 100%;
-}
+.navbar a:hover::after { width: 100%; }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 160px 20px 120px;
+    padding: 180px 20px 260px;
     position: relative;
     overflow: hidden;
 }
 
-/* WAPPEN BACKGROUND */
+/* BACKGROUND WAPPEN */
 .hero::before {
     content: "";
     position: absolute;
@@ -73,15 +67,28 @@ body {
     height: 1800px;
     background: url('wappen.png') no-repeat center top;
     background-size: cover;
-    opacity: 0.06;
+    opacity: 0.07;
     transform: translateX(-50%);
 }
 
-.hero * {
-    position: relative;
-    z-index: 1;
+.hero * { position: relative; z-index: 1; }
+
+/* KLEINES WAPPEN */
+.small-logo {
+    width: 90px;
+    margin-bottom: 15px;
 }
 
+/* NAME */
+.brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+/* HEADLINE */
 h1 {
     font-family: 'Playfair Display', serif;
     font-size: 72px;
@@ -91,9 +98,7 @@ h1 {
     margin: auto;
 }
 
-.highlight {
-    color: #c5a46d;
-}
+.highlight { color: #c5a46d; }
 
 p {
     font-size: 18px;
@@ -104,9 +109,7 @@ p {
 }
 
 /* BUTTONS */
-.buttons {
-    margin-top: 50px;
-}
+.buttons { margin-top: 50px; }
 
 .btn {
     display: inline-block;
@@ -142,7 +145,7 @@ p {
 /* SLIDER */
 .slider-section {
     background: #000;
-    padding: 160px 20px;
+    padding: 200px 20px 160px;
     text-align: center;
 }
 
@@ -165,9 +168,7 @@ p {
     box-sizing: border-box;
 }
 
-.slide.active {
-    opacity: 1;
-}
+.slide.active { opacity: 1; }
 
 .slide h3 {
     font-family: 'Playfair Display', serif;
@@ -181,6 +182,7 @@ p {
     margin: 0 auto 30px;
 }
 
+/* SLIDER BUTTON */
 .slider-btn {
     display: inline-block;
     padding: 10px 25px;
@@ -192,9 +194,28 @@ p {
 }
 
 .slider-btn:hover {
-    transform: translateY(-2px);
     background: #c5a46d;
+    transform: translateY(-2px);
 }
+
+/* ARROWS */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.arrow:hover { opacity: 1; }
+
+.left { left: -60px; }
+.right { right: -60px; }
 
 /* SECTION */
 .section {
@@ -212,7 +233,6 @@ h2 {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
     font-weight: 400;
-    margin-bottom: 30px;
 }
 
 /* CARDS */
@@ -240,7 +260,6 @@ h2 {
 ul {
     margin-top: 20px;
     line-height: 1.8;
-    padding-left: 18px;
 }
 </style>
 </head>
@@ -256,6 +275,12 @@ ul {
 
 <!-- HERO -->
 <div class="hero">
+
+    <img src="wappen.png" class="small-logo">
+
+    <div class="brand-name">
+        Graf von Schweinitz & Kollegen
+    </div>
 
     <h1>
         <span class="highlight">Strukturen</span> optimieren und 
@@ -285,11 +310,12 @@ ul {
 
     <div class="slider">
 
+        <button class="arrow left" onclick="prevSlide()">‹</button>
+
         <div class="slide active">
             <h3>Meine Werte</h3>
             <p>
                 Verlässlichkeit, Diskretion und Präzision bilden das Fundament meiner Arbeit.
-                Jede Zusammenarbeit basiert auf Vertrauen, Klarheit und langfristigem Denken.
             </p>
             <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
         </div>
@@ -297,11 +323,12 @@ ul {
         <div class="slide">
             <h3>Meine Geschichte</h3>
             <p>
-                Geprägt von Tradition und strategischem Denken verbinde ich gewachsene Werte
-                mit modernen Lösungen – für nachhaltigen Erfolg über Generationen hinweg.
+                Tradition und strategisches Denken verbinden sich zu nachhaltigen Lösungen.
             </p>
             <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
         </div>
+
+        <button class="arrow right" onclick="nextSlide()">›</button>
 
     </div>
 
@@ -311,28 +338,19 @@ ul {
 <div id="leistungen" class="section">
 
     <div class="container">
-        
         <h2>
             <span class="highlight">Strukturberatung</span> & Umsetzung
         </h2>
 
         <p>
-            In einem anspruchsvollen wirtschaftlichen Umfeld ist die richtige Struktur
-            entscheidend für langfristigen Erfolg. Wir begleiten Unternehmer dabei,
-            klare, belastbare und zukunftssichere Lösungen zu entwickeln.
+            Klare Strukturen sind der Schlüssel zu nachhaltigem Erfolg.
         </p>
-
     </div>
 
     <div class="cards">
 
         <div class="card">
             <h3>Strukturen gestalten</h3>
-
-            <p>
-                Entwicklung maßgeschneiderter Unternehmensstrukturen mit Fokus auf Effizienz und Kontrolle.
-            </p>
-
             <ul>
                 <li>Holding-Strukturen</li>
                 <li>Rechtsformwahl</li>
@@ -343,11 +361,6 @@ ul {
 
         <div class="card">
             <h3>Vermögen sichern</h3>
-
-            <p>
-                Nachhaltiger Schutz und strukturierte Weitergabe von Vermögenswerten.
-            </p>
-
             <ul>
                 <li>Asset Protection</li>
                 <li>Nachfolgeplanung</li>
@@ -374,10 +387,13 @@ function nextSlide() {
     showSlide(currentSlide);
 }
 
-/* Auto Wechsel 10 Sekunden */
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
 setInterval(nextSlide, 10000);
 </script>
 
 </body>
 </html>
-Muster
