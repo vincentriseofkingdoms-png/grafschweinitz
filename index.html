@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <title>Graf von Schweinitz</title>
 
+<!-- EDLE SCHRIFT -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
@@ -15,7 +18,30 @@ body {
 /* HERO */
 .hero {
     text-align: center;
-    padding: 100px 20px 140px;
+    padding: 120px 20px 160px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* WAPPEN BACKGROUND */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 750px;
+    height: 750px;
+    background: url('wappen.png') no-repeat center;
+    background-size: contain;
+    opacity: 0.05;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+/* TEXT VORNE */
+.hero * {
+    position: relative;
+    z-index: 1;
 }
 
 .logo {
@@ -24,8 +50,9 @@ body {
 }
 
 h1 {
-    font-size: 64px;
-    font-weight: normal;
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 400;
     line-height: 1.2;
     max-width: 1000px;
     margin: auto;
@@ -40,21 +67,22 @@ p {
     color: #555;
     max-width: 700px;
     margin: 30px auto;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 /* BUTTONS */
 .buttons {
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .btn {
     display: inline-block;
-    padding: 14px 30px;
+    padding: 14px 34px;
     margin: 10px;
     text-decoration: none;
-    font-size: 16px;
-    border-radius: 4px;
+    font-size: 15px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
 }
 
 .primary {
@@ -83,8 +111,8 @@ p {
 .slide {
     display: none;
     color: white;
-    border: 1px solid rgba(255,255,255,0.4);
-    padding: 60px 40px;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 70px 50px;
 }
 
 .slide.active {
@@ -92,7 +120,8 @@ p {
 }
 
 .slide h3 {
-    font-size: 28px;
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
     margin-bottom: 20px;
 }
 
@@ -115,10 +144,10 @@ p {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: transparent;
-    border: none;
     color: white;
     font-size: 32px;
+    background: none;
+    border: none;
     cursor: pointer;
 }
 
@@ -138,8 +167,9 @@ p {
 }
 
 h2 {
-    font-size: 44px;
-    font-weight: normal;
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 400;
     margin-bottom: 30px;
 }
 
@@ -155,9 +185,29 @@ h2 {
 .card {
     max-width: 420px;
     background: white;
-    padding: 40px;
-    border-radius: 8px;
+    padding: 50px;
+    border-radius: 6px;
     text-align: left;
+}
+
+.card h3 {
+    font-family: 'Playfair Display', serif;
+    margin-top: 0;
+    font-size: 26px;
+}
+
+.card p {
+    margin: 15px 0;
+}
+
+ul {
+    margin-top: 20px;
+    line-height: 2;
+    padding-left: 18px;
+}
+
+li {
+    margin-bottom: 5px;
 }
 </style>
 
@@ -204,7 +254,6 @@ h2 {
             <h3>Meine Werte</h3>
             <p>
                 Verlässlichkeit, Diskretion und Präzision bilden das Fundament meiner Arbeit.
-                Jedes Mandat wird mit höchstem Anspruch und persönlicher Verantwortung begleitet.
             </p>
             <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
         </div>
@@ -212,8 +261,7 @@ h2 {
         <div class="slide">
             <h3>Meine Geschichte</h3>
             <p>
-                Geprägt von Tradition und strategischem Denken verbinde ich gewachsene Werte
-                mit modernen Lösungen – für nachhaltigen Erfolg über Generationen hinweg.
+                Tradition und strategisches Denken prägen meinen Ansatz.
             </p>
             <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
         </div>
@@ -235,8 +283,7 @@ h2 {
 
         <p>
             In einem anspruchsvollen wirtschaftlichen Umfeld ist die richtige Struktur
-            entscheidend für langfristigen Erfolg. Wir begleiten Unternehmer dabei,
-            klare, belastbare und zukunftssichere Lösungen zu entwickeln.
+            entscheidend für langfristigen Erfolg.
         </p>
 
     </div>
@@ -246,16 +293,29 @@ h2 {
         <div class="card">
             <h3>Strukturen gestalten</h3>
             <p>
-                Entwicklung maßgeschneiderter Unternehmensstrukturen mit Fokus auf
-                Effizienz, Kontrolle und Wachstum.
+                Maßgeschneiderte Konzepte für nachhaltiges Wachstum und Kontrolle.
             </p>
+
+            <ul>
+                <li>Holding-Strukturen</li>
+                <li>Rechtsformwahl</li>
+                <li>M&A Transaktionen</li>
+                <li>Restrukturierung</li>
+            </ul>
         </div>
 
         <div class="card">
             <h3>Vermögen sichern</h3>
             <p>
-                Schutz und nachhaltige Sicherung von Vermögenswerten über Generationen hinweg.
+                Strategischer Schutz und langfristige Sicherung von Vermögenswerten.
             </p>
+
+            <ul>
+                <li>Asset Protection</li>
+                <li>Nachfolgeplanung</li>
+                <li>Stiftungsmodelle</li>
+                <li>Internationale Strukturierung</li>
+            </ul>
         </div>
 
     </div>
@@ -281,10 +341,8 @@ function prevSlide() {
     showSlide(currentSlide);
 }
 
-// AUTO SLIDE
 setInterval(nextSlide, 4000);
 </script>
 
 </body>
 </html>
-```
