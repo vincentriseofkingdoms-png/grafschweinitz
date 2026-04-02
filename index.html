@@ -4,10 +4,13 @@
 <meta charset="UTF-8">
 <title>Graf von Schweinitz</title>
 
-<!-- EDLE SCHRIFT -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
+html {
+    scroll-behavior: smooth; /* SMOOTH SCROLL */
+}
+
 body {
     margin: 0;
     font-family: "Georgia", serif;
@@ -27,18 +30,16 @@ body {
 .hero::before {
     content: "";
     position: absolute;
-    top: 45%;
+    top: 0;
     left: 50%;
-    width: 750px;
-    height: 750px;
-    background: url('wappen.png') no-repeat center;
-    background-size: contain;
-    opacity: 0.05;
-    transform: translate(-50%, -50%);
-    z-index: 0;
+    width: 1200px;
+    height: 1200px;
+    background: url('wappen.png') no-repeat center top;
+    background-size: cover;
+    opacity: 0.03; /* subtiler */
+    transform: translateX(-50%);
 }
 
-/* TEXT VORNE */
 .hero * {
     position: relative;
     z-index: 1;
@@ -83,6 +84,7 @@ p {
     font-size: 15px;
     border-radius: 3px;
     letter-spacing: 0.5px;
+    transition: 0.3s;
 }
 
 .primary {
@@ -90,9 +92,18 @@ p {
     color: #000;
 }
 
+.primary:hover {
+    opacity: 0.85;
+}
+
 .secondary {
     border: 1px solid #c5a46d;
     color: #c5a46d;
+}
+
+.secondary:hover {
+    background: #c5a46d;
+    color: #000;
 }
 
 /* SLIDER */
@@ -106,17 +117,23 @@ p {
     position: relative;
     max-width: 700px;
     margin: auto;
+    height: 320px;
 }
 
+/* FADE */
 .slide {
-    display: none;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
     color: white;
     border: 1px solid rgba(255,255,255,0.3);
     padding: 70px 50px;
+    min-height: 260px;
 }
 
 .slide.active {
-    display: block;
+    opacity: 1;
 }
 
 .slide h3 {
@@ -149,6 +166,12 @@ p {
     background: none;
     border: none;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.arrow:hover {
+    color: #c5a46d;
+    transform: translateY(-50%) scale(1.2);
 }
 
 .left { left: -60px; }
@@ -192,12 +215,7 @@ h2 {
 
 .card h3 {
     font-family: 'Playfair Display', serif;
-    margin-top: 0;
     font-size: 26px;
-}
-
-.card p {
-    margin: 15px 0;
 }
 
 ul {
@@ -205,19 +223,13 @@ ul {
     line-height: 2;
     padding-left: 18px;
 }
-
-li {
-    margin-bottom: 5px;
-}
 </style>
-
 </head>
 
 <body>
 
 <!-- HERO -->
 <div class="hero">
-
     <img src="wappen.png" class="logo">
 
     <h1>
@@ -240,12 +252,10 @@ li {
             Leistungen
         </a>
     </div>
-
 </div>
 
 <!-- SLIDER -->
 <div class="slider-section">
-
     <div class="slider">
 
         <button class="arrow left" onclick="prevSlide()">‹</button>
@@ -269,14 +279,12 @@ li {
         <button class="arrow right" onclick="nextSlide()">›</button>
 
     </div>
-
 </div>
 
 <!-- LEISTUNGEN -->
 <div id="leistungen" class="section">
 
     <div class="container">
-        
         <h2>
             <span class="highlight">Strukturberatung</span> & Umsetzung
         </h2>
@@ -285,17 +293,12 @@ li {
             In einem anspruchsvollen wirtschaftlichen Umfeld ist die richtige Struktur
             entscheidend für langfristigen Erfolg.
         </p>
-
     </div>
 
     <div class="cards">
 
         <div class="card">
             <h3>Strukturen gestalten</h3>
-            <p>
-                Maßgeschneiderte Konzepte für nachhaltiges Wachstum und Kontrolle.
-            </p>
-
             <ul>
                 <li>Holding-Strukturen</li>
                 <li>Rechtsformwahl</li>
@@ -306,10 +309,6 @@ li {
 
         <div class="card">
             <h3>Vermögen sichern</h3>
-            <p>
-                Strategischer Schutz und langfristige Sicherung von Vermögenswerten.
-            </p>
-
             <ul>
                 <li>Asset Protection</li>
                 <li>Nachfolgeplanung</li>
@@ -319,7 +318,6 @@ li {
         </div>
 
     </div>
-
 </div>
 
 <script>
@@ -341,7 +339,8 @@ function prevSlide() {
     showSlide(currentSlide);
 }
 
-setInterval(nextSlide, 4000);
+/* AUTO SLIDE 10 SEK */
+setInterval(nextSlide, 10000);
 </script>
 
 </body>
