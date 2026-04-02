@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -56,7 +55,6 @@ p {
     text-decoration: none;
     font-size: 16px;
     border-radius: 4px;
-    transition: 0.2s;
 }
 
 .primary {
@@ -64,18 +62,9 @@ p {
     color: #000;
 }
 
-.primary:hover {
-    opacity: 0.85;
-}
-
 .secondary {
     border: 1px solid #c5a46d;
     color: #c5a46d;
-}
-
-.secondary:hover {
-    background: #c5a46d;
-    color: #000;
 }
 
 /* SLIDER */
@@ -119,7 +108,6 @@ p {
     background: white;
     color: black;
     text-decoration: none;
-    border-radius: 4px;
 }
 
 /* ARROWS */
@@ -134,13 +122,8 @@ p {
     cursor: pointer;
 }
 
-.left {
-    left: -60px;
-}
-
-.right {
-    right: -60px;
-}
+.left { left: -60px; }
+.right { right: -60px; }
 
 /* SECTION */
 .section {
@@ -175,20 +158,6 @@ h2 {
     padding: 40px;
     border-radius: 8px;
     text-align: left;
-}
-
-.card h3 {
-    margin-top: 0;
-}
-
-.card p {
-    margin: 15px 0;
-}
-
-ul {
-    margin-top: 20px;
-    line-height: 1.8;
-    padding-left: 18px;
 }
 </style>
 
@@ -237,7 +206,7 @@ ul {
                 Verlässlichkeit, Diskretion und Präzision bilden das Fundament meiner Arbeit.
                 Jedes Mandat wird mit höchstem Anspruch und persönlicher Verantwortung begleitet.
             </p>
-            <a href="#" class="slider-btn">Mehr erfahren</a>
+            <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
         </div>
 
         <div class="slide">
@@ -246,7 +215,7 @@ ul {
                 Geprägt von Tradition und strategischem Denken verbinde ich gewachsene Werte
                 mit modernen Lösungen – für nachhaltigen Erfolg über Generationen hinweg.
             </p>
-            <a href="#" class="slider-btn">Mehr erfahren</a>
+            <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
         </div>
 
         <button class="arrow right" onclick="nextSlide()">›</button>
@@ -275,38 +244,18 @@ ul {
     <div class="cards">
 
         <div class="card">
-            
             <h3>Strukturen gestalten</h3>
-
             <p>
                 Entwicklung maßgeschneiderter Unternehmensstrukturen mit Fokus auf
                 Effizienz, Kontrolle und Wachstum.
             </p>
-
-            <ul>
-                <li>Holding-Strukturen</li>
-                <li>Rechtsformwahl</li>
-                <li>M&A Transaktionen</li>
-                <li>Restrukturierung</li>
-            </ul>
-
         </div>
 
         <div class="card">
-            
             <h3>Vermögen sichern</h3>
-
             <p>
                 Schutz und nachhaltige Sicherung von Vermögenswerten über Generationen hinweg.
             </p>
-
-            <ul>
-                <li>Asset Protection</li>
-                <li>Nachfolgeplanung</li>
-                <li>Stiftungsmodelle</li>
-                <li>Internationale Strukturierung</li>
-            </ul>
-
         </div>
 
     </div>
@@ -331,6 +280,9 @@ function prevSlide() {
     currentSlide = (currentSlide - 1 + slides.length) % slides.length;
     showSlide(currentSlide);
 }
+
+// AUTO SLIDE
+setInterval(nextSlide, 4000);
 </script>
 
 </body>
