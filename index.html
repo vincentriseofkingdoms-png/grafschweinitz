@@ -12,9 +12,10 @@ body {
     color: #111;
 }
 
+/* HERO */
 .hero {
     text-align: center;
-    padding: 80px 20px 120px;
+    padding: 100px 20px 140px;
 }
 
 .logo {
@@ -42,6 +43,7 @@ p {
     line-height: 1.6;
 }
 
+/* BUTTONS */
 .buttons {
     margin-top: 40px;
 }
@@ -53,6 +55,7 @@ p {
     text-decoration: none;
     font-size: 16px;
     border-radius: 4px;
+    transition: 0.2s;
 }
 
 .primary {
@@ -60,9 +63,68 @@ p {
     color: #000;
 }
 
+.primary:hover {
+    opacity: 0.85;
+}
+
 .secondary {
     border: 1px solid #c5a46d;
     color: #c5a46d;
+}
+
+.secondary:hover {
+    background: #c5a46d;
+    color: #000;
+}
+
+/* SECTION */
+.section {
+    padding: 160px 20px 120px;
+    background: #f8f8f8;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    gap: 40px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card p {
+    margin: 15px 0;
+}
+
+ul {
+    margin-top: 20px;
+    line-height: 1.8;
+    padding-left: 18px;
 }
 </style>
 
@@ -70,23 +132,21 @@ p {
 
 <body>
 
+<!-- HERO -->
 <div class="hero">
 
-    <!-- WAPPEN -->
     <img src="wappen.png" class="logo">
 
-    <!-- HEADLINE -->
     <h1>
         <span class="highlight">Strukturen optimieren</span> und Vermögen sichern<br>
         über Generationen hinweg
     </h1>
 
-    <!-- TEXT -->
     <p>
-        Beratung für mittelständische Unternehmen und Unternehmer in strukturellen, strategischen und vermögensbezogenen Fragestellungen.
+        Beratung für mittelständische Unternehmen und Unternehmer in strukturellen,
+        strategischen und vermögensbezogenen Fragestellungen.
     </p>
 
-    <!-- BUTTONS -->
     <div class="buttons">
         <a href="mailto:kontakt@grafschweinitz.com" class="btn primary">
             Beratung anfragen
@@ -95,6 +155,64 @@ p {
         <a href="#" class="btn secondary">
             Leistungen
         </a>
+    </div>
+
+</div>
+
+<!-- LEISTUNGEN -->
+<div class="section">
+
+    <div class="container">
+        
+        <h2>
+            <span class="highlight">Strukturberatung</span> & Umsetzung
+        </h2>
+
+        <p>
+            In einem anspruchsvollen wirtschaftlichen Umfeld ist die richtige Struktur
+            entscheidend für langfristigen Erfolg. Wir begleiten Unternehmer dabei,
+            klare, belastbare und zukunftssichere Lösungen zu entwickeln.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            
+            <h3>Strukturen gestalten</h3>
+
+            <p>
+                Entwicklung maßgeschneiderter Unternehmensstrukturen mit Fokus auf
+                Effizienz, Kontrolle und Wachstum.
+            </p>
+
+            <ul>
+                <li>Holding-Strukturen</li>
+                <li>Rechtsformwahl</li>
+                <li>M&A Transaktionen</li>
+                <li>Restrukturierung</li>
+            </ul>
+
+        </div>
+
+        <div class="card">
+            
+            <h3>Vermögen sichern</h3>
+
+            <p>
+                Schutz und nachhaltige Sicherung von Vermögenswerten über Generationen hinweg.
+            </p>
+
+            <ul>
+                <li>Asset Protection</li>
+                <li>Nachfolgeplanung</li>
+                <li>Stiftungsmodelle</li>
+                <li>Internationale Strukturierung</li>
+            </ul>
+
+        </div>
+
     </div>
 
 </div>
