@@ -8,7 +8,7 @@
 
 <style>
 html {
-    scroll-behavior: smooth; /* SMOOTH SCROLL */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -21,33 +21,28 @@ body {
 /* HERO */
 .hero {
     text-align: center;
-    padding: 120px 20px 160px;
+    padding: 80px 20px 140px;
     position: relative;
     overflow: hidden;
 }
 
-/* WAPPEN BACKGROUND */
+/* WAPPEN */
 .hero::before {
     content: "";
     position: absolute;
-    top: 0;
+    top: -100px;
     left: 50%;
-    width: 1200px;
-    height: 1200px;
+    width: 1500px;
+    height: 1500px;
     background: url('wappen.png') no-repeat center top;
     background-size: cover;
-    opacity: 0.03; /* subtiler */
+    opacity: 0.025;
     transform: translateX(-50%);
 }
 
 .hero * {
     position: relative;
     z-index: 1;
-}
-
-.logo {
-    width: 120px;
-    margin-bottom: 40px;
 }
 
 h1 {
@@ -76,7 +71,7 @@ p {
     margin-top: 50px;
 }
 
-.btn {
+.btn, .slider-btn {
     display: inline-block;
     padding: 14px 34px;
     margin: 10px;
@@ -84,18 +79,22 @@ p {
     font-size: 15px;
     border-radius: 3px;
     letter-spacing: 0.5px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
+/* PRIMARY */
 .primary {
     background: #c5a46d;
     color: #000;
 }
 
 .primary:hover {
-    opacity: 0.85;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    opacity: 0.95;
 }
 
+/* SECONDARY */
 .secondary {
     border: 1px solid #c5a46d;
     color: #c5a46d;
@@ -104,6 +103,19 @@ p {
 .secondary:hover {
     background: #c5a46d;
     color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* SLIDER BUTTON */
+.slider-btn {
+    background: white;
+    color: black;
+}
+
+.slider-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.2);
 }
 
 /* SLIDER */
@@ -117,19 +129,22 @@ p {
     position: relative;
     max-width: 700px;
     margin: auto;
-    height: 320px;
+    height: 340px;
 }
 
-/* FADE */
 .slide {
     position: absolute;
     width: 100%;
+    height: 100%;
     opacity: 0;
     transition: opacity 1s ease;
     color: white;
     border: 1px solid rgba(255,255,255,0.3);
     padding: 70px 50px;
-    min-height: 260px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .slide.active {
@@ -146,14 +161,6 @@ p {
     color: #ccc;
     max-width: 500px;
     margin: 0 auto 30px;
-}
-
-.slider-btn {
-    display: inline-block;
-    padding: 10px 25px;
-    background: white;
-    color: black;
-    text-decoration: none;
 }
 
 /* ARROWS */
@@ -211,6 +218,12 @@ h2 {
     padding: 50px;
     border-radius: 6px;
     text-align: left;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
 
 .card h3 {
@@ -228,9 +241,7 @@ ul {
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
-    <img src="wappen.png" class="logo">
 
     <h1>
         <span class="highlight">Strukturen</span> optimieren und 
@@ -252,9 +263,9 @@ ul {
             Leistungen
         </a>
     </div>
+
 </div>
 
-<!-- SLIDER -->
 <div class="slider-section">
     <div class="slider">
 
@@ -281,7 +292,6 @@ ul {
     </div>
 </div>
 
-<!-- LEISTUNGEN -->
 <div id="leistungen" class="section">
 
     <div class="container">
@@ -290,8 +300,7 @@ ul {
         </h2>
 
         <p>
-            In einem anspruchsvollen wirtschaftlichen Umfeld ist die richtige Struktur
-            entscheidend für langfristigen Erfolg.
+            In einem anspruchsvollen wirtschaftlichen Umfeld ist die richtige Struktur entscheidend.
         </p>
     </div>
 
@@ -339,7 +348,6 @@ function prevSlide() {
     showSlide(currentSlide);
 }
 
-/* AUTO SLIDE 10 SEK */
 setInterval(nextSlide, 10000);
 </script>
 
