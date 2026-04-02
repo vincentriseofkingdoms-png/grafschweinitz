@@ -1,15 +1,14 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <title>Graf von Schweinitz</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
 body {
     margin: 0;
-    font-family: 'Playfair Display', serif;
+    font-family: "Georgia", serif;
     background: #ffffff;
     color: #111;
 }
@@ -27,15 +26,14 @@ body {
 
 h1 {
     font-size: 64px;
-    font-weight: 400;
-    line-height: 1.25;
-    max-width: 900px;
+    font-weight: normal;
+    line-height: 1.2;
+    max-width: 1000px;
     margin: auto;
 }
 
 .highlight {
     color: #c5a46d;
-    font-weight: 500;
 }
 
 p {
@@ -80,6 +78,70 @@ p {
     color: #000;
 }
 
+/* SLIDER */
+.slider-section {
+    background: #000;
+    padding: 160px 20px;
+    text-align: center;
+}
+
+.slider {
+    position: relative;
+    max-width: 700px;
+    margin: auto;
+}
+
+.slide {
+    display: none;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 60px 40px;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.slide p {
+    color: #ccc;
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+
+.slider-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* ARROWS */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.left {
+    left: -60px;
+}
+
+.right {
+    right: -60px;
+}
+
 /* SECTION */
 .section {
     padding: 160px 20px 120px;
@@ -87,48 +149,36 @@ p {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 900px;
     margin: auto;
     text-align: center;
 }
 
-.section-title {
-    font-size: 42px;
-    font-weight: 400;
+h2 {
+    font-size: 44px;
+    font-weight: normal;
     margin-bottom: 30px;
-}
-
-.section p {
-    font-size: 17px;
-    color: #666;
-    max-width: 700px;
-    margin: 20px auto;
 }
 
 /* CARDS */
 .cards {
     display: flex;
-    gap: 30px;
-    margin-top: 70px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    gap: 40px;
+    margin-top: 80px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {
-    flex: 1;
-    min-width: 280px;
+    max-width: 420px;
     background: white;
-    padding: 30px;
+    padding: 40px;
     border-radius: 8px;
     text-align: left;
 }
 
 .card h3 {
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 10px;
+    margin-top: 0;
 }
 
 .card p {
@@ -167,7 +217,6 @@ ul {
             Beratung anfragen
         </a>
 
-        <!-- SCROLL BUTTON -->
         <a href="#leistungen" class="btn secondary">
             Leistungen
         </a>
@@ -175,12 +224,43 @@ ul {
 
 </div>
 
+<!-- SLIDER -->
+<div class="slider-section">
+
+    <div class="slider">
+
+        <button class="arrow left" onclick="prevSlide()">‹</button>
+
+        <div class="slide active">
+            <h3>Meine Werte</h3>
+            <p>
+                Verlässlichkeit, Diskretion und Präzision bilden das Fundament meiner Arbeit.
+                Jedes Mandat wird mit höchstem Anspruch und persönlicher Verantwortung begleitet.
+            </p>
+            <a href="#" class="slider-btn">Mehr erfahren</a>
+        </div>
+
+        <div class="slide">
+            <h3>Meine Geschichte</h3>
+            <p>
+                Geprägt von Tradition und strategischem Denken verbinde ich gewachsene Werte
+                mit modernen Lösungen – für nachhaltigen Erfolg über Generationen hinweg.
+            </p>
+            <a href="#" class="slider-btn">Mehr erfahren</a>
+        </div>
+
+        <button class="arrow right" onclick="nextSlide()">›</button>
+
+    </div>
+
+</div>
+
 <!-- LEISTUNGEN -->
-<div class="section" id="leistungen">
+<div id="leistungen" class="section">
 
     <div class="container">
         
-        <h2 class="section-title">
+        <h2>
             <span class="highlight">Strukturberatung</span> & Umsetzung
         </h2>
 
@@ -233,5 +313,26 @@ ul {
 
 </div>
 
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+</script>
+
 </body>
 </html>
+```
