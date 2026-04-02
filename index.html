@@ -20,83 +20,66 @@ body {
 
 /* NAVBAR */
 .navbar {
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    z-index: 10;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    z-index: 100;
 }
 
-.menu {
-    position: relative;
-    display: inline-block;
-}
-
-.menu-btn {
-    background: none;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    font-family: 'Playfair Display', serif;
-}
-
-.dropdown {
-    display: none;
-    position: absolute;
-    top: 30px;
-    left: 0;
-    background: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    padding: 10px 0;
-    min-width: 180px;
-}
-
-.dropdown a {
-    display: block;
-    padding: 10px 20px;
+.navbar a {
+    margin: 0 25px;
     text-decoration: none;
     color: #111;
-    font-size: 14px;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    position: relative;
 }
 
-.dropdown a:hover {
-    background: #f5f5f5;
+/* Hover Linie */
+.navbar a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background: #c5a46d;
+    transition: 0.3s;
 }
 
-.menu:hover .dropdown {
-    display: block;
+.navbar a:hover::after {
+    width: 100%;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 110px 20px 140px;
+    padding: 160px 20px 120px;
     position: relative;
     overflow: hidden;
 }
 
-/* WAPPEN HINTERGRUND (sichtbarer) */
+/* WAPPEN BACKGROUND */
 .hero::before {
     content: "";
     position: absolute;
-    top: -100px;
+    top: -150px;
     left: 50%;
-    width: 1500px;
-    height: 1500px;
+    width: 1800px;
+    height: 1800px;
     background: url('wappen.png') no-repeat center top;
     background-size: cover;
-    opacity: 0.05; /* vorher 0.025 → jetzt sichtbarer */
+    opacity: 0.06;
     transform: translateX(-50%);
 }
 
 .hero * {
     position: relative;
     z-index: 1;
-}
-
-.logo {
-    width: 90px;
-    margin-bottom: 30px;
-    margin-top: 10px;
 }
 
 h1 {
@@ -125,15 +108,14 @@ p {
     margin-top: 50px;
 }
 
-.btn, .slider-btn {
+.btn {
     display: inline-block;
     padding: 14px 34px;
     margin: 10px;
     text-decoration: none;
     font-size: 15px;
     border-radius: 3px;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 .primary {
@@ -155,17 +137,6 @@ p {
     background: #c5a46d;
     color: #000;
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-.slider-btn {
-    background: white;
-    color: black;
-}
-
-.slider-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255,255,255,0.2);
 }
 
 /* SLIDER */
@@ -179,7 +150,7 @@ p {
     position: relative;
     max-width: 700px;
     margin: auto;
-    height: 340px;
+    height: 360px;
 }
 
 .slide {
@@ -192,9 +163,6 @@ p {
     border: 1px solid rgba(255,255,255,0.3);
     padding: 70px 50px;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .slide.active {
@@ -213,26 +181,20 @@ p {
     margin: 0 auto 30px;
 }
 
-/* ARROWS */
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 32px;
-    background: none;
-    border: none;
-    cursor: pointer;
+.slider-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 4px;
     transition: 0.3s;
 }
 
-.arrow:hover {
-    color: #c5a46d;
-    transform: translateY(-50%) scale(1.2);
+.slider-btn:hover {
+    transform: translateY(-2px);
+    background: #c5a46d;
 }
-
-.left { left: -60px; }
-.right { right: -60px; }
 
 /* SECTION */
 .section {
@@ -267,7 +229,6 @@ h2 {
     background: white;
     padding: 50px;
     border-radius: 6px;
-    text-align: left;
     transition: 0.3s;
 }
 
@@ -276,14 +237,9 @@ h2 {
     box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
 
-.card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-}
-
 ul {
     margin-top: 20px;
-    line-height: 2;
+    line-height: 1.8;
     padding-left: 18px;
 }
 </style>
@@ -293,20 +249,13 @@ ul {
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <div class="menu">
-        <button class="menu-btn">Menü</button>
-        <div class="dropdown">
-            <a href="#">Start</a>
-            <a href="#leistungen">Leistungen</a>
-            <a href="ueber-uns.html">Über uns</a>
-        </div>
-    </div>
+    <a href="#">Start</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#about">Über uns</a>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-
-    <img src="wappen.png" class="logo">
 
     <h1>
         <span class="highlight">Strukturen</span> optimieren und 
@@ -332,15 +281,15 @@ ul {
 </div>
 
 <!-- SLIDER -->
-<div class="slider-section">
-    <div class="slider">
+<div id="about" class="slider-section">
 
-        <button class="arrow left" onclick="prevSlide()">‹</button>
+    <div class="slider">
 
         <div class="slide active">
             <h3>Meine Werte</h3>
             <p>
                 Verlässlichkeit, Diskretion und Präzision bilden das Fundament meiner Arbeit.
+                Jede Zusammenarbeit basiert auf Vertrauen, Klarheit und langfristigem Denken.
             </p>
             <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
         </div>
@@ -348,33 +297,42 @@ ul {
         <div class="slide">
             <h3>Meine Geschichte</h3>
             <p>
-                Tradition und strategisches Denken prägen meinen Ansatz.
+                Geprägt von Tradition und strategischem Denken verbinde ich gewachsene Werte
+                mit modernen Lösungen – für nachhaltigen Erfolg über Generationen hinweg.
             </p>
             <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
         </div>
 
-        <button class="arrow right" onclick="nextSlide()">›</button>
-
     </div>
+
 </div>
 
 <!-- LEISTUNGEN -->
 <div id="leistungen" class="section">
 
     <div class="container">
+        
         <h2>
             <span class="highlight">Strukturberatung</span> & Umsetzung
         </h2>
 
         <p>
-            In einem anspruchsvollen wirtschaftlichen Umfeld ist die richtige Struktur entscheidend.
+            In einem anspruchsvollen wirtschaftlichen Umfeld ist die richtige Struktur
+            entscheidend für langfristigen Erfolg. Wir begleiten Unternehmer dabei,
+            klare, belastbare und zukunftssichere Lösungen zu entwickeln.
         </p>
+
     </div>
 
     <div class="cards">
 
         <div class="card">
             <h3>Strukturen gestalten</h3>
+
+            <p>
+                Entwicklung maßgeschneiderter Unternehmensstrukturen mit Fokus auf Effizienz und Kontrolle.
+            </p>
+
             <ul>
                 <li>Holding-Strukturen</li>
                 <li>Rechtsformwahl</li>
@@ -385,6 +343,11 @@ ul {
 
         <div class="card">
             <h3>Vermögen sichern</h3>
+
+            <p>
+                Nachhaltiger Schutz und strukturierte Weitergabe von Vermögenswerten.
+            </p>
+
             <ul>
                 <li>Asset Protection</li>
                 <li>Nachfolgeplanung</li>
@@ -394,6 +357,7 @@ ul {
         </div>
 
     </div>
+
 </div>
 
 <script>
@@ -410,13 +374,10 @@ function nextSlide() {
     showSlide(currentSlide);
 }
 
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(currentSlide);
-}
-
+/* Auto Wechsel 10 Sekunden */
 setInterval(nextSlide, 10000);
 </script>
 
 </body>
 </html>
+Muster
