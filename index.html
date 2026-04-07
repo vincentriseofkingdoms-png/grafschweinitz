@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <title>Graf von Schweinitz</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
-    font-family: "Georgia", serif;
+    font-family: "Inter", sans-serif;
     background: #ffffff;
     color: #111;
 }
@@ -23,9 +23,10 @@ body {
     width: 100%;
     text-align: center;
     padding: 20px 0;
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(20px);
     z-index: 100;
+    transition: 0.3s;
 }
 
 .navbar a {
@@ -57,6 +58,24 @@ body {
     overflow: hidden;
 }
 
+/* animated gradient glow */
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(197,164,109,0.15), transparent);
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: floatGlow 10s infinite alternate;
+}
+
+@keyframes floatGlow {
+    0% { transform: translate(-50%, 0); }
+    100% { transform: translate(-50%, 40px); }
+}
+
 /* BACKGROUND WAPPEN */
 .hero::before {
     content: "";
@@ -67,27 +86,27 @@ body {
     height: 1800px;
     background: url('wappen.png') no-repeat center top;
     background-size: cover;
-    opacity: 0.09;
+    opacity: 0.07;
     transform: translateX(-48.2%);
 }
 
-.hero * { position: relative; z-index: 1; }
+.hero * { position: relative; z-index: 2; }
 
-/* KLEINES WAPPEN */
 .small-logo {
     width: 90px;
     margin-bottom: 15px;
+    animation: fadeUp 1s ease forwards;
 }
 
-/* NAME */
 .brand-name {
     font-family: 'Playfair Display', serif;
     font-size: 22px;
     letter-spacing: 2px;
     margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 1.2s ease forwards;
 }
 
-/* HEADLINE */
 h1 {
     font-family: 'Playfair Display', serif;
     font-size: 72px;
@@ -95,6 +114,8 @@ h1 {
     line-height: 1.2;
     max-width: 1000px;
     margin: auto;
+    opacity: 0;
+    animation: fadeUp 1.5s ease forwards;
 }
 
 .highlight { color: #c5a46d; }
@@ -105,9 +126,15 @@ p {
     max-width: 700px;
     margin: 30px auto;
     line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 1.8s ease forwards;
 }
 
-/* BUTTONS */
+@keyframes fadeUp {
+    from { opacity:0; transform: translateY(40px); }
+    to { opacity:1; transform: translateY(0); }
+}
+
 .buttons { margin-top: 50px; }
 
 .btn {
@@ -116,7 +143,7 @@ p {
     margin: 10px;
     text-decoration: none;
     font-size: 15px;
-    border-radius: 3px;
+    border-radius: 4px;
     transition: 0.3s;
 }
 
@@ -126,8 +153,8 @@ p {
 }
 
 .primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
 .secondary {
@@ -138,7 +165,7 @@ p {
 .secondary:hover {
     background: #c5a46d;
     color: #000;
-    transform: translateY(-3px);
+    transform: translateY(-5px) scale(1.05);
 }
 
 /* SLIDER */
@@ -160,14 +187,17 @@ p {
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 1s ease;
+    transform: scale(0.95);
+    transition: all 0.8s ease;
     color: white;
     border: 1px solid rgba(255,255,255,0.3);
     padding: 70px 50px;
-    box-sizing: border-box;
 }
 
-.slide.active { opacity: 1; }
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
 
 .slide h3 {
     font-family: 'Playfair Display', serif;
@@ -176,11 +206,8 @@ p {
 
 .slide p {
     color: #ccc;
-    max-width: 500px;
-    margin: 20px auto;
 }
 
-/* BUTTON */
 .slider-btn {
     display: inline-block;
     padding: 10px 25px;
@@ -188,15 +215,8 @@ p {
     color: black;
     text-decoration: none;
     border-radius: 4px;
-    transition: 0.3s;
 }
 
-.slider-btn:hover {
-    background: #c5a46d;
-    transform: translateY(-2px);
-}
-
-/* ARROWS */
 .arrow {
     position: absolute;
     top: 50%;
@@ -206,10 +226,7 @@ p {
     background: none;
     border: none;
     cursor: pointer;
-    opacity: 0.7;
 }
-
-.arrow:hover { opacity: 1; }
 
 .left { left: -60px; }
 .right { right: -60px; }
@@ -243,7 +260,13 @@ h2 {
     max-width: 420px;
     background: white;
     padding: 50px;
-    border-radius: 6px;
+    border-radius: 10px;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
 }
 
 ul {
@@ -255,14 +278,12 @@ ul {
 
 <body>
 
-<!-- NAV -->
 <div class="navbar">
     <a href="#">Start</a>
     <a href="#leistungen">Leistungen</a>
     <a href="ueber-uns.html">Über uns</a>
 </div>
 
-<!-- HERO -->
 <div class="hero">
 
     <img src="wappen.png" class="small-logo">
@@ -294,7 +315,6 @@ ul {
 
 </div>
 
-<!-- SLIDER -->
 <div class="slider-section">
 
     <div class="slider">
@@ -303,19 +323,13 @@ ul {
 
         <div class="slide active">
             <h3>Meine Werte</h3>
-            <p>
-                Verlässlichkeit, Diskretion und Präzision bilden das Fundament meiner Arbeit.
-                Jedes Mandat wird mit höchstem Anspruch und persönlicher Verantwortung begleitet.
-            </p>
+            <p>Verlässlichkeit, Diskretion und Präzision bilden das Fundament meiner Arbeit.</p>
             <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
         </div>
 
         <div class="slide">
             <h3>Meine Geschichte</h3>
-            <p>
-                Geprägt von Tradition und strategischem Denken verbinde ich gewachsene Werte
-                mit modernen Lösungen – für nachhaltigen Erfolg über Generationen hinweg.
-            </p>
+            <p>Tradition trifft auf moderne Strategien für nachhaltigen Erfolg.</p>
             <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
         </div>
 
@@ -325,50 +339,28 @@ ul {
 
 </div>
 
-<!-- LEISTUNGEN -->
 <div id="leistungen" class="section">
 
     <div class="container">
-        
         <h2>
             <span class="highlight">Strukturberatung</span> & Umsetzung
         </h2>
 
         <p>
-            In einem anspruchsvollen wirtschaftlichen Umfeld ist die richtige Struktur
-            entscheidend für langfristigen Erfolg. Wir begleiten Unternehmer dabei,
-            klare, belastbare und zukunftssichere Lösungen zu entwickeln.
+            Klare, belastbare und zukunftssichere Lösungen für Unternehmer.
         </p>
-
     </div>
 
     <div class="cards">
 
         <div class="card">
             <h3>Strukturen gestalten</h3>
-            <p>
-                Entwicklung maßgeschneiderter Unternehmensstrukturen mit Fokus auf
-                Effizienz, Kontrolle und Wachstum.
-            </p>
-            <ul>
-                <li>Holding-Strukturen</li>
-                <li>Rechtsformwahl</li>
-                <li>M&A Transaktionen</li>
-                <li>Restrukturierung</li>
-            </ul>
+            <p>Effiziente Unternehmensstrukturen.</p>
         </div>
 
         <div class="card">
             <h3>Vermögen sichern</h3>
-            <p>
-                Schutz und nachhaltige Sicherung von Vermögenswerten über Generationen hinweg.
-            </p>
-            <ul>
-                <li>Asset Protection</li>
-                <li>Nachfolgeplanung</li>
-                <li>Stiftungsmodelle</li>
-                <li>Internationale Strukturierung</li>
-            </ul>
+            <p>Langfristige Sicherung von Vermögenswerten.</p>
         </div>
 
     </div>
@@ -394,10 +386,8 @@ function prevSlide() {
     showSlide(currentSlide);
 }
 
-/* AUTO PLAY 10s */
-setInterval(nextSlide, 10000);
+setInterval(nextSlide, 8000);
 </script>
 
 </body>
 </html>
-
