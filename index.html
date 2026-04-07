@@ -1,187 +1,401 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Next Level Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Graf von Schweinitz</title>
 
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background:#020617;
-      color:white;
-      overflow-x:hidden;
-    }
+<style>
+html { scroll-behavior: smooth; }
 
-    /* Animated background */
-    .bg {
-      position:fixed;
-      width:100%; height:100%;
-      background: radial-gradient(circle at 20% 20%, #1e3a8a, transparent),
-                  radial-gradient(circle at 80% 80%, #7c3aed, transparent);
-      filter: blur(100px);
-      z-index:-1;
-      animation: moveBg 15s infinite alternate;
-    }
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background: #ffffff;
+    color: #111;
+}
 
-    @keyframes moveBg {
-      0% { transform: translate(0,0); }
-      100% { transform: translate(-50px, -50px); }
-    }
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
 
-    header {
-      padding:2rem;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
+.navbar a {
+    margin: 0 25px;
+    text-decoration: none;
+    color: #111;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+}
 
-    header h1 {
-      font-weight:800;
-      font-size:1.5rem;
-      background:linear-gradient(90deg,#38bdf8,#a78bfa);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+.navbar a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background: #c5a46d;
+    transition: 0.3s;
+}
 
-    nav a {
-      margin-left:1.5rem;
-      text-decoration:none;
-      color:#94a3b8;
-      transition:0.3s;
-    }
+.navbar a:hover::after { width: 100%; }
 
-    nav a:hover { color:white; }
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 200px 20px 280px;
+    position: relative;
+    overflow: hidden;
+}
 
-    .hero {
-      height:90vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-    }
+/* BACKGROUND WAPPEN */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    width: 1800px;
+    height: 1800px;
+    background: url('wappen.png') no-repeat center top;
+    background-size: cover;
+    opacity: 0.09;
+    transform: translateX(-48.2%);
+}
 
-    .hero h2 {
-      font-size:3rem;
-      font-weight:800;
-      background:linear-gradient(90deg,#38bdf8,#a78bfa);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      animation: fadeUp 1s ease forwards;
-    }
+.hero * { position: relative; z-index: 1; }
 
-    .hero p {
-      margin-top:1rem;
-      color:#94a3b8;
-      animation: fadeUp 1.5s ease forwards;
-    }
+/* KLEINES WAPPEN */
+.small-logo {
+    width: 90px;
+    margin-bottom: 15px;
+}
 
-    button {
-      margin-top:2rem;
-      padding:1rem 2rem;
-      border:none;
-      border-radius:999px;
-      background:linear-gradient(90deg,#38bdf8,#a78bfa);
-      color:white;
-      cursor:pointer;
-      transition:0.3s;
-      animation: fadeUp 2s ease forwards;
-    }
+/* NAME */
+.brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
 
-    button:hover {
-      transform: scale(1.1);
-      box-shadow:0 0 25px #38bdf8;
-    }
+/* HEADLINE */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 400;
+    line-height: 1.2;
+    max-width: 1000px;
+    margin: auto;
+}
 
-    @keyframes fadeUp {
-      from { opacity:0; transform:translateY(30px); }
-      to { opacity:1; transform:translateY(0); }
-    }
+.highlight { color: #c5a46d; }
 
-    .projects {
-      padding:4rem 2rem;
-      display:grid;
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-      gap:2rem;
-    }
+p {
+    font-size: 18px;
+    color: #555;
+    max-width: 700px;
+    margin: 30px auto;
+    line-height: 1.7;
+}
 
-    .card {
-      background: rgba(255,255,255,0.05);
-      border-radius:1.5rem;
-      padding:2rem;
-      backdrop-filter: blur(20px);
-      transition:0.4s;
-      transform: perspective(1000px) rotateX(0) rotateY(0);
-    }
+/* BUTTONS */
+.buttons { margin-top: 50px; }
 
-    .card:hover {
-      transform: perspective(1000px) rotateX(5deg) rotateY(10deg) scale(1.05);
-      box-shadow:0 20px 50px rgba(0,0,0,0.5);
-    }
+.btn {
+    display: inline-block;
+    padding: 14px 34px;
+    margin: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 3px;
+    transition: 0.3s;
+}
 
-    .card h3 { margin-bottom:0.5rem; }
-    .card p { color:#94a3b8; }
+.primary {
+    background: #c5a46d;
+    color: #000;
+}
 
-    footer {
-      text-align:center;
-      padding:2rem;
-      color:#64748b;
-    }
+.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
 
-  </style>
+.secondary {
+    border: 1px solid #c5a46d;
+    color: #c5a46d;
+}
+
+.secondary:hover {
+    background: #c5a46d;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* SLIDER */
+.slider-section {
+    background: #000;
+    padding: 200px 20px 160px;
+    text-align: center;
+}
+
+.slider {
+    position: relative;
+    max-width: 700px;
+    margin: auto;
+    height: 360px;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 70px 50px;
+    box-sizing: border-box;
+}
+
+.slide.active { opacity: 1; }
+
+.slide h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+}
+
+.slide p {
+    color: #ccc;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+/* BUTTON */
+.slider-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.slider-btn:hover {
+    background: #c5a46d;
+    transform: translateY(-2px);
+}
+
+/* ARROWS */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.arrow:hover { opacity: 1; }
+
+.left { left: -60px; }
+.right { right: -60px; }
+
+/* SECTION */
+.section {
+    padding: 160px 20px 120px;
+    background: #f8f8f8;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+}
+
+.cards {
+    display: flex;
+    gap: 40px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    max-width: 420px;
+    background: white;
+    padding: 50px;
+    border-radius: 6px;
+}
+
+ul {
+    margin-top: 20px;
+    line-height: 1.8;
+}
+</style>
 </head>
+
 <body>
 
-<div class="bg"></div>
+<!-- NAV -->
+<div class="navbar">
+    <a href="#">Start</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="ueber-uns.html">Über uns</a>
+</div>
 
-<header>
-  <h1>DEV</h1>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#projects">Projects</a>
-  </nav>
-</header>
+<!-- HERO -->
+<div class="hero">
 
-<section class="hero">
-  <h2>Next Level Developer</h2>
-  <p>Ultra moderne GitHub Website mit Animationen ⚡</p>
-  <button onclick="scrollToProjects()">Projekte ansehen</button>
-</section>
+    <img src="wappen.png" class="small-logo">
 
-<section id="projects" class="projects">
-  <div class="card">
-    <h3>Projekt 1</h3>
-    <p>Beschreibung</p>
-  </div>
-  <div class="card">
-    <h3>Projekt 2</h3>
-    <p>Beschreibung</p>
-  </div>
-  <div class="card">
-    <h3>Projekt 3</h3>
-    <p>Beschreibung</p>
-  </div>
-</section>
+    <div class="brand-name">
+        Graf von Schweinitz & Kollegen
+    </div>
 
-<footer>
-  © 2026 Next Level Portfolio
-</footer>
+    <h1>
+        <span class="highlight">Strukturen</span> optimieren und 
+        <span class="highlight">Vermögen</span> sichern<br>
+        über Generationen hinweg
+    </h1>
+
+    <p>
+        Beratung für mittelständische Unternehmen und Unternehmer in strukturellen,
+        strategischen und vermögensbezogenen Fragestellungen.
+    </p>
+
+    <div class="buttons">
+        <a href="mailto:kontakt@grafschweinitz.com" class="btn primary">
+            Beratung anfragen
+        </a>
+
+        <a href="#leistungen" class="btn secondary">
+            Leistungen
+        </a>
+    </div>
+
+</div>
+
+<!-- SLIDER -->
+<div class="slider-section">
+
+    <div class="slider">
+
+        <button class="arrow left" onclick="prevSlide()">‹</button>
+
+        <div class="slide active">
+            <h3>Meine Werte</h3>
+            <p>
+                Verlässlichkeit, Diskretion und Präzision bilden das Fundament meiner Arbeit.
+                Jedes Mandat wird mit höchstem Anspruch und persönlicher Verantwortung begleitet.
+            </p>
+            <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
+        </div>
+
+        <div class="slide">
+            <h3>Meine Geschichte</h3>
+            <p>
+                Geprägt von Tradition und strategischem Denken verbinde ich gewachsene Werte
+                mit modernen Lösungen – für nachhaltigen Erfolg über Generationen hinweg.
+            </p>
+            <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
+        </div>
+
+        <button class="arrow right" onclick="nextSlide()">›</button>
+
+    </div>
+
+</div>
+
+<!-- LEISTUNGEN -->
+<div id="leistungen" class="section">
+
+    <div class="container">
+        
+        <h2>
+            <span class="highlight">Strukturberatung</span> & Umsetzung
+        </h2>
+
+        <p>
+            In einem anspruchsvollen wirtschaftlichen Umfeld ist die richtige Struktur
+            entscheidend für langfristigen Erfolg. Wir begleiten Unternehmer dabei,
+            klare, belastbare und zukunftssichere Lösungen zu entwickeln.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Strukturen gestalten</h3>
+            <p>
+                Entwicklung maßgeschneiderter Unternehmensstrukturen mit Fokus auf
+                Effizienz, Kontrolle und Wachstum.
+            </p>
+            <ul>
+                <li>Holding-Strukturen</li>
+                <li>Rechtsformwahl</li>
+                <li>M&A Transaktionen</li>
+                <li>Restrukturierung</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Vermögen sichern</h3>
+            <p>
+                Schutz und nachhaltige Sicherung von Vermögenswerten über Generationen hinweg.
+            </p>
+            <ul>
+                <li>Asset Protection</li>
+                <li>Nachfolgeplanung</li>
+                <li>Stiftungsmodelle</li>
+                <li>Internationale Strukturierung</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
 
 <script>
-  function scrollToProjects(){
-    document.getElementById('projects').scrollIntoView({behavior:'smooth'});
-  }
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
 
-  // Mouse move parallax
-  document.addEventListener('mousemove', e => {
-    const x = (window.innerWidth/2 - e.clientX)/50;
-    const y = (window.innerHeight/2 - e.clientY)/50;
-    document.querySelector('.bg').style.transform = `translate(${x}px, ${y}px)`;
-  });
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+/* AUTO PLAY 10s */
+setInterval(nextSlide, 10000);
 </script>
 
 </body>
