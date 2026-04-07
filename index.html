@@ -2,7 +2,6 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Graf von Schweinitz</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -10,255 +9,384 @@
 <style>
 html { scroll-behavior: smooth; }
 
-:root {
-  --bg:#ffffff;
-  --text:#111;
-  --accent:#c5a46d;
-}
-
-body.dark {
-  --bg:#050505;
-  --text:#f5f5f5;
-}
-
 body {
-  margin:0;
-  font-family:"Inter", sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  transition:0.4s;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background: #ffffff;
+    color: #111;
 }
 
-/* NAV */
+/* NAVBAR */
 .navbar {
-  position:fixed;
-  top:0;
-  width:100%;
-  text-align:center;
-  padding:20px 0;
-  backdrop-filter:blur(20px);
-  background:rgba(255,255,255,0.6);
-  z-index:100;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(20px);
+    z-index: 100;
+    transition: 0.3s;
 }
 
 .navbar a {
-  margin:0 25px;
-  text-decoration:none;
-  color:var(--text);
-  font-family:'Playfair Display', serif;
+    margin: 0 25px;
+    text-decoration: none;
+    color: #111;
+    font-family: 'Playfair Display', serif;
+    position: relative;
 }
 
-.toggle {
-  position:fixed;
-  right:30px;
-  top:20px;
-  cursor:pointer;
+.navbar a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background: #c5a46d;
+    transition: 0.3s;
 }
+
+.navbar a:hover::after { width: 100%; }
 
 /* HERO */
 .hero {
-  text-align:center;
-  padding:200px 20px 280px;
-  position:relative;
+    text-align: center;
+    padding: 200px 20px 280px;
+    position: relative;
+    overflow: hidden;
 }
 
+/* animated gradient glow */
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(197,164,109,0.15), transparent);
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: floatGlow 10s infinite alternate;
+}
+
+@keyframes floatGlow {
+    0% { transform: translate(-50%, 0); }
+    100% { transform: translate(-50%, 40px); }
+}
+
+/* BACKGROUND WAPPEN */
 .hero::before {
-  content:"";
-  position:absolute;
-  width:1800px;
-  height:1800px;
-  background:url('wappen.png') no-repeat center top;
-  background-size:cover;
-  opacity:0.06;
-  left:50%;
-  transform:translateX(-48%);
+    content: "";
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    width: 1800px;
+    height: 1800px;
+    background: url('wappen.png') no-repeat center top;
+    background-size: cover;
+    opacity: 0.07;
+    transform: translateX(-48.2%);
 }
 
-.hero * { position:relative; z-index:2; }
+.hero * { position: relative; z-index: 2; }
 
-.small-logo { width:90px; }
+.small-logo {
+    width: 90px;
+    margin-bottom: 15px;
+    animation: fadeUp 1s ease forwards;
+}
 
 .brand-name {
-  font-family:'Playfair Display', serif;
-  letter-spacing:2px;
-  margin-bottom:40px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 1.2s ease forwards;
 }
 
 h1 {
-  font-family:'Playfair Display', serif;
-  font-size:70px;
-  max-width:1000px;
-  margin:auto;
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 400;
+    line-height: 1.2;
+    max-width: 1000px;
+    margin: auto;
+    opacity: 0;
+    animation: fadeUp 1.5s ease forwards;
 }
 
-.highlight { color:var(--accent); }
+.highlight { color: #c5a46d; }
 
-p { max-width:700px; margin:30px auto; color:#666; }
+p {
+    font-size: 18px;
+    color: #555;
+    max-width: 700px;
+    margin: 30px auto;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 1.8s ease forwards;
+}
+
+@keyframes fadeUp {
+    from { opacity:0; transform: translateY(40px); }
+    to { opacity:1; transform: translateY(0); }
+}
+
+.buttons { margin-top: 50px; }
 
 .btn {
-  padding:14px 32px;
-  margin:10px;
-  text-decoration:none;
-  display:inline-block;
-  border-radius:4px;
+    display: inline-block;
+    padding: 14px 34px;
+    margin: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: 0.3s;
 }
 
-.primary { background:var(--accent); color:black; }
-.secondary { border:1px solid var(--accent); color:var(--accent); }
+.primary {
+    background: #c5a46d;
+    color: #000;
+}
+
+.primary:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.secondary {
+    border: 1px solid #c5a46d;
+    color: #c5a46d;
+}
+
+.secondary:hover {
+    background: #c5a46d;
+    color: #000;
+    transform: translateY(-5px) scale(1.05);
+}
 
 /* SLIDER */
 .slider-section {
-  background:#000;
-  padding:200px 20px;
-  text-align:center;
-  color:white;
+    background: #000;
+    padding: 200px 20px 160px;
+    text-align: center;
 }
 
 .slider {
-  position:relative;
-  max-width:700px;
-  margin:auto;
-  height:360px;
+    position: relative;
+    max-width: 700px;
+    margin: auto;
+    height: 360px;
 }
 
 .slide {
-  position:absolute;
-  width:100%;
-  opacity:0;
-  transition:1s;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.8s ease;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 70px 50px;
 }
 
-.slide.active { opacity:1; }
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.slide h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+}
+
+.slide p {
+    color: #ccc;
+}
+
+.slider-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 4px;
+}
 
 .arrow {
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:30px;
-  background:none;
-  border:none;
-  color:white;
-  cursor:pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.left { left:-60px; }
-.right { right:-60px; }
+.left { left: -60px; }
+.right { right: -60px; }
 
-/* TRUST */
-.trust { padding:140px 20px; text-align:center; }
-
-.stats { display:flex; justify-content:center; gap:60px; }
-
-.stat h3 { color:var(--accent); font-size:42px; }
-
-/* TESTIMONIALS */
-.testimonials {
-  background:#000;
-  color:white;
-  padding:160px 20px;
-  text-align:center;
+/* SECTION */
+.section {
+    padding: 160px 20px 120px;
+    background: #f8f8f8;
 }
 
-/* CARDS */
-.section { padding:160px 20px; }
+.container {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+}
 
 .cards {
-  display:flex;
-  gap:40px;
-  justify-content:center;
+    display: flex;
+    gap: 40px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {
-  background:rgba(255,255,255,0.05);
-  padding:50px;
-  border-radius:12px;
+    max-width: 420px;
+    background: white;
+    padding: 50px;
+    border-radius: 10px;
+    transition: 0.4s;
 }
 
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+ul {
+    margin-top: 20px;
+    line-height: 1.8;
+}
 </style>
 </head>
 
 <body>
 
-<div class="toggle" onclick="toggleDark()">🌙</div>
-
 <div class="navbar">
-  <a href="#">Start</a>
-  <a href="#leistungen">Leistungen</a>
-  <a href="#">Über uns</a>
+    <a href="#">Start</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="ueber-uns.html">Über uns</a>
 </div>
 
 <div class="hero">
-  <img src="wappen.png" class="small-logo">
-  <div class="brand-name">Graf von Schweinitz & Kollegen</div>
 
-  <h1>
-    <span class="highlight">Strukturen</span> optimieren und 
-    <span class="highlight">Vermögen</span> sichern
-  </h1>
+    <img src="wappen.png" class="small-logo">
 
-  <p>Beratung für Unternehmer.</p>
+    <div class="brand-name">
+        Graf von Schweinitz & Kollegen
+    </div>
 
-  <a href="#" class="btn primary">Beratung</a>
-  <a href="#leistungen" class="btn secondary">Leistungen</a>
+    <h1>
+        <span class="highlight">Strukturen</span> optimieren und 
+        <span class="highlight">Vermögen</span> sichern<br>
+        über Generationen hinweg
+    </h1>
+
+    <p>
+        Beratung für mittelständische Unternehmen und Unternehmer in strukturellen,
+        strategischen und vermögensbezogenen Fragestellungen.
+    </p>
+
+    <div class="buttons">
+        <a href="mailto:kontakt@grafschweinitz.com" class="btn primary">
+            Beratung anfragen
+        </a>
+
+        <a href="#leistungen" class="btn secondary">
+            Leistungen
+        </a>
+    </div>
+
 </div>
 
-<!-- SLIDER -->
 <div class="slider-section">
 
-<div class="slider">
-<button class="arrow left" onclick="prevSlide()">‹</button>
+    <div class="slider">
 
-<div class="slide active">
-<h3>Meine Werte</h3>
-<p>Diskretion und Präzision.</p>
-</div>
+        <button class="arrow left" onclick="prevSlide()">‹</button>
 
-<div class="slide">
-<h3>Meine Geschichte</h3>
-<p>Tradition trifft Strategie.</p>
-</div>
+        <div class="slide active">
+            <h3>Meine Werte</h3>
+            <p>Verlässlichkeit, Diskretion und Präzision bilden das Fundament meiner Arbeit.</p>
+            <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
+        </div>
 
-<button class="arrow right" onclick="nextSlide()">›</button>
-</div>
-</div>
+        <div class="slide">
+            <h3>Meine Geschichte</h3>
+            <p>Tradition trifft auf moderne Strategien für nachhaltigen Erfolg.</p>
+            <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
+        </div>
 
-<!-- TRUST -->
-<div class="trust">
-<h2>Vertrauen</h2>
-<div class="stats">
-<div class="stat"><h3>+120</h3><p>Mandate</p></div>
-<div class="stat"><h3>€250M+</h3><p>Assets</p></div>
-</div>
+        <button class="arrow right" onclick="nextSlide()">›</button>
+
+    </div>
+
 </div>
 
-<!-- TESTIMONIALS -->
-<div class="testimonials">
-<h2>Stimmen</h2>
-<p>„Diskret, präzise, außergewöhnlich.“</p>
-</div>
-
-<!-- LEISTUNGEN -->
 <div id="leistungen" class="section">
-<h2 style="text-align:center;">Leistungen</h2>
-<div class="cards">
-<div class="card">Strukturen</div>
-<div class="card">Vermögen</div>
-</div>
+
+    <div class="container">
+        <h2>
+            <span class="highlight">Strukturberatung</span> & Umsetzung
+        </h2>
+
+        <p>
+            Klare, belastbare und zukunftssichere Lösungen für Unternehmer.
+        </p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Strukturen gestalten</h3>
+            <p>Effiziente Unternehmensstrukturen.</p>
+        </div>
+
+        <div class="card">
+            <h3>Vermögen sichern</h3>
+            <p>Langfristige Sicherung von Vermögenswerten.</p>
+        </div>
+
+    </div>
+
 </div>
 
 <script>
-function toggleDark(){ document.body.classList.toggle('dark'); }
-
 let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
+const slides = document.querySelectorAll(".slide");
 
-function showSlide(i){
- slides.forEach(s=>s.classList.remove('active'));
- slides[i].classList.add('active');
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
 }
 
-function nextSlide(){ currentSlide=(currentSlide+1)%slides.length; showSlide(currentSlide); }
-function prevSlide(){ currentSlide=(currentSlide-1+slides.length)%slides.length; showSlide(currentSlide); }
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+setInterval(nextSlide, 8000);
 </script>
 
 </body>
