@@ -1,248 +1,145 @@
-# =========================
-# SETUP
-# =========================
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoService Leto</title>
 
-npm create vite@latest autoservice-leto -- --template react
-cd autoservice-leto
-npm install
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
+<script src="https://cdn.tailwindcss.com"></script>
 
+<style>
+html { scroll-behavior: smooth; }
+.glow { box-shadow: 0 0 20px rgba(255,60,0,0.6); }
+</style>
 
-# =========================
-# tailwind.config.js
-# =========================
+</head>
 
-export default {
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
-  theme: {
-    extend: {
-      colors: {
-        primary: "#ff3c00",
-        dark: "#0f0f0f"
-      }
-    },
-  },
-  plugins: [],
+<body class="bg-black text-white">
+
+<!-- NAVBAR -->
+<nav class="sticky top-0 bg-black border-b border-gray-800 p-5 flex justify-between z-50">
+  <h1 class="text-xl font-bold text-orange-500">Leto Garage</h1>
+  <div class="space-x-6 hidden md:block">
+    <a href="#services">Services</a>
+    <a href="#config">Preise</a>
+    <a href="#booking">Termin</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="text-center py-28 px-6">
+  <h2 class="text-5xl font-bold mb-6">
+    Deine Werkstatt. <span class="text-orange-500">Neu gedacht.</span>
+  </h2>
+  <p class="text-gray-400 mb-8 max-w-xl mx-auto">
+    Buche Termine online, berechne Preise in Echtzeit und spare Zeit.
+  </p>
+  <a href="#booking" class="bg-orange-500 px-8 py-4 rounded glow font-bold">
+    Jetzt Termin buchen
+  </a>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-20 px-6">
+  <h3 class="text-3xl font-bold text-center mb-12">Unsere Services</h3>
+
+  <div class="grid md:grid-cols-4 gap-8">
+    <div class="bg-gray-900 p-6 rounded">Ölwechsel</div>
+    <div class="bg-gray-900 p-6 rounded">Inspektion</div>
+    <div class="bg-gray-900 p-6 rounded">Reifenwechsel</div>
+    <div class="bg-gray-900 p-6 rounded">Bremsenservice</div>
+  </div>
+</section>
+
+<!-- CONFIGURATOR -->
+<section id="config" class="py-20 px-6 bg-gray-950">
+  <h3 class="text-3xl font-bold text-center mb-10">Preis Rechner</h3>
+
+  <div class="grid md:grid-cols-4 gap-6 mb-8">
+    <button onclick="toggle(0)" class="service-btn p-4 bg-gray-800 rounded">Ölwechsel</button>
+    <button onclick="toggle(1)" class="service-btn p-4 bg-gray-800 rounded">Inspektion</button>
+    <button onclick="toggle(2)" class="service-btn p-4 bg-gray-800 rounded">Reifenwechsel</button>
+    <button onclick="toggle(3)" class="service-btn p-4 bg-gray-800 rounded">Bremsen</button>
+  </div>
+
+  <p class="text-center text-2xl">
+    Gesamt: <span id="price" class="text-orange-500">0€</span>
+  </p>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="py-20 px-6">
+  <h3 class="text-3xl font-bold text-center mb-10">Termin buchen</h3>
+
+  <form class="max-w-md mx-auto flex flex-col gap-4">
+    <input placeholder="Name" class="p-3 bg-gray-800 rounded">
+    <input type="date" class="p-3 bg-gray-800 rounded">
+    <select class="p-3 bg-gray-800 rounded">
+      <option>Service wählen</option>
+      <option>Ölwechsel</option>
+      <option>Inspektion</option>
+    </select>
+    <button class="bg-orange-500 p-3 rounded font-bold">
+      Anfrage senden
+    </button>
+  </form>
+</section>
+
+<!-- REVIEWS -->
+<section class="py-20 px-6 bg-gray-950">
+  <h3 class="text-3xl font-bold text-center mb-10">Kundenbewertungen</h3>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="bg-gray-900 p-6 rounded">★★★★★ Super Service!</div>
+    <div class="bg-gray-900 p-6 rounded">★★★★★ Schnell & günstig</div>
+    <div class="bg-gray-900 p-6 rounded">★★★★★ Sehr zufrieden</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-20 px-6">
+  <h3 class="text-3xl font-bold text-center mb-10">FAQ</h3>
+
+  <div class="max-w-xl mx-auto space-y-4">
+    <div>
+      <h4 class="font-bold">Wie lange dauert ein Service?</h4>
+      <p class="text-gray-400">Zwischen 1–3 Stunden.</p>
+    </div>
+    <div>
+      <h4 class="font-bold">Brauche ich einen Termin?</h4>
+      <p class="text-gray-400">Ja, online buchbar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-10 border-t border-gray-800">
+  <p>© 2026 AutoService Leto</p>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+const prices = [80,150,60,200];
+let selected = [false,false,false,false];
+
+function toggle(i){
+  selected[i] = !selected[i];
+
+  document.getElementsByClassName("service-btn")[i]
+    .classList.toggle("bg-orange-500");
+
+  update();
 }
 
-
-# =========================
-# postcss.config.js
-# =========================
-
-export default {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
+function update(){
+  let total = 0;
+  selected.forEach((s,i)=>{
+    if(s) total += prices[i];
+  });
+  document.getElementById("price").innerText = total + "€";
 }
+</script>
 
-
-# =========================
-# src/index.css
-# =========================
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
-  background-color: #0f0f0f;
-  color: white;
-  font-family: system-ui, sans-serif;
-}
-
-
-# =========================
-# src/main.jsx
-# =========================
-
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./index.css";
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-
-# =========================
-# src/App.jsx
-# =========================
-
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Services from "./components/Services";
-import Configurator from "./components/Configurator";
-import Booking from "./components/Booking";
-
-export default function App() {
-  return (
-    <>
-      <Navbar />
-      <Hero />
-      <Services />
-      <Configurator />
-      <Booking />
-    </>
-  );
-}
-
-
-# =========================
-# src/components/Navbar.jsx
-# =========================
-
-export default function Navbar() {
-  return (
-    <nav className="flex justify-between items-center p-5 bg-black">
-      <h1 className="text-xl font-bold text-primary">AutoService Leto</h1>
-      <div className="space-x-6">
-        <a href="#">Services</a>
-        <a href="#">Preise</a>
-        <a href="#">Termin</a>
-      </div>
-    </nav>
-  );
-}
-
-
-# =========================
-# src/components/Hero.jsx
-# =========================
-
-export default function Hero() {
-  return (
-    <section className="text-center py-20">
-      <h2 className="text-4xl font-bold mb-4">
-        Deine Werkstatt. <span className="text-primary">Digital.</span>
-      </h2>
-      <p className="text-gray-400 mb-6">
-        Schnell Termine buchen & Services berechnen
-      </p>
-      <button className="bg-primary px-6 py-3 rounded font-bold">
-        Termin buchen
-      </button>
-    </section>
-  );
-}
-
-
-# =========================
-# src/components/Services.jsx
-# =========================
-
-const services = [
-  { name: "Ölwechsel", price: 80 },
-  { name: "Inspektion", price: 150 },
-  { name: "Reifenwechsel", price: 60 },
-  { name: "Bremsenservice", price: 200 },
-];
-
-export default function Services() {
-  return (
-    <section className="py-16 text-center">
-      <h3 className="text-2xl font-bold mb-8">Unsere Services</h3>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 px-10">
-        {services.map((s, i) => (
-          <div key={i} className="bg-gray-900 p-6 rounded">
-            <h4 className="font-bold">{s.name}</h4>
-            <p className="text-primary">{s.price}€</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-
-# =========================
-# src/components/Configurator.jsx
-# =========================
-
-import { useState } from "react";
-
-const services = [
-  { name: "Ölwechsel", price: 80 },
-  { name: "Inspektion", price: 150 },
-  { name: "Reifenwechsel", price: 60 },
-  { name: "Bremsenservice", price: 200 },
-];
-
-export default function Configurator() {
-  const [selected, setSelected] = useState([]);
-
-  const toggleService = (service) => {
-    setSelected((prev) =>
-      prev.includes(service)
-        ? prev.filter((s) => s !== service)
-        : [...prev, service]
-    );
-  };
-
-  const total = selected.reduce((sum, s) => sum + s.price, 0);
-
-  return (
-    <section className="py-16 text-center">
-      <h3 className="text-2xl font-bold mb-6">Service Konfigurator</h3>
-
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 px-10 mb-6">
-        {services.map((s, i) => (
-          <button
-            key={i}
-            onClick={() => toggleService(s)}
-            className={`p-4 rounded ${
-              selected.includes(s) ? "bg-primary" : "bg-gray-800"
-            }`}
-          >
-            {s.name}
-          </button>
-        ))}
-      </div>
-
-      <p className="text-xl">
-        Gesamtpreis: <span className="text-primary">{total}€</span>
-      </p>
-    </section>
-  );
-}
-
-
-# =========================
-# src/components/Booking.jsx
-# =========================
-
-export default function Booking() {
-  return (
-    <section className="py-16 text-center">
-      <h3 className="text-2xl font-bold mb-6">Termin buchen</h3>
-
-      <form className="flex flex-col gap-4 max-w-md mx-auto">
-        <input
-          type="text"
-          placeholder="Name"
-          className="p-3 bg-gray-800 rounded"
-        />
-        <input
-          type="date"
-          className="p-3 bg-gray-800 rounded"
-        />
-        <button className="bg-primary p-3 rounded font-bold">
-          Termin anfragen
-        </button>
-      </form>
-    </section>
-  );
-}
-
-
-# =========================
-# START
-# =========================
-
-npm run dev
-          
+</body>
+</html>
