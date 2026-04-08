@@ -2,7 +2,6 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Graf von Schweinitz</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -10,293 +9,384 @@
 <style>
 html { scroll-behavior: smooth; }
 
-:root {
-  --bg:#ffffff;
-  --text:#111;
-  --accent:#c5a46d;
-}
-
-body.dark {
-  --bg:#050505;
-  --text:#f5f5f5;
-}
-
 body {
-  margin:0;
-  font-family:"Inter", sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  transition:0.4s;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background: #ffffff;
+    color: #111;
 }
 
-/* NAV */
+/* NAVBAR */
 .navbar {
-  position:fixed;
-  top:0;
-  width:100%;
-  text-align:center;
-  padding:20px 0;
-  backdrop-filter:blur(20px);
-  background:rgba(255,255,255,0.6);
-  z-index:100;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(20px);
+    z-index: 100;
+    transition: 0.3s;
 }
 
 .navbar a {
-  margin:0 25px;
-  text-decoration:none;
-  color:var(--text);
-  font-family:'Playfair Display', serif;
+    margin: 0 25px;
+    text-decoration: none;
+    color: #111;
+    font-family: 'Playfair Display', serif;
+    position: relative;
 }
 
-.toggle {
-  position:fixed;
-  right:30px;
-  top:20px;
-  cursor:pointer;
-  font-size:20px;
+.navbar a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background: #c5a46d;
+    transition: 0.3s;
 }
+
+.navbar a:hover::after { width: 100%; }
 
 /* HERO */
 .hero {
-  text-align:center;
-  padding:200px 20px 260px;
-  position:relative;
-  overflow:hidden;
+    text-align: center;
+    padding: 200px 20px 280px;
+    position: relative;
+    overflow: hidden;
 }
 
-.hero::before {
-  content:"";
-  position:absolute;
-  width:1800px;
-  height:1800px;
-  background:url('wappen.png') no-repeat center top;
-  background-size:cover;
-  opacity:0.06;
-  left:50%;
-  transform:translateX(-48%);
-}
-
+/* animated gradient glow */
 .hero::after {
-  content:"";
-  position:absolute;
-  width:800px;
-  height:800px;
-  background:radial-gradient(circle, rgba(197,164,109,0.2), transparent);
-  top:30%;
-  left:50%;
-  transform:translateX(-50%);
-  animation:float 10s infinite alternate;
+    content: "";
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(197,164,109,0.15), transparent);
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: floatGlow 10s infinite alternate;
 }
 
-@keyframes float {
-  from { transform:translate(-50%,0); }
-  to { transform:translate(-50%,40px); }
+@keyframes floatGlow {
+    0% { transform: translate(-50%, 0); }
+    100% { transform: translate(-50%, 40px); }
 }
 
-.hero * { position:relative; z-index:2; }
+/* BACKGROUND WAPPEN */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    width: 1800px;
+    height: 1800px;
+    background: url('wappen.png') no-repeat center top;
+    background-size: cover;
+    opacity: 0.07;
+    transform: translateX(-48.2%);
+}
+
+.hero * { position: relative; z-index: 2; }
 
 .small-logo {
-  width:90px;
-  margin-bottom:20px;
+    width: 90px;
+    margin-bottom: 15px;
+    animation: fadeUp 1s ease forwards;
 }
 
 .brand-name {
-  font-family:'Playfair Display', serif;
-  letter-spacing:2px;
-  margin-bottom:30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 1.2s ease forwards;
 }
 
 h1 {
-  font-family:'Playfair Display', serif;
-  font-size:70px;
-  max-width:1000px;
-  margin:auto;
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 400;
+    line-height: 1.2;
+    max-width: 1000px;
+    margin: auto;
+    opacity: 0;
+    animation: fadeUp 1.5s ease forwards;
 }
 
-.highlight { color:var(--accent); }
+.highlight { color: #c5a46d; }
 
 p {
-  max-width:700px;
-  margin:30px auto;
-  color:#666;
+    font-size: 18px;
+    color: #555;
+    max-width: 700px;
+    margin: 30px auto;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 1.8s ease forwards;
 }
+
+@keyframes fadeUp {
+    from { opacity:0; transform: translateY(40px); }
+    to { opacity:1; transform: translateY(0); }
+}
+
+.buttons { margin-top: 50px; }
 
 .btn {
-  padding:14px 32px;
-  margin:10px;
-  text-decoration:none;
-  display:inline-block;
-  border-radius:4px;
-  transition:0.3s;
+    display: inline-block;
+    padding: 14px 34px;
+    margin: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: 0.3s;
 }
 
-.primary { background:var(--accent); color:black; }
-.secondary { border:1px solid var(--accent); color:var(--accent); }
-
-.btn:hover {
-  transform:translateY(-5px) scale(1.05);
-  box-shadow:0 20px 40px rgba(0,0,0,0.2);
+.primary {
+    background: #c5a46d;
+    color: #000;
 }
 
-/* TRUST */
-.trust {
-  padding:140px 20px;
-  text-align:center;
+.primary:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
-.stats {
-  display:flex;
-  justify-content:center;
-  gap:60px;
-  flex-wrap:wrap;
-  margin-top:50px;
+.secondary {
+    border: 1px solid #c5a46d;
+    color: #c5a46d;
 }
 
-.stat h3 {
-  font-size:42px;
-  color:var(--accent);
+.secondary:hover {
+    background: #c5a46d;
+    color: #000;
+    transform: translateY(-5px) scale(1.05);
 }
 
-/* TESTIMONIALS */
-.testimonials {
-  background:#000;
-  color:white;
-  padding:160px 20px;
-  text-align:center;
+/* SLIDER */
+.slider-section {
+    background: #000;
+    padding: 200px 20px 160px;
+    text-align: center;
 }
 
-.testimonial {
-  max-width:700px;
-  margin:40px auto;
-  font-style:italic;
-  opacity:0.85;
+.slider {
+    position: relative;
+    max-width: 700px;
+    margin: auto;
+    height: 360px;
 }
 
-/* CARDS */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.8s ease;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 70px 50px;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.slide h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+}
+
+.slide p {
+    color: #ccc;
+}
+
+.slider-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.left { left: -60px; }
+.right { right: -60px; }
+
+/* SECTION */
 .section {
-  padding:160px 20px;
+    padding: 160px 20px 120px;
+    background: #f8f8f8;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
 }
 
 .cards {
-  display:flex;
-  gap:40px;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin-top:60px;
+    display: flex;
+    gap: 40px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(12px);
-  padding:50px;
-  border-radius:12px;
-  transition:0.4s;
-  max-width:350px;
+    max-width: 420px;
+    background: white;
+    padding: 50px;
+    border-radius: 10px;
+    transition: 0.4s;
 }
 
 .card:hover {
-  transform:translateY(-10px) scale(1.05);
-  box-shadow:0 30px 60px rgba(0,0,0,0.2);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
 }
 
-/* SCROLL */
-.hidden {
-  opacity:0;
-  transform:translateY(40px);
+ul {
+    margin-top: 20px;
+    line-height: 1.8;
 }
-
-.show {
-  opacity:1;
-  transform:translateY(0);
-  transition:1s;
-}
-
-footer {
-  text-align:center;
-  padding:40px;
-  color:#777;
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="toggle" onclick="toggleDark()">🌙</div>
-
 <div class="navbar">
-  <a href="#">Start</a>
-  <a href="#leistungen">Leistungen</a>
-  <a href="#">Über uns</a>
+    <a href="#">Start</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="ueber-uns.html">Über uns</a>
 </div>
 
 <div class="hero">
-  <img src="wappen.png" class="small-logo">
-  <div class="brand-name">Graf von Schweinitz & Kollegen</div>
 
-  <h1>
-    <span class="highlight">Strukturen</span> optimieren und
-    <span class="highlight">Vermögen</span> sichern
-  </h1>
+    <img src="wappen.png" class="small-logo">
 
-  <p>
-    Beratung für Unternehmer in strategischen und vermögensbezogenen Fragestellungen.
-  </p>
-
-  <a href="#" class="btn primary">Beratung anfragen</a>
-  <a href="#leistungen" class="btn secondary">Leistungen</a>
-</div>
-
-<div class="trust hidden">
-  <h2>Vertrauen & Ergebnisse</h2>
-  <div class="stats">
-    <div class="stat"><h3>+120</h3><p>Mandate</p></div>
-    <div class="stat"><h3>€250M+</h3><p>Vermögen</p></div>
-    <div class="stat"><h3>15+</h3><p>Jahre Erfahrung</p></div>
-  </div>
-</div>
-
-<div class="testimonials hidden">
-  <h2>Mandantenstimmen</h2>
-  <div class="testimonial">„Außergewöhnliche Diskretion und strategische Präzision.“</div>
-  <div class="testimonial">„Beratung auf höchstem Niveau.“</div>
-  <div class="testimonial">„Vertrauen, das über Generationen trägt.“</div>
-</div>
-
-<div id="leistungen" class="section hidden">
-  <h2 style="text-align:center;">Leistungen</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Strukturen gestalten</h3>
-      <p>Effiziente Unternehmenslösungen.</p>
+    <div class="brand-name">
+        Graf von Schweinitz & Kollegen
     </div>
 
-    <div class="card">
-      <h3>Vermögen sichern</h3>
-      <p>Langfristige Strategien.</p>
+    <h1>
+        <span class="highlight">Strukturen</span> optimieren und 
+        <span class="highlight">Vermögen</span> sichern<br>
+        über Generationen hinweg
+    </h1>
+
+    <p>
+        Beratung für mittelständische Unternehmen und Unternehmer in strukturellen,
+        strategischen und vermögensbezogenen Fragestellungen.
+    </p>
+
+    <div class="buttons">
+        <a href="mailto:kontakt@grafschweinitz.com" class="btn primary">
+            Beratung anfragen
+        </a>
+
+        <a href="#leistungen" class="btn secondary">
+            Leistungen
+        </a>
     </div>
-  </div>
+
 </div>
 
-<footer>
-  © 2026 Graf von Schweinitz
-</footer>
+<div class="slider-section">
+
+    <div class="slider">
+
+        <button class="arrow left" onclick="prevSlide()">‹</button>
+
+        <div class="slide active">
+            <h3>Meine Werte</h3>
+            <p>Verlässlichkeit, Diskretion und Präzision bilden das Fundament meiner Arbeit.</p>
+            <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
+        </div>
+
+        <div class="slide">
+            <h3>Meine Geschichte</h3>
+            <p>Tradition trifft auf moderne Strategien für nachhaltigen Erfolg.</p>
+            <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
+        </div>
+
+        <button class="arrow right" onclick="nextSlide()">›</button>
+
+    </div>
+
+</div>
+
+<div id="leistungen" class="section">
+
+    <div class="container">
+        <h2>
+            <span class="highlight">Strukturberatung</span> & Umsetzung
+        </h2>
+
+        <p>
+            Klare, belastbare und zukunftssichere Lösungen für Unternehmer.
+        </p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Strukturen gestalten</h3>
+            <p>Effiziente Unternehmensstrukturen.</p>
+        </div>
+
+        <div class="card">
+            <h3>Vermögen sichern</h3>
+            <p>Langfristige Sicherung von Vermögenswerten.</p>
+        </div>
+
+    </div>
+
+</div>
 
 <script>
-function toggleDark(){
-  document.body.classList.toggle('dark');
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
 }
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-    }
-  });
-});
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
 
- document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+setInterval(nextSlide, 8000);
 </script>
 
 </body>
