@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutoService Leto</title>
+<title>S&S Entrümpelungen</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
 html { scroll-behavior: smooth; }
-.glow { box-shadow: 0 0 20px rgba(255,60,0,0.6); }
+.glow { box-shadow: 0 0 20px rgba(34,197,94,0.6); }
 </style>
 
 </head>
@@ -18,11 +18,11 @@ html { scroll-behavior: smooth; }
 
 <!-- NAVBAR -->
 <nav class="sticky top-0 bg-black border-b border-gray-800 p-5 flex justify-between z-50">
-  <h1 class="text-xl font-bold text-orange-500">Leto Garage</h1>
+  <h1 class="text-xl font-bold text-green-500">S&S Entrümpelungen</h1>
   <div class="space-x-6 hidden md:block">
-    <a href="#services">Services</a>
+    <a href="#services">Leistungen</a>
     <a href="#config">Preise</a>
-    <a href="#booking">Termin</a>
+    <a href="#booking">Anfrage</a>
     <a href="#faq">FAQ</a>
   </div>
 </nav>
@@ -30,25 +30,25 @@ html { scroll-behavior: smooth; }
 <!-- HERO -->
 <section class="text-center py-28 px-6">
   <h2 class="text-5xl font-bold mb-6">
-    Deine Werkstatt. <span class="text-orange-500">Neu gedacht.</span>
+    Schnell. Sauber. <span class="text-green-500">Zuverlässig.</span>
   </h2>
   <p class="text-gray-400 mb-8 max-w-xl mx-auto">
-    Buche Termine online, berechne Preise in Echtzeit und spare Zeit.
+    Wir übernehmen Ihre Entrümpelung – von Wohnung bis Keller. Transparent & stressfrei.
   </p>
-  <a href="#booking" class="bg-orange-500 px-8 py-4 rounded glow font-bold">
-    Jetzt Termin buchen
+  <a href="#booking" class="bg-green-500 px-8 py-4 rounded glow font-bold">
+    Jetzt Anfrage senden
   </a>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="py-20 px-6">
-  <h3 class="text-3xl font-bold text-center mb-12">Unsere Services</h3>
+  <h3 class="text-3xl font-bold text-center mb-12">Unsere Leistungen</h3>
 
   <div class="grid md:grid-cols-4 gap-8">
-    <div class="bg-gray-900 p-6 rounded">Ölwechsel</div>
-    <div class="bg-gray-900 p-6 rounded">Inspektion</div>
-    <div class="bg-gray-900 p-6 rounded">Reifenwechsel</div>
-    <div class="bg-gray-900 p-6 rounded">Bremsenservice</div>
+    <div class="bg-gray-900 p-6 rounded">Wohnungsauflösung</div>
+    <div class="bg-gray-900 p-6 rounded">Haushaltsauflösung</div>
+    <div class="bg-gray-900 p-6 rounded">Kellerentrümpelung</div>
+    <div class="bg-gray-900 p-6 rounded">Firmenauflösung</div>
   </div>
 </section>
 
@@ -57,30 +57,36 @@ html { scroll-behavior: smooth; }
   <h3 class="text-3xl font-bold text-center mb-10">Preis Rechner</h3>
 
   <div class="grid md:grid-cols-4 gap-6 mb-8">
-    <button onclick="toggle(0)" class="service-btn p-4 bg-gray-800 rounded">Ölwechsel</button>
-    <button onclick="toggle(1)" class="service-btn p-4 bg-gray-800 rounded">Inspektion</button>
-    <button onclick="toggle(2)" class="service-btn p-4 bg-gray-800 rounded">Reifenwechsel</button>
-    <button onclick="toggle(3)" class="service-btn p-4 bg-gray-800 rounded">Bremsen</button>
+    <button onclick="toggle(0)" class="service-btn p-4 bg-gray-800 rounded">1 Zimmer</button>
+    <button onclick="toggle(1)" class="service-btn p-4 bg-gray-800 rounded">2–3 Zimmer</button>
+    <button onclick="toggle(2)" class="service-btn p-4 bg-gray-800 rounded">Haus</button>
+    <button onclick="toggle(3)" class="service-btn p-4 bg-gray-800 rounded">Keller</button>
   </div>
 
   <p class="text-center text-2xl">
-    Gesamt: <span id="price" class="text-orange-500">0€</span>
+    Geschätzter Preis: <span id="price" class="text-green-500">0€</span>
   </p>
 </section>
 
 <!-- BOOKING -->
 <section id="booking" class="py-20 px-6">
-  <h3 class="text-3xl font-bold text-center mb-10">Termin buchen</h3>
+  <h3 class="text-3xl font-bold text-center mb-10">Kostenlose Anfrage</h3>
 
   <form class="max-w-md mx-auto flex flex-col gap-4">
     <input placeholder="Name" class="p-3 bg-gray-800 rounded">
+    <input placeholder="Adresse" class="p-3 bg-gray-800 rounded">
     <input type="date" class="p-3 bg-gray-800 rounded">
+    
     <select class="p-3 bg-gray-800 rounded">
-      <option>Service wählen</option>
-      <option>Ölwechsel</option>
-      <option>Inspektion</option>
+      <option>Art der Entrümpelung</option>
+      <option>Wohnung</option>
+      <option>Haus</option>
+      <option>Keller</option>
     </select>
-    <button class="bg-orange-500 p-3 rounded font-bold">
+
+    <textarea placeholder="Details (optional)" class="p-3 bg-gray-800 rounded"></textarea>
+
+    <button class="bg-green-500 p-3 rounded font-bold">
       Anfrage senden
     </button>
   </form>
@@ -91,9 +97,9 @@ html { scroll-behavior: smooth; }
   <h3 class="text-3xl font-bold text-center mb-10">Kundenbewertungen</h3>
 
   <div class="grid md:grid-cols-3 gap-6">
-    <div class="bg-gray-900 p-6 rounded">★★★★★ Super Service!</div>
-    <div class="bg-gray-900 p-6 rounded">★★★★★ Schnell & günstig</div>
-    <div class="bg-gray-900 p-6 rounded">★★★★★ Sehr zufrieden</div>
+    <div class="bg-gray-900 p-6 rounded">★★★★★ Sehr professionell!</div>
+    <div class="bg-gray-900 p-6 rounded">★★★★★ Alles sauber hinterlassen</div>
+    <div class="bg-gray-900 p-6 rounded">★★★★★ Schnell & zuverlässig</div>
   </div>
 </section>
 
@@ -103,31 +109,31 @@ html { scroll-behavior: smooth; }
 
   <div class="max-w-xl mx-auto space-y-4">
     <div>
-      <h4 class="font-bold">Wie lange dauert ein Service?</h4>
-      <p class="text-gray-400">Zwischen 1–3 Stunden.</p>
+      <h4 class="font-bold">Wie lange dauert eine Entrümpelung?</h4>
+      <p class="text-gray-400">Je nach Größe meist 1–2 Tage.</p>
     </div>
     <div>
-      <h4 class="font-bold">Brauche ich einen Termin?</h4>
-      <p class="text-gray-400">Ja, online buchbar.</p>
+      <h4 class="font-bold">Ist die Entsorgung inklusive?</h4>
+      <p class="text-gray-400">Ja, alles wird fachgerecht entsorgt.</p>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="text-center py-10 border-t border-gray-800">
-  <p>© 2026 AutoService Leto</p>
+  <p>© 2026 S&S Entrümpelungen</p>
 </footer>
 
 <!-- SCRIPT -->
 <script>
-const prices = [80,150,60,200];
+const prices = [300,600,1200,200];
 let selected = [false,false,false,false];
 
 function toggle(i){
   selected[i] = !selected[i];
 
   document.getElementsByClassName("service-btn")[i]
-    .classList.toggle("bg-orange-500");
+    .classList.toggle("bg-green-500");
 
   update();
 }
