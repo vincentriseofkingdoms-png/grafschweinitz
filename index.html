@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3D Agency</title>
+<title>Studio — Apple Style Agency</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
@@ -15,17 +14,20 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
 body{background:#000;color:#fff;overflow-x:hidden}
-canvas{position:fixed;top:0;left:0;z-index:-1}
 
 header{
 position:fixed;
 width:100%;
-padding:20px 40px;
+padding:20px 50px;
 display:flex;
 justify-content:space-between;
-background:rgba(0,0,0,0.5);
-backdrop-filter:blur(10px);
+align-items:center;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(20px);
 z-index:1000}
+
+header a{color:#aaa;text-decoration:none;margin-left:25px;font-size:14px}
+header a:hover{color:#fff}
 
 .section{
 height:100vh;
@@ -36,79 +38,176 @@ align-items:center;
 text-align:center;
 padding:40px}
 
-.hero h1{font-size:5rem}
-.big{font-size:4rem;max-width:900px}
-.btn{margin-top:30px;padding:15px 30px;border-radius:50px;border:none;background:white;color:black;cursor:pointer}
+.hero h1{
+font-size:6rem;
+font-weight:600;
+letter-spacing:-2px}
+
+.hero p{
+margin-top:20px;
+font-size:1.3rem;
+opacity:.6}
+
+.big{
+font-size:5rem;
+max-width:1000px;
+line-height:1.1;
+letter-spacing:-1px}
+
+.sub{
+margin-top:20px;
+opacity:.5;
+font-size:1.1rem}
+
+.btn{
+margin-top:40px;
+padding:14px 28px;
+border-radius:40px;
+border:none;
+background:#fff;
+color:#000;
+font-weight:500;
+cursor:pointer;
+transition:.3s}
+
+.btn:hover{transform:scale(1.05)}
+
+.image{
+width:70%;
+margin-top:50px;
+border-radius:20px}
+
+.split{
+display:flex;
+flex-direction:row;
+height:100vh}
+
+.split .left,.split .right{
+flex:1;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center}
+
+.split img{width:80%;border-radius:20px}
+
+.dark{background:#020617}
+.light{background:#fff;color:#000}
+
+.light .btn{background:#000;color:#fff}
+
+footer{
+padding:80px;
+text-align:center;
+font-size:14px;
+opacity:.4}
 </style>
 </head>
 
 <body>
 
 <header>
-<div>3D STUDIO</div>
+<div>STUDIO</div>
 <div>
-<a>Work</a>
-<a>About</a>
-<a>Contact</a>
+<a href="#">Work</a>
+<a href="#">Services</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
 </div>
 </header>
 
+<!-- HERO -->
 <section class="section hero">
-<h1>3D Web Experiences</h1>
-<p>Next Level Design</p>
-<button class="btn">Start</button>
+<h1>Websites. Neu gedacht.</h1>
+<p>Wir bauen digitale Erlebnisse wie Apple Produkte.</p>
+<button class="btn">Projekt starten</button>
 </section>
 
+<!-- FEATURE 1 -->
 <section class="section">
-<h2 class="big">Interaktive 3D Webseiten</h2>
+<h2 class="big">Design das sich gut anfühlt.</h2>
+<p class="sub">Minimalistisch. Schnell. Perfekt abgestimmt.</p>
+<img class="image" src="https://picsum.photos/1200/700">
 </section>
 
-<section class="section">
-<h2 class="big">Scroll. Move. Feel.</h2>
+<!-- FEATURE 2 SPLIT -->
+<section class="split dark">
+<div class="left">
+<h2 class="big">Performance zählt.</h2>
+<p class="sub">Optimiert für Geschwindigkeit & Conversion.</p>
+</div>
+<div class="right">
+<img src="https://picsum.photos/800/600">
+</div>
 </section>
 
-<section class="section">
-<h2 class="big">Mehr Kunden durch Experience</h2>
-<button class="btn">Kontakt</button>
+<!-- FEATURE 3 -->
+<section class="section light">
+<h2 class="big">Mehr Kunden. Weniger Klicks.</h2>
+<p class="sub">Fokussiert auf Ergebnisse statt Design Spielereien.</p>
+<button class="btn">Kostenloses Gespräch</button>
 </section>
+
+<!-- FEATURE 4 -->
+<section class="section">
+<h2 class="big">Jede Interaktion zählt.</h2>
+<p class="sub">Micro-Animations und perfekter Flow.</p>
+<img class="image" src="https://picsum.photos/1200/701">
+</section>
+
+<!-- FEATURE 5 -->
+<section class="section dark">
+<h2 class="big">Gebaut für Wachstum.</h2>
+<p class="sub">Websites die skalieren und verkaufen.</p>
+<button class="btn">Jetzt starten</button>
+</section>
+
+<footer>
+<p>© 2026 Studio — Digital Experience Agency</p>
+</footer>
 
 <script>
+
 // LENIS
-const lenis=new Lenis();
+const lenis = new Lenis();
 function raf(time){lenis.raf(time);requestAnimationFrame(raf)}
 requestAnimationFrame(raf);
 
-// THREE JS
-const scene=new THREE.Scene();
-const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
-const renderer=new THREE.WebGLRenderer({alpha:true});
-renderer.setSize(window.innerWidth,window.innerHeight);
-document.body.appendChild(renderer.domElement);
+// GSAP
 
-const geometry=new THREE.TorusKnotGeometry(10,3,100,16);
-const material=new THREE.MeshStandardMaterial({color:0xffffff,wireframe:true});
-const knot=new THREE.Mesh(geometry,material);
-scene.add(knot);
+gsap.registerPlugin(ScrollTrigger);
 
-const light=new THREE.PointLight(0xffffff,1);
-light.position.set(50,50,50);
-scene.add(light);
+// TEXT REVEAL
 
-camera.position.z=30;
+gsap.utils.toArray('.big').forEach(el=>{
+  gsap.from(el,{
+    opacity:0,
+    y:100,
+    duration:1,
+    scrollTrigger:{trigger:el,start:'top 80%'}
+  });
+});
 
-function animate(){
-requestAnimationFrame(animate);
-knot.rotation.x+=0.005;
-knot.rotation.y+=0.01;
-renderer.render(scene,camera);
-}
-animate();
+// IMAGE SCALE
 
-// scroll animation
+gsap.utils.toArray('.image').forEach(img=>{
+  gsap.from(img,{
+    scale:1.2,
+    opacity:0,
+    duration:1.2,
+    scrollTrigger:{trigger:img,start:'top 80%'}
+  });
+});
 
-gsap.to(knot.rotation,{
-  x:3,
-  scrollTrigger:{scrub:true}
+// BUTTON FADE
+
+gsap.utils.toArray('.btn').forEach(btn=>{
+  gsap.from(btn,{
+    opacity:0,
+    y:50,
+    duration:1,
+    scrollTrigger:{trigger:btn,start:'top 90%'}
+  });
 });
 
 </script>
