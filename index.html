@@ -3,149 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>S&S Entrümpelungen</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
+<title>Webdesign Showcase</title>
 <style>
-html { scroll-behavior: smooth; }
-.glow { box-shadow: 0 0 20px rgba(34,197,94,0.6); }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #fff;
+}
+header {
+  background: #020617;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(135deg,#1e293b,#0f172a);
+}
+.hero h1 {
+  font-size: 3rem;
+}
+.hero p {
+  max-width: 600px;
+  text-align: center;
+}
+.btn {
+  padding: 10px 20px;
+  background: #3b82f6;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.section {
+  padding: 100px 20px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 20px;
+}
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+}
+footer {
+  text-align: center;
+  padding: 40px;
+  background: #020617;
+}
 </style>
-
 </head>
-
-<body class="bg-black text-white">
-
-<!-- NAVBAR -->
-<nav class="sticky top-0 bg-black border-b border-gray-800 p-5 flex justify-between z-50">
-  <h1 class="text-xl font-bold text-green-500">S&S Entrümpelungen</h1>
-  <div class="space-x-6 hidden md:block">
-    <a href="#services">Leistungen</a>
-    <a href="#config">Preise</a>
-    <a href="#booking">Anfrage</a>
-    <a href="#faq">FAQ</a>
-  </div>
+<body>
+<header>
+<nav>
+<div>Mein Business</div>
+<div>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#projects">Projekte</a>
+<a href="#contact">Kontakt</a>
+</div>
 </nav>
-
-<!-- HERO -->
-<section class="text-center py-28 px-6">
-  <h2 class="text-5xl font-bold mb-6">
-    Schnell. Sauber. <span class="text-green-500">Zuverlässig.</span>
-  </h2>
-  <p class="text-gray-400 mb-8 max-w-xl mx-auto">
-    Wir übernehmen Ihre Entrümpelung – von Wohnung bis Keller. Transparent & stressfrei.
-  </p>
-  <a href="#booking" class="bg-green-500 px-8 py-4 rounded glow font-bold">
-    Jetzt Anfrage senden
-  </a>
+</header>
+<section class="hero">
+<h1>Moderne Webseiten</h1>
+<p>Ich erstelle professionelle Webseiten für Unternehmen, Selbstständige und Startups.</p>
+<button class="btn">Kontakt</button>
 </section>
-
-<!-- SERVICES -->
-<section id="services" class="py-20 px-6">
-  <h3 class="text-3xl font-bold text-center mb-12">Unsere Leistungen</h3>
-
-  <div class="grid md:grid-cols-4 gap-8">
-    <div class="bg-gray-900 p-6 rounded">Wohnungsauflösung</div>
-    <div class="bg-gray-900 p-6 rounded">Haushaltsauflösung</div>
-    <div class="bg-gray-900 p-6 rounded">Kellerentrümpelung</div>
-    <div class="bg-gray-900 p-6 rounded">Firmenauflösung</div>
-  </div>
+<section id="services" class="section">
+<h2>Meine Services</h2>
+<div class="grid">
+<div class="card"><h3>Webdesign</h3><p>Modern und responsive</p></div>
+<div class="card"><h3>SEO</h3><p>Bessere Google Rankings</p></div>
+<div class="card"><h3>Performance</h3><p>Schnelle Ladezeiten</p></div>
+<div class="card"><h3>Support</h3><p>Langfristige Betreuung</p></div>
+</div>
 </section>
-
-<!-- CONFIGURATOR -->
-<section id="config" class="py-20 px-6 bg-gray-950">
-  <h3 class="text-3xl font-bold text-center mb-10">Preis Rechner</h3>
-
-  <div class="grid md:grid-cols-4 gap-6 mb-8">
-    <button onclick="toggle(0)" class="service-btn p-4 bg-gray-800 rounded">1 Zimmer</button>
-    <button onclick="toggle(1)" class="service-btn p-4 bg-gray-800 rounded">2–3 Zimmer</button>
-    <button onclick="toggle(2)" class="service-btn p-4 bg-gray-800 rounded">Haus</button>
-    <button onclick="toggle(3)" class="service-btn p-4 bg-gray-800 rounded">Keller</button>
-  </div>
-
-  <p class="text-center text-2xl">
-    Geschätzter Preis: <span id="price" class="text-green-500">0€</span>
-  </p>
+<section id="projects" class="section">
+<h2>Projekte</h2>
+<div class="grid">
+<div class="card"><h3>Projekt 1</h3><p>Business Website</p></div>
+<div class="card"><h3>Projekt 2</h3><p>Portfolio Seite</p></div>
+<div class="card"><h3>Projekt 3</h3><p>E-Commerce Shop</p></div>
+<div class="card"><h3>Projekt 4</h3><p>Landingpage</p></div>
+</div>
 </section>
-
-<!-- BOOKING -->
-<section id="booking" class="py-20 px-6">
-  <h3 class="text-3xl font-bold text-center mb-10">Kostenlose Anfrage</h3>
-
-  <form class="max-w-md mx-auto flex flex-col gap-4">
-    <input placeholder="Name" class="p-3 bg-gray-800 rounded">
-    <input placeholder="Adresse" class="p-3 bg-gray-800 rounded">
-    <input type="date" class="p-3 bg-gray-800 rounded">
-    
-    <select class="p-3 bg-gray-800 rounded">
-      <option>Art der Entrümpelung</option>
-      <option>Wohnung</option>
-      <option>Haus</option>
-      <option>Keller</option>
-    </select>
-
-    <textarea placeholder="Details (optional)" class="p-3 bg-gray-800 rounded"></textarea>
-
-    <button class="bg-green-500 p-3 rounded font-bold">
-      Anfrage senden
-    </button>
-  </form>
+<section class="section">
+<h2>Warum ich?</h2>
+<div class="grid">
+<div class="card"><p>Schnelle Umsetzung</p></div>
+<div class="card"><p>Faire Preise</p></div>
+<div class="card"><p>Modernes Design</p></div>
+<div class="card"><p>Individuelle Lösungen</p></div>
+</div>
 </section>
-
-<!-- REVIEWS -->
-<section class="py-20 px-6 bg-gray-950">
-  <h3 class="text-3xl font-bold text-center mb-10">Kundenbewertungen</h3>
-
-  <div class="grid md:grid-cols-3 gap-6">
-    <div class="bg-gray-900 p-6 rounded">★★★★★ Sehr professionell!</div>
-    <div class="bg-gray-900 p-6 rounded">★★★★★ Alles sauber hinterlassen</div>
-    <div class="bg-gray-900 p-6 rounded">★★★★★ Schnell & zuverlässig</div>
-  </div>
+<section id="contact" class="section">
+<h2>Kontakt</h2>
+<form>
+<input type="text" placeholder="Name"><br><br>
+<input type="email" placeholder="Email"><br><br>
+<textarea placeholder="Nachricht"></textarea><br><br>
+<button class="btn">Senden</button>
+</form>
 </section>
-
-<!-- FAQ -->
-<section id="faq" class="py-20 px-6">
-  <h3 class="text-3xl font-bold text-center mb-10">FAQ</h3>
-
-  <div class="max-w-xl mx-auto space-y-4">
-    <div>
-      <h4 class="font-bold">Wie lange dauert eine Entrümpelung?</h4>
-      <p class="text-gray-400">Je nach Größe meist 1–2 Tage.</p>
-    </div>
-    <div>
-      <h4 class="font-bold">Ist die Entsorgung inklusive?</h4>
-      <p class="text-gray-400">Ja, alles wird fachgerecht entsorgt.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="text-center py-10 border-t border-gray-800">
-  <p>© 2026 S&S Entrümpelungen</p>
+<footer>
+<p>© 2026 Mein Webdesign Business</p>
 </footer>
-
-<!-- SCRIPT -->
 <script>
-const prices = [300,600,1200,200];
-let selected = [false,false,false,false];
-
-function toggle(i){
-  selected[i] = !selected[i];
-
-  document.getElementsByClassName("service-btn")[i]
-    .classList.toggle("bg-green-500");
-
-  update();
-}
-
-function update(){
-  let total = 0;
-  selected.forEach((s,i)=>{
-    if(s) total += prices[i];
+// Animation beim Scrollen
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll', () => {
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 50){
+      card.style.transform = 'translateY(0)';
+      card.style.opacity = '1';
+    }
   });
-  document.getElementById("price").innerText = total + "€";
-}
+});
+cards.forEach(card => {
+  card.style.transform = 'translateY(50px)';
+  card.style.opacity = '0';
+  card.style.transition = '0.5s';
+});
 </script>
-
 </body>
 </html>
