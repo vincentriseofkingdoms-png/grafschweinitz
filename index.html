@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio — Apple Style Agency</title>
+<title>GV Webdesign</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -30,140 +30,133 @@ header a{color:#aaa;text-decoration:none;margin-left:25px;font-size:14px}
 header a:hover{color:#fff}
 
 .section{
-height:100vh;
+min-height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:40px}
+padding:80px 40px}
 
-.hero h1{
-font-size:6rem;
-font-weight:600;
-letter-spacing:-2px}
+.hero h1{font-size:6rem;font-weight:600;letter-spacing:-2px}
+.hero p{margin-top:20px;font-size:1.3rem;opacity:.6}
 
-.hero p{
-margin-top:20px;
-font-size:1.3rem;
-opacity:.6}
+.big{font-size:4.5rem;max-width:1000px;line-height:1.1}
+.sub{margin-top:20px;opacity:.5;font-size:1.1rem}
 
-.big{
-font-size:5rem;
-max-width:1000px;
-line-height:1.1;
-letter-spacing:-1px}
+.image{width:70%;margin-top:50px;border-radius:20px}
 
-.sub{
-margin-top:20px;
-opacity:.5;
-font-size:1.1rem}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:40px;
+width:100%;
+max-width:1200px;
+margin-top:60px}
 
-.btn{
-margin-top:40px;
-padding:14px 28px;
-border-radius:40px;
-border:none;
-background:#fff;
-color:#000;
-font-weight:500;
-cursor:pointer;
+.card{
+background:#111;
+padding:30px;
+border-radius:20px;
+text-align:left;
 transition:.3s}
 
-.btn:hover{transform:scale(1.05)}
+.card:hover{transform:translateY(-10px)}
 
-.image{
-width:70%;
-margin-top:50px;
-border-radius:20px}
+.card img{width:100%;border-radius:15px;margin-bottom:20px}
 
-.split{
-display:flex;
-flex-direction:row;
-height:100vh}
-
-.split .left,.split .right{
-flex:1;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center}
-
-.split img{width:80%;border-radius:20px}
-
-.dark{background:#020617}
 .light{background:#fff;color:#000}
 
-.light .btn{background:#000;color:#fff}
-
-footer{
-padding:80px;
-text-align:center;
-font-size:14px;
-opacity:.4}
+footer{padding:80px;text-align:center;font-size:14px;opacity:.4}
 </style>
 </head>
 
 <body>
 
 <header>
-<div>STUDIO</div>
+<div>GV Webdesign</div>
 <div>
-<a href="#">Work</a>
-<a href="#">Services</a>
-<a href="#">About</a>
-<a href="#">Contact</a>
+<a href="#">Showcase</a>
+<a href="#">Leistungen</a>
+<a href="#">Kontakt</a>
 </div>
 </header>
 
 <!-- HERO -->
 <section class="section hero">
-<h1>Websites. Neu gedacht.</h1>
-<p>Wir bauen digitale Erlebnisse wie Apple Produkte.</p>
-<button class="btn">Projekt starten</button>
+<h1>Websites die Eindruck machen.</h1>
+<p>Modernes Webdesign für Unternehmen, die wachsen wollen.</p>
 </section>
 
-<!-- FEATURE 1 -->
+<!-- SHOWCASE -->
 <section class="section">
-<h2 class="big">Design das sich gut anfühlt.</h2>
-<p class="sub">Minimalistisch. Schnell. Perfekt abgestimmt.</p>
+<h2 class="big">So können deine Webseiten aussehen.</h2>
+<div class="grid">
+
+<div class="card">
+<img src="https://picsum.photos/600/400?1">
+<h3>Business Website</h3>
+<p>Professioneller Auftritt für lokale Unternehmen.</p>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/600/400?2">
+<h3>Portfolio Seite</h3>
+<p>Perfekt für Selbstständige & Kreative.</p>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/600/400?3">
+<h3>Landingpage</h3>
+<p>Optimiert für Conversion und Leads.</p>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/600/400?4">
+<h3>E-Commerce</h3>
+<p>Online Shops die verkaufen.</p>
+</div>
+
+</div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section class="section light">
+<h2 class="big">Was ich anbiete.</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Webdesign</h3>
+<p>Individuelle, moderne Webseiten die perfekt zu deinem Unternehmen passen.</p>
+</div>
+
+<div class="card">
+<h3>SEO</h3>
+<p>Ich optimiere deine Seite für bessere Google Rankings.</p>
+</div>
+
+<div class="card">
+<h3>Performance</h3>
+<p>Schnelle Ladezeiten für bessere Nutzererfahrung.</p>
+</div>
+
+<div class="card">
+<h3>Conversion</h3>
+<p>Websites die Besucher in Kunden verwandeln.</p>
+</div>
+
+</div>
+</section>
+
+<!-- USP -->
+<section class="section">
+<h2 class="big">Warum GV Webdesign?</h2>
+<p class="sub">Klare Designs. Fokus auf Ergebnisse. Kein unnötiger Schnickschnack.</p>
 <img class="image" src="https://picsum.photos/1200/700">
 </section>
 
-<!-- FEATURE 2 SPLIT -->
-<section class="split dark">
-<div class="left">
-<h2 class="big">Performance zählt.</h2>
-<p class="sub">Optimiert für Geschwindigkeit & Conversion.</p>
-</div>
-<div class="right">
-<img src="https://picsum.photos/800/600">
-</div>
-</section>
-
-<!-- FEATURE 3 -->
-<section class="section light">
-<h2 class="big">Mehr Kunden. Weniger Klicks.</h2>
-<p class="sub">Fokussiert auf Ergebnisse statt Design Spielereien.</p>
-<button class="btn">Kostenloses Gespräch</button>
-</section>
-
-<!-- FEATURE 4 -->
-<section class="section">
-<h2 class="big">Jede Interaktion zählt.</h2>
-<p class="sub">Micro-Animations und perfekter Flow.</p>
-<img class="image" src="https://picsum.photos/1200/701">
-</section>
-
-<!-- FEATURE 5 -->
-<section class="section dark">
-<h2 class="big">Gebaut für Wachstum.</h2>
-<p class="sub">Websites die skalieren und verkaufen.</p>
-<button class="btn">Jetzt starten</button>
-</section>
-
 <footer>
-<p>© 2026 Studio — Digital Experience Agency</p>
+<p>© 2026 GV Webdesign</p>
 </footer>
 
 <script>
@@ -177,36 +170,24 @@ requestAnimationFrame(raf);
 
 gsap.registerPlugin(ScrollTrigger);
 
-// TEXT REVEAL
+// REVEALS
 
-gsap.utils.toArray('.big').forEach(el=>{
+gsap.utils.toArray('.card').forEach(el=>{
   gsap.from(el,{
     opacity:0,
     y:100,
     duration:1,
-    scrollTrigger:{trigger:el,start:'top 80%'}
+    scrollTrigger:{trigger:el,start:'top 85%'}
   });
 });
 
-// IMAGE SCALE
 
-gsap.utils.toArray('.image').forEach(img=>{
-  gsap.from(img,{
-    scale:1.2,
+gsap.utils.toArray('.big').forEach(el=>{
+  gsap.from(el,{
     opacity:0,
-    duration:1.2,
-    scrollTrigger:{trigger:img,start:'top 80%'}
-  });
-});
-
-// BUTTON FADE
-
-gsap.utils.toArray('.btn').forEach(btn=>{
-  gsap.from(btn,{
-    opacity:0,
-    y:50,
+    y:80,
     duration:1,
-    scrollTrigger:{trigger:btn,start:'top 90%'}
+    scrollTrigger:{trigger:el,start:'top 85%'}
   });
 });
 
@@ -214,3 +195,4 @@ gsap.utils.toArray('.btn').forEach(btn=>{
 
 </body>
 </html>
+
