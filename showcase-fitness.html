@@ -1,0 +1,269 @@
+```html id="fitx92"
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness Brand | GV Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+.hero{
+height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+}
+
+.hero img{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:.35;
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,#050816,transparent);
+}
+
+.content{
+position:relative;
+z-index:2;
+max-width:900px;
+padding:40px;
+}
+
+h1{
+font-size:6rem;
+line-height:.9;
+letter-spacing:-.05em;
+margin-bottom:30px;
+}
+
+p{
+font-size:1.2rem;
+line-height:1.8;
+opacity:.8;
+}
+
+.section{
+padding:120px 8vw;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:60px;
+}
+
+.stat{
+background:#0d1222;
+padding:50px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,.08);
+transition:.3s;
+}
+
+.stat:hover{
+transform:translateY(-10px);
+background:#12182d;
+}
+
+.stat h2{
+font-size:4rem;
+margin-bottom:10px;
+}
+
+.stat p{
+opacity:.7;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+margin-top:60px;
+}
+
+.card{
+background:#0d1222;
+border-radius:30px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:280px;
+object-fit:cover;
+}
+
+.card-content{
+padding:30px;
+}
+
+.back{
+position:fixed;
+top:30px;
+left:30px;
+padding:14px 24px;
+background:white;
+color:black;
+border-radius:100px;
+text-decoration:none;
+font-weight:600;
+z-index:1000;
+}
+
+.glow{
+position:absolute;
+width:600px;
+height:600px;
+background:#3b82f6;
+filter:blur(180px);
+opacity:.15;
+top:-200px;
+right:-200px;
+pointer-events:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="glow"></div>
+
+<a href="index.html" class="back">
+← Zurück
+</a>
+
+<section class="hero">
+
+<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1800&auto=format&fit=crop">
+
+<div class="overlay"></div>
+
+<div class="content">
+
+<h1>
+Fitness Brand
+</h1>
+
+<p>
+High-performance Fitness Landingpage mit moderner Conversion UX,
+cinematic visuals und starker Markenwirkung.
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 style="font-size:4rem">
+Performance Results
+</h2>
+
+<div class="stats">
+
+<div class="stat">
+<h2>+312%</h2>
+<p>Mehr Leads innerhalb von 90 Tagen</p>
+</div>
+
+<div class="stat">
+<h2>4.2x</h2>
+<p>Höhere Conversion Rate</p>
+</div>
+
+<div class="stat">
+<h2>0.8s</h2>
+<p>Ultra schnelle Ladezeit</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 style="font-size:4rem">
+Project Showcase
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1400&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Mobile Experience</h3>
+<p>
+Optimierte Mobile UX für maximale Conversion.
+</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1400&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Premium Branding</h3>
+<p>
+Modernes Design mit starker visueller Identität.
+</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=1400&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Lead Generation</h3>
+<p>
+Landingpage System für mehr Anfragen und Mitglieder.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
+```
