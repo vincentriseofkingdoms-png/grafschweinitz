@@ -1,1 +1,179 @@
-d
+```html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Barber | GV Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+.hero{
+height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+}
+
+.hero img{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:.35;
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,#050816,transparent);
+}
+
+.content{
+position:relative;
+z-index:2;
+max-width:900px;
+padding:40px;
+}
+
+h1{
+font-size:6rem;
+line-height:.9;
+letter-spacing:-.05em;
+margin-bottom:30px;
+}
+
+p{
+font-size:1.2rem;
+line-height:1.8;
+opacity:.8;
+}
+
+.section{
+padding:120px 8vw;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+margin-top:60px;
+}
+
+.card{
+background:#0d1222;
+border-radius:30px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.card img{
+width:100%;
+height:300px;
+object-fit:cover;
+}
+
+.card-content{
+padding:30px;
+}
+
+.back{
+position:fixed;
+top:30px;
+left:30px;
+padding:14px 24px;
+background:white;
+color:black;
+border-radius:100px;
+text-decoration:none;
+font-weight:600;
+z-index:1000;
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back">
+← Zurück
+</a>
+
+<section class="hero">
+
+<img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1800&auto=format&fit=crop">
+
+<div class="overlay"></div>
+
+<div class="content">
+
+<h1>
+Luxury Barber
+</h1>
+
+<p>
+Premium Barbershop Experience mit moderner Booking Journey,
+cinematic visuals und high-end Branding.
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 style="font-size:4rem">
+Projekt Highlights
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Modern UI</h3>
+<p>Luxuriöses Design mit dunkler Ästhetik.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Booking Flow</h3>
+<p>Mehr Termine durch klare UX.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Mobile Experience</h3>
+<p>Optimiert für Smartphone User.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
+```
