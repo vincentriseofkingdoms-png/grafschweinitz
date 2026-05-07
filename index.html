@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -231,10 +232,14 @@ border:1px solid var(--line);
 background:rgba(255,255,255,.03);
 backdrop-filter:blur(20px);
 transition:.5s;
+text-decoration:none;
+color:white;
+display:block;
 }
 
 .project:hover{
-transform:translateY(-10px);
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 40px 80px rgba(0,0,0,.45);
 }
 
 .project img{
@@ -461,38 +466,38 @@ High-end Webseiten mit Fokus auf Premium Branding, Performance und Conversion.
 
 <div class="projects">
 
-<div class="project">
+<a class="project" href="showcase-barber.html">
 
-<img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=1400&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1400&auto=format&fit=crop">
 
 <div class="project-overlay">
 <h3>Luxury Barber</h3>
 <p>Modern booking experience</p>
 </div>
 
-</div>
+</a>
 
-<div class="project">
+<a class="project" href="showcase-fitness.html">
 
-<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1400&auto=format&fit=crop">
 
 <div class="project-overlay">
 <h3>Fitness Brand</h3>
 <p>Conversion focused landing pages</p>
 </div>
 
-</div>
+</a>
 
-<div class="project">
+<a class="project" href="showcase-architecture.html">
 
-<img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1400&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1400&auto=format&fit=crop">
 
 <div class="project-overlay">
 <h3>Architecture Studio</h3>
-<p>Minimal premium identity</p>
+<p>Immersive 3D architecture experience</p>
 </div>
 
-</div>
+</a>
 
 </div>
 
@@ -572,10 +577,6 @@ Webdesign Stuttgart
 
 gsap.registerPlugin(ScrollTrigger);
 
-//////////////////////////
-// HERO ANIMATION
-//////////////////////////
-
 gsap.from(".hero h1",{
 y:120,
 opacity:0,
@@ -597,10 +598,6 @@ delay:.5,
 stagger:.1
 });
 
-//////////////////////////
-// SCROLL REVEALS
-//////////////////////////
-
 gsap.utils.toArray(".project, .service, .stat").forEach(el=>{
 
 gsap.from(el,{
@@ -615,10 +612,6 @@ start:"top 85%"
 });
 
 });
-
-//////////////////////////
-// THREE JS
-//////////////////////////
 
 const scene = new THREE.Scene();
 
@@ -640,10 +633,6 @@ antialias:true
 renderer.setSize(window.innerWidth,window.innerHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
 
-//////////////////////////
-// OBJECT
-//////////////////////////
-
 const geometry = new THREE.IcosahedronGeometry(1.4,1);
 
 const material = new THREE.MeshStandardMaterial({
@@ -657,10 +646,6 @@ const mesh = new THREE.Mesh(geometry,material);
 
 scene.add(mesh);
 
-//////////////////////////
-// LIGHTS
-//////////////////////////
-
 const light1 = new THREE.PointLight(0xffffff,20);
 light1.position.set(5,5,5);
 
@@ -668,10 +653,6 @@ const light2 = new THREE.PointLight(0x6ea8ff,20);
 light2.position.set(-5,-5,5);
 
 scene.add(light1,light2);
-
-//////////////////////////
-// PARTICLES
-//////////////////////////
 
 const particlesGeometry = new THREE.BufferGeometry();
 
@@ -700,10 +681,6 @@ particlesMaterial
 
 scene.add(particles);
 
-//////////////////////////
-// MOUSE
-//////////////////////////
-
 let mouseX=0;
 let mouseY=0;
 
@@ -713,10 +690,6 @@ mouseX=(e.clientX/window.innerWidth-.5)*2;
 mouseY=(e.clientY/window.innerHeight-.5)*2;
 
 });
-
-//////////////////////////
-// ANIMATE
-//////////////////////////
 
 function animate(){
 
@@ -736,10 +709,6 @@ renderer.render(scene,camera);
 
 animate();
 
-//////////////////////////
-// RESIZE
-//////////////////////////
-
 window.addEventListener("resize",()=>{
 
 camera.aspect = window.innerWidth/window.innerHeight;
@@ -754,3 +723,4 @@ renderer.setSize(window.innerWidth,window.innerHeight);
 
 </body>
 </html>
+```
