@@ -3,329 +3,263 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graf von Schweinitz</title>
 
-<title>Graf von Schweinitz | KI-Agentur & Automatisierung</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<meta name="description"
-content="Graf von Schweinitz entwickelt moderne Webseiten, KI-Agenten und Automatisierungen für Unternehmen.">
+<style>
+html { scroll-behavior: smooth; }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+:root {
+  --bg:#ffffff;
+  --text:#111;
+  --accent:#c5a46d;
+}
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+body.dark {
+  --bg:#050505;
+  --text:#f5f5f5;
+}
 
-<link rel="stylesheet" href="style.css">
+body {
+  margin:0;
+  font-family:"Inter", sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:0.4s;
+}
+
+/* NAV */
+.navbar {
+  position:fixed;
+  top:0;
+  width:100%;
+  text-align:center;
+  padding:20px 0;
+  backdrop-filter:blur(20px);
+  background:rgba(255,255,255,0.6);
+  z-index:100;
+}
+
+.navbar a {
+  margin:0 25px;
+  text-decoration:none;
+  color:var(--text);
+  font-family:'Playfair Display', serif;
+}
+
+.toggle {
+  position:fixed;
+  right:30px;
+  top:20px;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero {
+  text-align:center;
+  padding:200px 20px 280px;
+  position:relative;
+}
+
+.hero::before {
+  content:"";
+  position:absolute;
+  width:1800px;
+  height:1800px;
+  background:url('wappen.png') no-repeat center top;
+  background-size:cover;
+  opacity:0.06;
+  left:50%;
+  transform:translateX(-48%);
+}
+
+.hero * { position:relative; z-index:2; }
+
+.small-logo { width:90px; }
+
+.brand-name {
+  font-family:'Playfair Display', serif;
+  letter-spacing:2px;
+  margin-bottom:40px;
+}
+
+h1 {
+  font-family:'Playfair Display', serif;
+  font-size:70px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.highlight { color:var(--accent); }
+
+p { max-width:700px; margin:30px auto; color:#666; }
+
+.btn {
+  padding:14px 32px;
+  margin:10px;
+  text-decoration:none;
+  display:inline-block;
+  border-radius:4px;
+}
+
+.primary { background:var(--accent); color:black; }
+.secondary { border:1px solid var(--accent); color:var(--accent); }
+
+/* SLIDER */
+.slider-section {
+  background:#000;
+  padding:200px 20px;
+  text-align:center;
+  color:white;
+}
+
+.slider {
+  position:relative;
+  max-width:700px;
+  margin:auto;
+  height:360px;
+}
+
+.slide {
+  position:absolute;
+  width:100%;
+  opacity:0;
+  transition:1s;
+}
+
+.slide.active { opacity:1; }
+
+.arrow {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:30px;
+  background:none;
+  border:none;
+  color:white;
+  cursor:pointer;
+}
+
+.left { left:-60px; }
+.right { right:-60px; }
+
+/* TRUST */
+.trust { padding:140px 20px; text-align:center; }
+
+.stats { display:flex; justify-content:center; gap:60px; }
+
+.stat h3 { color:var(--accent); font-size:42px; }
+
+/* TESTIMONIALS */
+.testimonials {
+  background:#000;
+  color:white;
+  padding:160px 20px;
+  text-align:center;
+}
+
+/* CARDS */
+.section { padding:160px 20px; }
+
+.cards {
+  display:flex;
+  gap:40px;
+  justify-content:center;
+}
+
+.card {
+  background:rgba(255,255,255,0.05);
+  padding:50px;
+  border-radius:12px;
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="background"></div>
+<div class="toggle" onclick="toggleDark()">🌙</div>
 
-<header>
-
-<nav class="navbar">
-
-<div class="logo">
-Graf<span>von</span>Schweinitz
+<div class="navbar">
+  <a href="#">Start</a>
+  <a href="#leistungen">Leistungen</a>
+  <a href="#">Über uns</a>
 </div>
 
-<ul class="nav-links">
+<div class="hero">
+  <img src="wappen.png" class="small-logo">
+  <div class="brand-name">Graf von Schweinitz & Kollegen</div>
 
-<li><a href="#leistungen">Leistungen</a></li>
+  <h1>
+    <span class="highlight">Strukturen</span> optimieren und 
+    <span class="highlight">Vermögen</span> sichern
+  </h1>
 
-<li><a href="#agentur">Agentur</a></li>
+  <p>Beratung für Unternehmer.</p>
 
-<li><a href="#referenzen">Referenzen</a></li>
-
-<li><a href="#kontakt">Kontakt</a></li>
-
-</ul>
-
-<a href="#kontakt" class="button">
-Kostenloses Gespräch
-</a>
-
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div class="hero-content">
-
-<p class="eyebrow">
-KI • Automatisierung • Webentwicklung
-</p>
-
-<h1>
-
-Digitale Lösungen,<br>
-
-die Unternehmen wachsen lassen.
-
-</h1>
-
-<p class="hero-text">
-
-Wir entwickeln moderne Webseiten,
-KI-Agenten und intelligente
-Automatisierungen für Unternehmen,
-die mehr Zeit gewinnen und schneller
-wachsen möchten.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="#kontakt" class="primary">
-
-Projekt starten
-
-</a>
-
-<a href="#leistungen" class="secondary">
-
-Leistungen ansehen
-
-</a>
-
+  <a href="#" class="btn primary">Beratung</a>
+  <a href="#leistungen" class="btn secondary">Leistungen</a>
 </div>
 
+<!-- SLIDER -->
+<div class="slider-section">
+
+<div class="slider">
+<button class="arrow left" onclick="prevSlide()">‹</button>
+
+<div class="slide active">
+<h3>Meine Werte</h3>
+<p>Diskretion und Präzision.</p>
 </div>
 
-<div class="hero-card">
-
-<h3>Warum Graf von Schweinitz?</h3>
-
-<div class="card-item">
-
-<h4>KI-Agenten</h4>
-
-<p>
-Automatisieren Sie Kundenservice,
-Vertrieb und interne Prozesse.
-</p>
-
+<div class="slide">
+<h3>Meine Geschichte</h3>
+<p>Tradition trifft Strategie.</p>
 </div>
 
-<div class="card-item">
-
-<h4>Premium Webseiten</h4>
-
-<p>
-
-Schnelle, moderne Websites,
-optimiert für Conversion.
-
-</p>
-
+<button class="arrow right" onclick="nextSlide()">›</button>
+</div>
 </div>
 
-<div class="card-item">
-
-<h4>Automatisierungen</h4>
-
-<p>
-
-CRM, APIs, E-Mail,
-Workflows und Prozesse.
-
-</p>
-
+<!-- TRUST -->
+<div class="trust">
+<h2>Vertrauen</h2>
+<div class="stats">
+<div class="stat"><h3>+120</h3><p>Mandate</p></div>
+<div class="stat"><h3>€250M+</h3><p>Assets</p></div>
+</div>
 </div>
 
+<!-- TESTIMONIALS -->
+<div class="testimonials">
+<h2>Stimmen</h2>
+<p>„Diskret, präzise, außergewöhnlich.“</p>
 </div>
 
-</section>
-
-<section id="leistungen">
-
-<div class="section-title">
-
-<p>Unsere Leistungen</p>
-
-<h2>
-
-Alles aus einer Hand.
-
-</h2>
-
+<!-- LEISTUNGEN -->
+<div id="leistungen" class="section">
+<h2 style="text-align:center;">Leistungen</h2>
+<div class="cards">
+<div class="card">Strukturen</div>
+<div class="card">Vermögen</div>
+</div>
 </div>
 
-<div class="services">
-
-<div class="service">
-
-<h3>KI-Agenten</h3>
-
-<p>
-
-Individuelle KI-Assistenten für
-Support, Vertrieb und interne
-Unternehmensprozesse.
-
-</p>
-
-</div>
-
-<div class="service">
-
-<h3>Webdesign</h3>
-
-<p>
-
-Moderne Webseiten mit Fokus auf
-Performance und Neukundengewinnung.
-
-</p>
-
-</div>
-
-<div class="service">
-
-<h3>Automatisierung</h3>
-
-<p>
-
-Digitale Prozesse verbinden,
-Zeit sparen und Fehler reduzieren.
-
-</p>
-
-</div>
-
-<div class="service">
-
-<h3>CRM Integration</h3>
-
-<p>
-
-Vertrieb und Marketing
-zentral steuern.
-
-</p>
-
-</div>
-
-<div class="service">
-
-<h3>API Entwicklung</h3>
-
-<p>
-
-Systeme miteinander verbinden
-und vollständig automatisieren.
-
-</p>
-
-</div>
-
-<div class="service">
-
-<h3>Beratung</h3>
-
-<p>
-
-Digitale Strategien für
-Unternehmen jeder Größe.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="agentur">
-
-<div class="about">
-
-<div>
-
-<h2>
-
-Wir bauen keine Webseiten.
-
-Wir bauen digitale Unternehmen.
-
-</h2>
-
-<p>
-
-Unser Fokus liegt auf messbaren
-Ergebnissen. Jedes Projekt wird
-individuell entwickelt und
-technisch auf höchstem Niveau
-umgesetzt.
-
-</p>
-
-<ul>
-
-<li>✔ modernes Design</li>
-
-<li>✔ schnelle Ladezeiten</li>
-
-<li>✔ SEO optimiert</li>
-
-<li>✔ mobil optimiert</li>
-
-<li>✔ KI integriert</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="kontakt">
-
-<div class="contact">
-
-<h2>
-
-Lassen Sie uns über Ihr Projekt sprechen.
-
-</h2>
-
-<form>
-
-<input type="text"
-placeholder="Name">
-
-<input type="email"
-placeholder="E-Mail">
-
-<textarea
-placeholder="Erzählen Sie uns von Ihrem Projekt">
-</textarea>
-
-<button>
-
-Nachricht senden
-
-</button>
-
-</form>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>
-
-© 2026 Graf von Schweinitz
-
-</p>
-
-</footer>
-
-<script src="script.js"></script>
+<script>
+function toggleDark(){ document.body.classList.toggle('dark'); }
+
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(i){
+ slides.forEach(s=>s.classList.remove('active'));
+ slides[i].classList.add('active');
+}
+
+function nextSlide(){ currentSlide=(currentSlide+1)%slides.length; showSlide(currentSlide); }
+function prevSlide(){ currentSlide=(currentSlide-1+slides.length)%slides.length; showSlide(currentSlide); }
+</script>
 
 </body>
 </html>
