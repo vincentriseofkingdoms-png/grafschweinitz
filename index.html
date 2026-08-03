@@ -1,393 +1,555 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
+
 <meta charset="UTF-8">
-<title>Graf von Schweinitz</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-html { scroll-behavior: smooth; }
+<title>GVS Webstudio | Premium Webseiten</title>
 
-body {
-    margin: 0;
-    font-family: "Inter", sans-serif;
-    background: #ffffff;
-    color: #111;
-}
+<meta name="description"
+content="Premium Webseiten für Unternehmen. Modernes Webdesign, Landingpages und digitale Lösungen.">
 
-/* NAVBAR */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(20px);
-    z-index: 100;
-    transition: 0.3s;
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-.navbar a {
-    margin: 0 25px;
-    text-decoration: none;
-    color: #111;
-    font-family: 'Playfair Display', serif;
-    position: relative;
-}
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.navbar a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 1px;
-    bottom: -5px;
-    left: 0;
-    background: #c5a46d;
-    transition: 0.3s;
-}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-.navbar a:hover::after { width: 100%; }
+<link rel="stylesheet" href="style.css">
 
-/* HERO */
-.hero {
-    text-align: center;
-    padding: 200px 20px 280px;
-    position: relative;
-    overflow: hidden;
-}
+<script defer src="script.js"></script>
 
-/* animated gradient glow */
-.hero::after {
-    content: "";
-    position: absolute;
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, rgba(197,164,109,0.15), transparent);
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: floatGlow 10s infinite alternate;
-}
-
-@keyframes floatGlow {
-    0% { transform: translate(-50%, 0); }
-    100% { transform: translate(-50%, 40px); }
-}
-
-/* BACKGROUND WAPPEN */
-.hero::before {
-    content: "";
-    position: absolute;
-    top: -150px;
-    left: 50%;
-    width: 1800px;
-    height: 1800px;
-    background: url('wappen.png') no-repeat center top;
-    background-size: cover;
-    opacity: 0.07;
-    transform: translateX(-48.2%);
-}
-
-.hero * { position: relative; z-index: 2; }
-
-.small-logo {
-    width: 90px;
-    margin-bottom: 15px;
-    animation: fadeUp 1s ease forwards;
-}
-
-.brand-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-    opacity: 0;
-    animation: fadeUp 1.2s ease forwards;
-}
-
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 72px;
-    font-weight: 400;
-    line-height: 1.2;
-    max-width: 1000px;
-    margin: auto;
-    opacity: 0;
-    animation: fadeUp 1.5s ease forwards;
-}
-
-.highlight { color: #c5a46d; }
-
-p {
-    font-size: 18px;
-    color: #555;
-    max-width: 700px;
-    margin: 30px auto;
-    line-height: 1.7;
-    opacity: 0;
-    animation: fadeUp 1.8s ease forwards;
-}
-
-@keyframes fadeUp {
-    from { opacity:0; transform: translateY(40px); }
-    to { opacity:1; transform: translateY(0); }
-}
-
-.buttons { margin-top: 50px; }
-
-.btn {
-    display: inline-block;
-    padding: 14px 34px;
-    margin: 10px;
-    text-decoration: none;
-    font-size: 15px;
-    border-radius: 4px;
-    transition: 0.3s;
-}
-
-.primary {
-    background: #c5a46d;
-    color: #000;
-}
-
-.primary:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-}
-
-.secondary {
-    border: 1px solid #c5a46d;
-    color: #c5a46d;
-}
-
-.secondary:hover {
-    background: #c5a46d;
-    color: #000;
-    transform: translateY(-5px) scale(1.05);
-}
-
-/* SLIDER */
-.slider-section {
-    background: #000;
-    padding: 200px 20px 160px;
-    text-align: center;
-}
-
-.slider {
-    position: relative;
-    max-width: 700px;
-    margin: auto;
-    height: 360px;
-}
-
-.slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transform: scale(0.95);
-    transition: all 0.8s ease;
-    color: white;
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 70px 50px;
-}
-
-.slide.active {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.slide h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 30px;
-}
-
-.slide p {
-    color: #ccc;
-}
-
-.slider-btn {
-    display: inline-block;
-    padding: 10px 25px;
-    background: white;
-    color: black;
-    text-decoration: none;
-    border-radius: 4px;
-}
-
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 30px;
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.left { left: -60px; }
-.right { right: -60px; }
-
-/* SECTION */
-.section {
-    padding: 160px 20px 120px;
-    background: #f8f8f8;
-}
-
-.container {
-    max-width: 900px;
-    margin: auto;
-    text-align: center;
-}
-
-h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-}
-
-.cards {
-    display: flex;
-    gap: 40px;
-    margin-top: 80px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.card {
-    max-width: 420px;
-    background: white;
-    padding: 50px;
-    border-radius: 10px;
-    transition: 0.4s;
-}
-
-.card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-}
-
-ul {
-    margin-top: 20px;
-    line-height: 1.8;
-}
-</style>
 </head>
 
 <body>
 
-<div class="navbar">
-    <a href="#">Start</a>
-    <a href="#leistungen">Leistungen</a>
-    <a href="ueber-uns.html">Über uns</a>
-</div>
+<div class="cursor"></div>
 
-<div class="hero">
+<header>
 
-    <img src="wappen.png" class="small-logo">
+<div class="container">
 
-    <div class="brand-name">
-        Graf von Schweinitz & Kollegen
-    </div>
+<div class="logo">
 
-    <h1>
-        <span class="highlight">Strukturen</span> optimieren und 
-        <span class="highlight">Vermögen</span> sichern<br>
-        über Generationen hinweg
-    </h1>
-
-    <p>
-        Beratung für mittelständische Unternehmen und Unternehmer in strukturellen,
-        strategischen und vermögensbezogenen Fragestellungen.
-    </p>
-
-    <div class="buttons">
-        <a href="mailto:kontakt@grafschweinitz.com" class="btn primary">
-            Beratung anfragen
-        </a>
-
-        <a href="#leistungen" class="btn secondary">
-            Leistungen
-        </a>
-    </div>
+GVS<span>.</span>
 
 </div>
 
-<div class="slider-section">
+<nav>
 
-    <div class="slider">
+<a href="#home">Home</a>
 
-        <button class="arrow left" onclick="prevSlide()">‹</button>
+<a href="#services">Leistungen</a>
 
-        <div class="slide active">
-            <h3>Meine Werte</h3>
-            <p>Verlässlichkeit, Diskretion und Präzision bilden das Fundament meiner Arbeit.</p>
-            <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
-        </div>
+<a href="#portfolio">Portfolio</a>
 
-        <div class="slide">
-            <h3>Meine Geschichte</h3>
-            <p>Tradition trifft auf moderne Strategien für nachhaltigen Erfolg.</p>
-            <a href="ueber-uns.html" class="slider-btn">Mehr erfahren</a>
-        </div>
+<a href="#preise">Preise</a>
 
-        <button class="arrow right" onclick="nextSlide()">›</button>
+<a href="#kontakt">Kontakt</a>
 
-    </div>
+</nav>
 
-</div>
+<a class="button" href="#kontakt">
 
-<div id="leistungen" class="section">
+Projekt starten
 
-    <div class="container">
-        <h2>
-            <span class="highlight">Strukturberatung</span> & Umsetzung
-        </h2>
+</a>
 
-        <p>
-            Klare, belastbare und zukunftssichere Lösungen für Unternehmer.
-        </p>
-    </div>
+<div class="menu">
 
-    <div class="cards">
-
-        <div class="card">
-            <h3>Strukturen gestalten</h3>
-            <p>Effiziente Unternehmensstrukturen.</p>
-        </div>
-
-        <div class="card">
-            <h3>Vermögen sichern</h3>
-            <p>Langfristige Sicherung von Vermögenswerten.</p>
-        </div>
-
-    </div>
+☰
 
 </div>
 
-<script>
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slide");
+</div>
 
-function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove("active"));
-    slides[index].classList.add("active");
-}
+</header>
 
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-}
+<section class="hero" id="home">
 
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(currentSlide);
-}
+<div class="blur one"></div>
 
-setInterval(nextSlide, 8000);
-</script>
+<div class="blur two"></div>
+
+<div class="container hero-grid">
+
+<div>
+
+<p class="badge">
+
+PREMIUM WEBDESIGN
+
+</p>
+
+<h1>
+
+Webseiten
+
+für Unternehmen,
+
+die wachsen wollen.
+
+</h1>
+
+<p class="subtitle">
+
+Modernes Design.
+
+Schnelle Ladezeiten.
+
+Mehr Anfragen.
+
+Mehr Kunden.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#kontakt" class="primary">
+
+Kostenloses Erstgespräch
+
+</a>
+
+<a href="#portfolio" class="secondary">
+
+Portfolio ansehen
+
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-card">
+
+<div class="browser">
+
+<div class="dots">
+
+<span></span>
+
+<span></span>
+
+<span></span>
+
+</div>
+
+<div class="screen">
+
+<h3>gvs-webstudio.de</h3>
+
+<p>
+
+Minimal.
+
+Elegant.
+
+Conversion Optimiert.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="container stats-grid">
+
+<div>
+
+<h2 data-number="50">
+
+0
+
+</h2>
+
+<p>Projekte</p>
+
+</div>
+
+<div>
+
+<h2 data-number="100">
+
+0
+
+</h2>
+
+<p>Zufriedene Kunden</p>
+
+</div>
+
+<div>
+
+<h2 data-number="98">
+
+0
+
+</h2>
+
+<p>% Performance</p>
+
+</div>
+
+<div>
+
+<h2 data-number="24">
+
+0
+
+</h2>
+
+<p>Support</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<div class="container">
+
+<h2>
+
+Unsere Leistungen
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="icon">🌐</div>
+
+<h3>
+
+Webdesign
+
+</h3>
+
+<p>
+
+Professionelle Webseiten mit modernem Design.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon">
+
+⚡
+
+</div>
+
+<h3>
+
+Landingpages
+
+</h3>
+
+<p>
+
+Mehr Leads durch verkaufsstarke Seiten.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon">
+
+📈
+
+</div>
+
+<h3>
+
+SEO
+
+</h3>
+
+<p>
+
+Besser gefunden werden.
+
+Mehr Reichweite.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon">
+
+🚀
+
+</div>
+
+<h3>
+
+Performance
+
+</h3>
+
+<p>
+
+Optimiert für Geschwindigkeit.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="portfolio">
+
+<div class="container">
+
+<h2>
+
+Ausgewählte Projekte
+
+</h2>
+
+<div class="portfolio">
+
+<div class="project">
+
+<div class="overlay">
+
+<h3>Restaurant</h3>
+
+</div>
+
+</div>
+
+<div class="project">
+
+<div class="overlay">
+
+<h3>Immobilien</h3>
+
+</div>
+
+</div>
+
+<div class="project">
+
+<div class="overlay">
+
+<h3>Fitness Studio</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="preise">
+
+<div class="container">
+
+<h2>
+
+Pakete
+
+</h2>
+
+<div class="pricing">
+
+<div class="price-card">
+
+<h3>
+
+Starter
+
+</h3>
+
+<h1>
+
+499€
+
+</h1>
+
+<ul>
+
+<li>Onepager</li>
+
+<li>Responsive</li>
+
+<li>SEO Basics</li>
+
+</ul>
+
+<button>
+
+Jetzt starten
+
+</button>
+
+</div>
+
+<div class="price-card featured">
+
+<h3>
+
+Business
+
+</h3>
+
+<h1>
+
+999€
+
+</h1>
+
+<ul>
+
+<li>5 Seiten</li>
+
+<li>Premium Design</li>
+
+<li>SEO</li>
+
+<li>Kontaktformular</li>
+
+</ul>
+
+<button>
+
+Beliebt
+
+</button>
+
+</div>
+
+<div class="price-card">
+
+<h3>
+
+Premium
+
+</h3>
+
+<h1>
+
+Individuell
+
+</h1>
+
+<ul>
+
+<li>Alles inklusive</li>
+
+<li>CMS</li>
+
+<li>Animationen</li>
+
+<li>Support</li>
+
+</ul>
+
+<button>
+
+Anfragen
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="kontakt">
+
+<div class="container">
+
+<h2>
+
+Lass uns dein Projekt starten.
+
+</h2>
+
+<form>
+
+<input type="text"
+
+placeholder="Name">
+
+<input type="email"
+
+placeholder="E-Mail">
+
+<textarea
+
+placeholder="Erzähl mir von deinem Projekt"></textarea>
+
+<button>
+
+Nachricht senden
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<h3>
+
+GVS Webstudio
+
+</h3>
+
+<p>
+
+Premium Webseiten für Unternehmen.
+
+</p>
+
+<p>
+
+© 2026
+
+</p>
+
+</div>
+
+</footer>
 
 </body>
+
 </html>
