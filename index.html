@@ -1,555 +1,656 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+  <title>GVS — Mehr qualifizierte Immobilienkunden</title>
+  <meta
+    name="description"
+    content="GVS hilft Immobilienmaklern und Finanzierungsberatern dabei, qualifizierte Kundenanfragen und Eigentümerkontakte zu gewinnen."
+  >
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<title>GVS Webstudio | Premium Webseiten</title>
+    html {
+      scroll-behavior: smooth;
+    }
 
-<meta name="description"
-content="Premium Webseiten für Unternehmen. Modernes Webdesign, Landingpages und digitale Lösungen.">
+    body {
+      font-family: Inter, Arial, sans-serif;
+      color: #111;
+      background: #f7f7f5;
+      line-height: 1.6;
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    /* NAVIGATION */
 
-<link rel="stylesheet" href="style.css">
+    nav {
+      padding: 24px 0;
+      background: #f7f7f5;
+    }
 
-<script defer src="script.js"></script>
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: #555;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 110px 0 120px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 7px 12px;
+      border: 1px solid #ddd;
+      border-radius: 100px;
+      background: white;
+      color: #555;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    h1 {
+      max-width: 850px;
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -4px;
+      margin-bottom: 30px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 20px;
+      color: #555;
+      margin-bottom: 38px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 23px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .button-primary {
+      background: #111;
+      color: white;
+    }
+
+    .button-primary:hover {
+      background: #333;
+      transform: translateY(-1px);
+    }
+
+    .button-secondary {
+      border: 1px solid #ddd;
+      background: white;
+    }
+
+    /* TRUST */
+
+    .trust {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 28px 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      max-width: 700px;
+      margin-bottom: 55px;
+    }
+
+    .section-title span {
+      display: block;
+      color: #777;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+    }
+
+    .section-title p {
+      margin-top: 18px;
+      font-size: 18px;
+      color: #666;
+    }
+
+    /* PROBLEM */
+
+    .problems {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .problem {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 14px;
+      padding: 28px;
+    }
+
+    .problem-number {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 35px;
+    }
+
+    .problem h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .problem p {
+      color: #666;
+      font-size: 15px;
+    }
+
+    /* SYSTEM */
+
+    .system {
+      background: #111;
+      color: white;
+    }
+
+    .system .section-title p {
+      color: #aaa;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .step {
+      padding: 25px;
+      border: 1px solid #333;
+      border-radius: 12px;
+    }
+
+    .step-number {
+      color: #777;
+      font-size: 13px;
+      margin-bottom: 35px;
+    }
+
+    .step h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    /* TARGET */
+
+    .targets {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .target {
+      padding: 40px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 16px;
+    }
+
+    .target h3 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .target p {
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .target ul {
+      list-style: none;
+      color: #444;
+    }
+
+    .target li {
+      margin-bottom: 10px;
+    }
+
+    .target li::before {
+      content: "✓";
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    /* CTA */
+
+    .cta {
+      padding: 120px 0;
+      text-align: center;
+    }
+
+    .cta h2 {
+      max-width: 750px;
+      margin: 0 auto 20px;
+      font-size: clamp(40px, 6vw, 68px);
+      line-height: 1;
+      letter-spacing: -3px;
+    }
+
+    .cta p {
+      max-width: 600px;
+      margin: 0 auto 35px;
+      color: #666;
+      font-size: 18px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 30px 0;
+      color: #777;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .hero {
+        padding: 70px 0 80px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .problems,
+      .targets {
+        grid-template-columns: 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="cursor"></div>
+  <!-- NAV -->
 
-<header>
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">GVS</div>
 
-<div class="container">
+      <a href="#kontakt" class="nav-link">
+        Kontakt aufnehmen →
+      </a>
+    </div>
+  </nav>
 
-<div class="logo">
 
-GVS<span>.</span>
+  <!-- HERO -->
 
-</div>
+  <header class="hero">
+    <div class="container">
 
-<nav>
+      <div class="eyebrow">
+        Lead Generation für Immobilien & Finanzierung
+      </div>
 
-<a href="#home">Home</a>
+      <h1>
+        Mehr qualifizierte Kunden.
+        Weniger Kaltakquise.
+      </h1>
 
-<a href="#services">Leistungen</a>
+      <p>
+        GVS hilft Immobilienmaklern und Finanzierungsberatern dabei,
+        planbar neue Interessenten, Eigentümer und Käufer zu gewinnen.
+      </p>
 
-<a href="#portfolio">Portfolio</a>
+      <div class="buttons">
+        <a href="#kontakt" class="button button-primary">
+          Potenzial besprechen →
+        </a>
 
-<a href="#preise">Preise</a>
+        <a href="#system" class="button button-secondary">
+          So funktioniert es
+        </a>
+      </div>
 
-<a href="#kontakt">Kontakt</a>
+    </div>
+  </header>
 
-</nav>
 
-<a class="button" href="#kontakt">
+  <!-- TRUST -->
 
-Projekt starten
+  <div class="trust">
+    <div class="container">
+      Kein Leadhandel mit gekauften Adresslisten. Fokus auf echte,
+      qualifizierte Interessenten.
+    </div>
+  </div>
 
-</a>
 
-<div class="menu">
+  <!-- PROBLEM -->
 
-☰
+  <section>
+    <div class="container">
 
-</div>
+      <div class="section-title">
+        <span>Das Problem</span>
 
-</div>
+        <h2>
+          Gute Unternehmen brauchen nicht mehr Reichweite.
+          Sie brauchen bessere Anfragen.
+        </h2>
 
-</header>
+        <p>
+          Viele Immobilien- und Finanzierungsunternehmen sind stark
+          in ihrer Leistung, kämpfen aber mit unregelmäßiger
+          Neukundengewinnung.
+        </p>
+      </div>
 
-<section class="hero" id="home">
+      <div class="problems">
 
-<div class="blur one"></div>
+        <div class="problem">
+          <div class="problem-number">01</div>
 
-<div class="blur two"></div>
+          <h3>Zu wenige Anfragen</h3>
 
-<div class="container hero-grid">
+          <p>
+            Neukunden kommen hauptsächlich über Empfehlungen
+            oder zufällig.
+          </p>
+        </div>
 
-<div>
+        <div class="problem">
+          <div class="problem-number">02</div>
 
-<p class="badge">
+          <h3>Unqualifizierte Leads</h3>
 
-PREMIUM WEBDESIGN
+          <p>
+            Viele Anfragen passen nicht zur Zielgruppe oder
+            haben keine konkrete Kauf- bzw. Verkaufsabsicht.
+          </p>
+        </div>
 
-</p>
+        <div class="problem">
+          <div class="problem-number">03</div>
 
-<h1>
+          <h3>Zu viel Kaltakquise</h3>
 
-Webseiten
+          <p>
+            Vertrieb kostet Zeit. Zeit, die besser in echte
+            Kundengespräche investiert werden könnte.
+          </p>
+        </div>
 
-für Unternehmen,
+      </div>
 
-die wachsen wollen.
+    </div>
+  </section>
 
-</h1>
 
-<p class="subtitle">
+  <!-- SYSTEM -->
 
-Modernes Design.
+  <section class="system" id="system">
 
-Schnelle Ladezeiten.
+    <div class="container">
 
-Mehr Anfragen.
+      <div class="section-title">
+        <span>Unser Ansatz</span>
 
-Mehr Kunden.
+        <h2>
+          Von der Aufmerksamkeit zum Kundentermin.
+        </h2>
 
-</p>
+        <p>
+          Wir bauen einen einfachen digitalen Prozess,
+          der Interessenten erreicht, qualifiziert und
+          an den passenden Vertriebspartner übergibt.
+        </p>
+      </div>
 
-<div class="hero-buttons">
 
-<a href="#kontakt" class="primary">
+      <div class="steps">
 
-Kostenloses Erstgespräch
+        <div class="step">
+          <div class="step-number">01</div>
+          <h3>Reichweite</h3>
+          <p>
+            Wir erreichen potenzielle Kunden über passende
+            digitale Kanäle.
+          </p>
+        </div>
 
-</a>
+        <div class="step">
+          <div class="step-number">02</div>
+          <h3>Landingpage</h3>
+          <p>
+            Interessenten erhalten ein klares Angebot
+            und können Kontakt aufnehmen.
+          </p>
+        </div>
 
-<a href="#portfolio" class="secondary">
+        <div class="step">
+          <div class="step-number">03</div>
+          <h3>Qualifizierung</h3>
+          <p>
+            Relevante Informationen werden vor dem
+            Verkaufsgespräch erfasst.
+          </p>
+        </div>
 
-Portfolio ansehen
+        <div class="step">
+          <div class="step-number">04</div>
+          <h3>Termin</h3>
+          <p>
+            Qualifizierte Interessenten werden an den
+            passenden Ansprechpartner übergeben.
+          </p>
+        </div>
 
-</a>
+        <div class="step">
+          <div class="step-number">05</div>
+          <h3>Messung</h3>
+          <p>
+            Wir messen, welche Kanäle tatsächlich
+            relevante Kunden bringen.
+          </p>
+        </div>
 
-</div>
+      </div>
 
-</div>
+    </div>
 
-<div class="hero-card">
+  </section>
 
-<div class="browser">
 
-<div class="dots">
+  <!-- TARGET GROUPS -->
 
-<span></span>
+  <section>
 
-<span></span>
+    <div class="container">
 
-<span></span>
+      <div class="section-title">
+        <span>Für wen?</span>
 
-</div>
+        <h2>
+          Aktuell fokussieren wir uns auf zwei Bereiche.
+        </h2>
+      </div>
 
-<div class="screen">
 
-<h3>gvs-webstudio.de</h3>
+      <div class="targets">
 
-<p>
+        <div class="target">
 
-Minimal.
+          <h3>Immobilienmakler</h3>
 
-Elegant.
+          <p>
+            Mehr qualifizierte Eigentümerkontakte und
+            Verkaufschancen für Ihre Region.
+          </p>
 
-Conversion Optimiert.
+          <ul>
+            <li>Eigentümeranfragen</li>
+            <li>Immobilienbewertungen</li>
+            <li>Verkaufsinteressenten</li>
+            <li>Qualifizierte Gespräche</li>
+          </ul>
 
-</p>
+        </div>
 
-</div>
 
-</div>
+        <div class="target">
 
-</div>
+          <h3>Finanzierungsberater</h3>
 
-</div>
+          <p>
+            Mehr Interessenten mit konkretem Bedarf
+            rund um Immobilienfinanzierung.
+          </p>
 
-</section>
+          <ul>
+            <li>Immobilienkäufer</li>
+            <li>Finanzierungsanfragen</li>
+            <li>Vorqualifizierte Interessenten</li>
+            <li>Terminvereinbarungen</li>
+          </ul>
 
-<section class="stats">
+        </div>
 
-<div class="container stats-grid">
+      </div>
 
-<div>
+    </div>
 
-<h2 data-number="50">
+  </section>
 
-0
 
-</h2>
+  <!-- CTA -->
 
-<p>Projekte</p>
+  <section class="cta" id="kontakt">
 
-</div>
+    <div class="container">
 
-<div>
+      <h2>
+        Lassen Sie uns herausfinden,
+        ob es für Sie funktioniert.
+      </h2>
 
-<h2 data-number="100">
+      <p>
+        Kurzes, unverbindliches Gespräch.
+        Wir schauen uns Ihre aktuelle Kundengewinnung an
+        und prüfen, ob zusätzliche qualifizierte Anfragen
+        für Sie interessant wären.
+      </p>
 
-0
+      <!-- HIER DEINE E-MAIL EINTRAGEN -->
 
-</h2>
+      <a
+        href="mailto:DEINE-EMAIL@DEINEDOMAIN.DE?subject=Interesse%20an%20Leadgenerierung"
+        class="button button-primary"
+      >
+        Gespräch anfragen →
+      </a>
 
-<p>Zufriedene Kunden</p>
+    </div>
 
-</div>
+  </section>
 
-<div>
 
-<h2 data-number="98">
+  <!-- FOOTER -->
 
-0
+  <footer>
 
-</h2>
+    <div class="container footer-inner">
 
-<p>% Performance</p>
+      <div>
+        © 2026 GVS
+      </div>
 
-</div>
+      <div>
+        Stuttgart · Deutschland
+      </div>
 
-<div>
+    </div>
 
-<h2 data-number="24">
-
-0
-
-</h2>
-
-<p>Support</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="services">
-
-<div class="container">
-
-<h2>
-
-Unsere Leistungen
-
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<div class="icon">🌐</div>
-
-<h3>
-
-Webdesign
-
-</h3>
-
-<p>
-
-Professionelle Webseiten mit modernem Design.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon">
-
-⚡
-
-</div>
-
-<h3>
-
-Landingpages
-
-</h3>
-
-<p>
-
-Mehr Leads durch verkaufsstarke Seiten.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon">
-
-📈
-
-</div>
-
-<h3>
-
-SEO
-
-</h3>
-
-<p>
-
-Besser gefunden werden.
-
-Mehr Reichweite.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon">
-
-🚀
-
-</div>
-
-<h3>
-
-Performance
-
-</h3>
-
-<p>
-
-Optimiert für Geschwindigkeit.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="portfolio">
-
-<div class="container">
-
-<h2>
-
-Ausgewählte Projekte
-
-</h2>
-
-<div class="portfolio">
-
-<div class="project">
-
-<div class="overlay">
-
-<h3>Restaurant</h3>
-
-</div>
-
-</div>
-
-<div class="project">
-
-<div class="overlay">
-
-<h3>Immobilien</h3>
-
-</div>
-
-</div>
-
-<div class="project">
-
-<div class="overlay">
-
-<h3>Fitness Studio</h3>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="preise">
-
-<div class="container">
-
-<h2>
-
-Pakete
-
-</h2>
-
-<div class="pricing">
-
-<div class="price-card">
-
-<h3>
-
-Starter
-
-</h3>
-
-<h1>
-
-499€
-
-</h1>
-
-<ul>
-
-<li>Onepager</li>
-
-<li>Responsive</li>
-
-<li>SEO Basics</li>
-
-</ul>
-
-<button>
-
-Jetzt starten
-
-</button>
-
-</div>
-
-<div class="price-card featured">
-
-<h3>
-
-Business
-
-</h3>
-
-<h1>
-
-999€
-
-</h1>
-
-<ul>
-
-<li>5 Seiten</li>
-
-<li>Premium Design</li>
-
-<li>SEO</li>
-
-<li>Kontaktformular</li>
-
-</ul>
-
-<button>
-
-Beliebt
-
-</button>
-
-</div>
-
-<div class="price-card">
-
-<h3>
-
-Premium
-
-</h3>
-
-<h1>
-
-Individuell
-
-</h1>
-
-<ul>
-
-<li>Alles inklusive</li>
-
-<li>CMS</li>
-
-<li>Animationen</li>
-
-<li>Support</li>
-
-</ul>
-
-<button>
-
-Anfragen
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="kontakt">
-
-<div class="container">
-
-<h2>
-
-Lass uns dein Projekt starten.
-
-</h2>
-
-<form>
-
-<input type="text"
-
-placeholder="Name">
-
-<input type="email"
-
-placeholder="E-Mail">
-
-<textarea
-
-placeholder="Erzähl mir von deinem Projekt"></textarea>
-
-<button>
-
-Nachricht senden
-
-</button>
-
-</form>
-
-</div>
-
-</section>
-
-<footer>
-
-<div class="container">
-
-<h3>
-
-GVS Webstudio
-
-</h3>
-
-<p>
-
-Premium Webseiten für Unternehmen.
-
-</p>
-
-<p>
-
-© 2026
-
-</p>
-
-</div>
-
-</footer>
+  </footer>
 
 </body>
-
 </html>
