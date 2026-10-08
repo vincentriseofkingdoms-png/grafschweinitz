@@ -2,568 +2,304 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>VON SCHWEINITZ — Kapitalstrategie & Vertriebssysteme</title>
 <meta name="description" content="VON SCHWEINITZ verbindet bankgeprüfte Finanzierungsexpertise mit digitalen Vertriebssystemen für Immobilienmakler und Finanzierungsberater.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#0B111C;
-    --ink-2:#101929;
-    --panel:#141F32;
-    --panel-2:#182540;
-    --hair:rgba(232,232,225,0.10);
-    --hair-strong:rgba(232,232,225,0.18);
-    --text:#E9EAE4;
-    --text-dim:#9AA3B5;
-    --text-faint:#5E6A80;
-    --gold:#C6A15B;
-    --gold-dim:#8F754A;
-    --steel:#6E93B8;
-    --serif:'Fraunces', Georgia, serif;
-    --sans:'Inter', -apple-system, sans-serif;
-    --mono:'IBM Plex Mono', monospace;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--ink);
-    color:var(--text);
-    font-family:var(--sans);
-    font-weight:400;
-    line-height:1.6;
-    overflow-x:hidden;
-  }
-  ::selection{background:var(--gold);color:var(--ink);}
-  a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
-  .eyebrow{
-    font-family:var(--mono);
-    font-size:11px;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    color:var(--gold);
-    display:flex;align-items:center;gap:10px;
-    margin-bottom:20px;
-  }
-  .eyebrow::before{content:'';width:22px;height:1px;background:var(--gold-dim);}
-  h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-0.01em;}
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.9s cubic-bezier(.16,1,.3,1),transform 0.9s cubic-bezier(.16,1,.3,1);}
-  .reveal.in{opacity:1;transform:translateY(0);}
+:root{--ink:#080D16;--panel:#111B2E;--hair:rgba(233,234,228,.1);--hair2:rgba(233,234,228,.2);--text:#F2F2EE;--dim:#9AA3B5;--faint:#5E6A80;--gold:#C6A15B;--gold2:#E9C98A;--steel:#6E93B8;--serif:'Fraunces',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;--mono:'IBM Plex Mono',monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:var(--sans);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold);color:var(--ink)}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,footer,nav{position:relative;z-index:1}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--gold)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em}
+.big{font-size:clamp(34px,5.4vw,68px);line-height:1.04}
+.grad{background:linear-gradient(120deg,var(--gold2),var(--gold) 40%,#fff 90%);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic}
+.rv{opacity:0;transform:translateY(40px) scale(.98);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+section{padding:150px 0;position:relative}
+.veil{background:linear-gradient(180deg,rgba(8,13,22,.82),rgba(8,13,22,.9))}
+.head{max-width:760px;margin-bottom:80px}
+.head p{color:var(--dim);font-size:18px;margin-top:22px;max-width:540px}
 
-  /* NAV */
-  nav{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    padding:22px 0;
-    background:rgba(11,17,28,0);
-    border-bottom:1px solid transparent;
-    transition:background 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
-  }
-  nav.scrolled{background:rgba(11,17,28,0.86);backdrop-filter:blur(14px);border-bottom-color:var(--hair);padding:16px 0;}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;}
-  .brand{font-family:var(--serif);font-size:19px;letter-spacing:0.04em;display:flex;align-items:center;gap:10px;}
-  .brand .mark{width:9px;height:9px;border:1px solid var(--gold);transform:rotate(45deg);}
-  .navlinks{display:flex;align-items:center;gap:38px;}
-  .navlinks a{font-size:13.5px;color:var(--text-dim);position:relative;padding:4px 0;transition:color 0.25s;}
-  .navlinks a:hover, .navlinks a.active{color:var(--text);}
-  .navlinks a.active::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--gold);}
-  .navcta{
-    font-size:13px;color:var(--ink);background:var(--gold);
-    padding:10px 20px;border:1px solid var(--gold);
-    transition:background 0.25s, color 0.25s;
-    font-weight:500;
-  }
-  .navcta:hover{background:transparent;color:var(--gold);}
-  .navburger{display:none;}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:.4s}
+nav.s{background:rgba(8,13,22,.72);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid var(--hair);padding:14px 0}
+nav .wrap{display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:var(--serif);font-size:18px;letter-spacing:.05em;display:flex;align-items:center;gap:10px}
+.mark{width:9px;height:9px;border:1px solid var(--gold);transform:rotate(45deg)}
+.links{display:flex;align-items:center;gap:36px}
+.links a{font-size:13px;color:var(--dim);transition:color .25s}
+.links a:hover{color:var(--text)}
+.cta{color:var(--ink)!important;background:var(--gold);padding:9px 20px;border-radius:99px;font-weight:500;transition:.25s}
+.cta:hover{background:var(--gold2)}
 
-  /* HERO */
-  .hero{
-    position:relative;
-    min-height:100vh;
-    display:flex;align-items:center;
-    padding-top:100px;
-    overflow:hidden;
-  }
-  #hero-canvas{
-    position:absolute;inset:0;
-    width:100%;height:100%;
-    opacity:0.85;
-  }
-  .hero::after{
-    content:'';position:absolute;inset:0;
-    background:radial-gradient(ellipse 70% 55% at 68% 45%, rgba(11,17,28,0) 0%, rgba(11,17,28,0.55) 60%, var(--ink) 100%);
-    pointer-events:none;
-  }
-  .hero .wrap{position:relative;z-index:2;}
-  .hero-content{max-width:640px;}
-  .hero h1{
-    font-size:clamp(38px,5.6vw,64px);
-    line-height:1.06;
-    color:var(--text);
-    margin-bottom:26px;
-  }
-  .hero h1 em{font-style:italic;color:var(--gold);font-weight:400;}
-  .hero p.lead{
-    font-size:17px;color:var(--text-dim);max-width:480px;margin-bottom:38px;
-  }
-  .herobtns{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
-  .btn-primary{
-    background:var(--gold);color:var(--ink);padding:15px 28px;
-    font-size:14px;font-weight:500;border:1px solid var(--gold);
-    transition:background 0.25s,color 0.25s;
-  }
-  .btn-primary:hover{background:transparent;color:var(--gold);}
-  .btn-ghost{
-    padding:15px 24px;font-size:14px;color:var(--text-dim);
-    border:1px solid var(--hair-strong);transition:border-color 0.25s,color 0.25s;
-  }
-  .btn-ghost:hover{border-color:var(--text-dim);color:var(--text);}
-  .hero-stats{
-    display:flex;gap:48px;margin-top:74px;padding-top:28px;border-top:1px solid var(--hair);
-    max-width:560px;
-  }
-  .hero-stats .stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--text);font-weight:500;}
-  .hero-stats .stat span{font-size:12px;color:var(--text-faint);font-family:var(--mono);letter-spacing:0.03em;}
-  .scrolldown{
-    position:absolute;bottom:36px;left:32px;z-index:2;
-    display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;
-    color:var(--text-faint);letter-spacing:0.1em;
-  }
-  .scrolldown .line{width:1px;height:34px;background:linear-gradient(var(--gold),transparent);animation:sdmove 1.8s ease-in-out infinite;}
-  @keyframes sdmove{0%,100%{transform:scaleY(1);opacity:0.4;}50%{transform:scaleY(1.15);opacity:1;}}
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:110px 0 80px}
+.hero h1{font-size:clamp(42px,7.2vw,92px);line-height:1;margin-bottom:30px;max-width:900px}
+.lead{font-size:clamp(16px,1.6vw,20px);color:var(--dim);max-width:520px;margin-bottom:42px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.b1{background:var(--gold);color:var(--ink);padding:16px 30px;border-radius:99px;font-size:14px;font-weight:500;transition:.3s}
+.b1:hover{background:var(--gold2);transform:translateY(-2px)}
+.b2{padding:16px 28px;border-radius:99px;font-size:14px;color:var(--text);border:1px solid var(--hair2);transition:.3s}
+.b2:hover{border-color:var(--text)}
+.stats{display:flex;gap:56px;margin-top:80px;padding-top:30px;border-top:1px solid var(--hair);flex-wrap:wrap}
+.stat b{display:block;font-family:var(--serif);font-size:40px;font-weight:400}
+.stat span{font-family:var(--mono);font-size:11.5px;color:var(--faint)}
 
-  /* SECTION GENERIC */
-  section{position:relative;padding:130px 0;}
-  .section-head{max-width:640px;margin-bottom:72px;}
-  .section-head h2{font-size:clamp(28px,3.4vw,42px);color:var(--text);line-height:1.15;}
-  .section-head p{color:var(--text-dim);font-size:16px;margin-top:18px;max-width:520px;}
-  .divider{height:1px;background:var(--hair);}
+/* CARDS (3D tilt) */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;perspective:1200px}
+.card{background:linear-gradient(160deg,rgba(24,37,64,.7),rgba(17,27,46,.6));border:1px solid var(--hair);border-radius:20px;padding:42px 34px;transition:transform .15s ease-out,border-color .3s;transform-style:preserve-3d;will-change:transform}
+.card:hover{border-color:rgba(198,161,91,.45)}
+.card .n{font-family:var(--mono);font-size:12px;color:var(--gold);margin-bottom:60px;letter-spacing:.1em;transform:translateZ(30px)}
+.card h3{font-size:24px;margin-bottom:12px;transform:translateZ(40px)}
+.card p{font-size:15px;color:var(--dim);transform:translateZ(20px)}
 
-  /* PROBLEM */
-  .problem{background:var(--ink-2);}
-  .probgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);}
-  .probcard{background:var(--ink-2);padding:40px 34px;}
-  .probcard .num{font-family:var(--mono);font-size:12px;color:var(--gold-dim);margin-bottom:26px;letter-spacing:0.08em;}
-  .probcard h3{font-size:19px;color:var(--text);margin-bottom:12px;font-weight:500;}
-  .probcard p{font-size:14.5px;color:var(--text-dim);}
+/* LEISTUNGEN */
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:20px;perspective:1200px}
+.svc .card:first-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tag{font-family:var(--mono);font-size:11px;color:var(--steel);border:1px solid rgba(110,147,184,.35);border-radius:99px;padding:5px 12px}
+.for{font-size:14.5px;color:var(--dim);margin-top:18px;padding-top:18px;border-top:1px solid var(--hair)}
+.for strong{color:var(--text);font-weight:500}
+.svc .card:first-child .for{margin:0;border:none;border-left:1px solid var(--hair);padding:0 0 0 32px;align-self:end}
 
-  /* LEISTUNGEN */
-  .services{}
-  .servicelist{display:flex;flex-direction:column;}
-  .servicerow{
-    display:grid;grid-template-columns:64px 1fr 1fr;gap:40px;
-    padding:44px 0;border-top:1px solid var(--hair);
-    align-items:start;
-  }
-  .servicelist .servicerow:last-child{border-bottom:1px solid var(--hair);}
-  .servicerow .sindex{font-family:var(--mono);font-size:13px;color:var(--gold);padding-top:6px;}
-  .servicerow h3{font-size:24px;color:var(--text);margin-bottom:14px;}
-  .servicerow .sdesc p{color:var(--text-dim);font-size:15px;margin-bottom:16px;}
-  .taglist{display:flex;flex-wrap:wrap;gap:8px;}
-  .tag{font-family:var(--mono);font-size:11px;color:var(--steel);border:1px solid rgba(110,147,184,0.35);padding:5px 11px;letter-spacing:0.02em;}
-  .sdetail{color:var(--text-dim);font-size:14.5px;padding-top:6px;border-left:1px solid var(--hair);padding-left:28px;}
-  .sdetail strong{color:var(--text);font-weight:500;}
+/* ANSATZ */
+.proc{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.sticky{position:sticky;top:130px}
+.step{display:grid;grid-template-columns:56px 1fr;gap:24px;padding:34px 0;border-top:1px solid var(--hair);opacity:.35;transition:opacity .5s}
+.step.on{opacity:1}
+.dot{width:56px;height:56px;border-radius:50%;border:1px solid var(--hair2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;color:var(--gold);transition:.5s}
+.step.on .dot{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.step h3{font-size:24px;margin-bottom:8px}
+.step p{color:var(--dim);font-size:15px}
 
-  /* ANSATZ */
-  .ansatz{background:var(--ink-2);}
-  .steps{position:relative;}
-  .steps::before{content:'';position:absolute;left:23px;top:12px;bottom:12px;width:1px;background:var(--hair-strong);}
-  .step{display:grid;grid-template-columns:48px 1fr;gap:28px;padding-bottom:56px;position:relative;}
-  .step:last-child{padding-bottom:0;}
-  .stepdot{
-    width:48px;height:48px;border:1px solid var(--hair-strong);background:var(--ink-2);
-    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;color:var(--gold);
-    position:relative;z-index:1;flex-shrink:0;
-  }
-  .stepbody h3{font-size:19px;color:var(--text);margin-bottom:8px;font-weight:500;}
-  .stepbody p{color:var(--text-dim);font-size:14.5px;max-width:520px;}
+/* STIMMEN */
+.marq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:20px;width:max-content;animation:mv 70s linear infinite}
+.marq:hover .track{animation-play-state:paused}
+@keyframes mv{to{transform:translateX(calc(-50% - 10px))}}
+.vc{width:380px;flex-shrink:0;background:linear-gradient(160deg,rgba(24,37,64,.75),rgba(17,27,46,.65));border:1px solid var(--hair);border-radius:20px;padding:32px 30px;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.stars{color:var(--gold);letter-spacing:3px;font-size:13px;margin-bottom:16px}
+.vc p{font-family:var(--serif);font-size:17px;line-height:1.55}
+.vm{display:flex;align-items:center;gap:14px;border-top:1px solid var(--hair);padding-top:18px}
+.av{width:40px;height:40px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;color:var(--gold);flex-shrink:0}
+.vm b{display:block;font-size:14px;font-weight:500}
+.vm span{font-family:var(--mono);font-size:11px;color:var(--faint)}
+.vr{margin-left:auto;text-align:right;font-family:var(--mono);font-size:11px;color:var(--steel)}
 
-  /* UEBER UNS */
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
-  .about-copy p{color:var(--text-dim);font-size:15.5px;margin-bottom:20px;max-width:480px;}
-  .about-copy p strong{color:var(--text);font-weight:500;}
-  .credlist{display:flex;flex-direction:column;gap:0;}
-  .creditem{padding:24px 0;border-top:1px solid var(--hair);}
-  .credlist .creditem:last-child{border-bottom:1px solid var(--hair);}
-  .creditem .clabel{font-family:var(--mono);font-size:11px;color:var(--text-faint);letter-spacing:0.06em;margin-bottom:8px;text-transform:uppercase;}
-  .creditem .cval{font-size:15.5px;color:var(--text);}
-  blockquote{
-    font-family:var(--serif);font-style:italic;font-size:22px;color:var(--text);
-    line-height:1.5;margin:44px 0 0;padding-left:24px;border-left:1px solid var(--gold);
-  }
-  blockquote cite{display:block;margin-top:16px;font-style:normal;font-family:var(--mono);font-size:12px;color:var(--text-faint);}
+/* ÜBER UNS */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.about p{color:var(--dim);font-size:16.5px;margin-bottom:20px;max-width:500px}
+.about p strong{color:var(--text);font-weight:500}
+blockquote{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.45;margin-top:44px;padding-left:24px;border-left:1px solid var(--gold)}
+blockquote cite{display:block;margin-top:14px;font:normal 12px var(--mono);color:var(--faint)}
+.cr{padding:26px 0;border-top:1px solid var(--hair)}
+.cr:last-child{border-bottom:1px solid var(--hair)}
+.cl{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
 
-  /* KONTAKT */
-  .kontakt{background:var(--ink-2);}
-  .kgrid{display:grid;grid-template-columns:1fr 1fr;gap:80px;}
-  .kinfo p{color:var(--text-dim);font-size:15.5px;max-width:420px;margin-bottom:32px;}
-  .kchannel{display:flex;flex-direction:column;gap:20px;}
-  .kchannel a{display:flex;align-items:center;gap:14px;font-size:15px;color:var(--text);padding-bottom:16px;border-bottom:1px solid var(--hair);transition:color 0.2s;}
-  .kchannel a:hover{color:var(--gold);}
-  .kchannel .klabel{font-family:var(--mono);font-size:10.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:3px;}
-  form{display:flex;flex-direction:column;gap:22px;}
-  .field label{display:block;font-family:var(--mono);font-size:11px;color:var(--text-faint);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;}
-  .field input, .field select, .field textarea{
-    width:100%;background:transparent;border:none;border-bottom:1px solid var(--hair-strong);
-    color:var(--text);font-family:var(--sans);font-size:15px;padding:10px 2px;
-    outline:none;transition:border-color 0.25s;
-  }
-  .field select{appearance:none;-webkit-appearance:none;background:transparent;cursor:pointer;}
-  .field select option{background:var(--panel);color:var(--text);}
-  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--gold);}
-  .field textarea{resize:vertical;min-height:80px;}
-  .field input::placeholder, .field textarea::placeholder{color:var(--text-faint);}
-  .submitbtn{
-    margin-top:8px;align-self:flex-start;background:var(--gold);color:var(--ink);
-    padding:15px 30px;font-size:14px;font-weight:500;border:1px solid var(--gold);cursor:pointer;
-    transition:background 0.25s,color 0.25s;
-  }
-  .submitbtn:hover{background:transparent;color:var(--gold);}
-  .formnote{font-size:12.5px;color:var(--text-faint);margin-top:6px;}
+/* KONTAKT */
+.kg{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.kg p{color:var(--dim);font-size:16.5px;max-width:420px;margin-bottom:32px}
+.kc a{display:block;padding-bottom:16px;margin-bottom:20px;border-bottom:1px solid var(--hair);transition:color .2s}
+.kc a:hover{color:var(--gold)}
+.kc small{display:block;font:10.5px var(--mono);color:var(--faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+form{display:flex;flex-direction:column;gap:22px;background:rgba(17,27,46,.6);border:1px solid var(--hair);border-radius:24px;padding:40px}
+.f label{display:block;font:11px var(--mono);color:var(--faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+.f input,.f select,.f textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--hair2);color:var(--text);font:15px var(--sans);padding:10px 2px;outline:none;transition:border-color .25s;border-radius:0}
+.f select{appearance:none;-webkit-appearance:none;cursor:pointer}
+.f select option{background:var(--panel)}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--gold)}
+.f textarea{resize:vertical;min-height:80px}
+.sub{align-self:flex-start;background:var(--gold);color:var(--ink);padding:16px 32px;border-radius:99px;font:500 14px var(--sans);border:none;cursor:pointer;transition:.3s}
+.sub:hover{background:var(--gold2)}
+.note{font-size:12.5px;color:var(--faint)}
 
-  /* FOOTER */
-  footer{padding:56px 0 40px;border-top:1px solid var(--hair);}
-  .footgrid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
-  .footlinks{display:flex;gap:28px;}
-  .footlinks a{font-size:13px;color:var(--text-dim);}
-  .footlinks a:hover{color:var(--text);}
-  .footmeta{font-family:var(--mono);font-size:11.5px;color:var(--text-faint);}
+footer{padding:56px 0 40px;border-top:1px solid var(--hair);background:rgba(8,13,22,.95)}
+.fg{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.fl{display:flex;gap:26px;flex-wrap:wrap}
+.fl a{font-size:13px;color:var(--dim)}
+.fl a:hover{color:var(--text)}
+.fm{font:11.5px var(--mono);color:var(--faint)}
 
-  @media (max-width:900px){
-    .probgrid{grid-template-columns:1fr;}
-    .servicerow{grid-template-columns:1fr;gap:16px;}
-    .sdetail{border-left:none;padding-left:0;border-top:1px solid var(--hair);padding-top:16px;}
-    .about-grid, .kgrid{grid-template-columns:1fr;gap:48px;}
-    .navlinks{display:none;}
-    .hero-stats{gap:30px;flex-wrap:wrap;}
-  }
+@media(max-width:900px){
+.links a:not(.cta){display:none}
+.grid3,.svc,.proc,.about,.kg,.svc .card:first-child{grid-template-columns:1fr}
+.svc .card:first-child .for{border:none;padding:0}
+.sticky{position:static}.proc,.about,.kg{gap:48px}
+section{padding:100px 0}.vc{width:300px}.stats{gap:30px}form{padding:28px}
+}
+@media(prefers-reduced-motion:reduce){.track{animation:none}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<canvas id="bg"></canvas>
 
-<nav id="nav">
-  <div class="wrap">
-    <a href="#top" class="brand"><span class="mark"></span>VON&nbsp;SCHWEINITZ</a>
-    <div class="navlinks" id="navlinks">
-      <a href="#leistungen" data-sec="leistungen">Leistungen</a>
-      <a href="#ansatz" data-sec="ansatz">Ansatz</a>
-      <a href="#ueber-uns" data-sec="ueber-uns">Über uns</a>
-      <a href="#kontakt" class="navcta">Gespräch anfragen</a>
-    </div>
+<nav id="nav"><div class="wrap">
+  <a href="#top" class="brand"><span class="mark"></span>VON&nbsp;SCHWEINITZ</a>
+  <div class="links">
+    <a href="#leistungen">Leistungen</a><a href="#ansatz">Ansatz</a><a href="#stimmen">Stimmen</a><a href="#ueber-uns">Über uns</a>
+    <a href="#kontakt" class="cta">Gespräch anfragen</a>
   </div>
-</nav>
+</div></nav>
 
-<section class="hero" id="top">
-  <canvas id="hero-canvas"></canvas>
-  <div class="wrap">
-    <div class="hero-content">
-      <div class="eyebrow">Kapitalstrategie & Vertriebssysteme</div>
-      <h1>Bankgeprüfte Finanzierungslogik. <em>Digital</em> in Kunden übersetzt.</h1>
-      <p class="lead">VON SCHWEINITZ verbindet die Kreditlogik einer Bank mit dem Vertriebssystem einer Digitalagentur — für Finanzierungsberater und Immobilienmakler, die planbar qualifizierte Anfragen statt Zufallstreffer wollen.</p>
-      <div class="herobtns">
-        <a href="#kontakt" class="btn-primary">Erstgespräch anfragen</a>
-        <a href="#leistungen" class="btn-ghost">Leistungen ansehen</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><b>34c</b><span>GewO-konforme Beratung</span></div>
-        <div class="stat"><b>2</b><span>Disziplinen, ein System</span></div>
+<main>
+<section class="hero" id="top"><div class="wrap">
+  <div class="eyebrow">Kapitalstrategie & Vertriebssysteme</div>
+  <h1>Bankgeprüfte Finanzierungslogik. <span class="grad">Digital</span> in Kunden übersetzt.</h1>
+  <p class="lead">VON SCHWEINITZ verbindet die Kreditlogik einer Bank mit dem Vertriebssystem einer Digitalagentur — für Finanzierungsberater und Immobilienmakler, die planbar qualifizierte Anfragen statt Zufallstreffer wollen.</p>
+  <div class="btns"><a href="#kontakt" class="b1">Erstgespräch anfragen</a><a href="#leistungen" class="b2">Leistungen ansehen</a></div>
+  <div class="stats">
+    <div class="stat"><b>34c</b><span>GewO-konforme Beratung</span></div>
         <div class="stat"><b>100%</b><span>messbarer Prozess</span></div>
-      </div>
-    </div>
   </div>
-  <div class="scrolldown"><div class="line"></div>SCROLLEN</div>
+</div></section>
+
+<section id="leistungen"><div class="wrap">
+  <div class="head rv"><div class="eyebrow">Leistungen</div>
+    <h2 class="big">Drei Disziplinen. <span class="grad">Ein System.</span></h2>
+    <p>Jede Leistung steht für sich — die eigentliche Wirkung entsteht in der Kombination aus Kapitalexpertise und digitalem Vertrieb.</p></div>
+  <div class="svc rv">
+    <div class="card tilt"><div><div class="n">01</div><h3>Finanzierungsberatung</h3><p>Bankgeprüfte Einschätzung von Kreditanträgen, Fördermittelstrategie und Bonitätsstruktur — bevor der Antrag bei der Bank landet.</p>
+      <div class="tags"><span class="tag">Kreditfähigkeit</span><span class="tag">Fördermittel</span><span class="tag">Antragsprüfung</span></div></div>
+      <div class="for">Für <strong>Gründer und KMU</strong>, die verstehen wollen, wie eine Bank intern entscheidet — und ihre Unterlagen entsprechend aufstellen.</div></div>
+    <div class="card tilt"><div class="n">02</div><h3>Digitale Vertriebssysteme</h3><p>Ein durchgängiger Prozess von Reichweite über Landingpage bis zur qualifizierten Terminvereinbarung — messbar und wiederholbar.</p>
+      <div class="tags"><span class="tag">Lead-Qualifizierung</span><span class="tag">Landingpages</span><span class="tag">Tracking</span></div>
+      <div class="for">Für <strong>Immobilienmakler und Finanzierungsberater</strong>, die planbar statt zufällig neue Interessenten gewinnen wollen.</div></div>
+    <div class="card tilt"><div class="n">03</div><h3>Strategische Beratung</h3><p>Positionierung, Preislogik und Nischenwahl für Finanzdienstleister, die sich von generischen Anbietern abheben wollen.</p>
+      <div class="tags"><span class="tag">Positionierung</span><span class="tag">Nischenwahl</span><span class="tag">Preislogik</span></div>
+      <div class="for">Für <strong>Berater und kleine Teams</strong>, die ein zweites Standbein oder ein neues Angebot aufbauen wollen.</div></div>
+  </div>
+</div></section>
+
+<section class="veil" id="ansatz"><div class="wrap proc">
+  <div class="sticky rv"><div class="eyebrow">Ansatz</div>
+    <h2 class="big">Von der ersten Anfrage bis zum <span class="grad">Kundentermin.</span></h2>
+    <p class="lead" style="margin-top:24px">Ein Prozess in fünf Schritten — jeder baut auf dem vorherigen auf und ist einzeln messbar.</p></div>
+  <div>
+    <div class="step"><div class="dot">01</div><div><h3>Reichweite</h3><p>Die passende Zielgruppe über digitale Kanäle erreichen — dort, wo Finanzierungsentscheidungen tatsächlich vorbereitet werden.</p></div></div>
+    <div class="step"><div class="dot">02</div><div><h3>Landingpage</h3><p>Ein klares, glaubwürdiges Angebot schafft Interesse — ohne Fachjargon, mit einer erkennbaren Handlung.</p></div></div>
+    <div class="step"><div class="dot">03</div><div><h3>Qualifizierung</h3><p>Relevante Informationen vor dem ersten Gespräch erfassen, damit jedes Gespräch mit Substanz beginnt.</p></div></div>
+    <div class="step"><div class="dot">04</div><div><h3>Termin</h3><p>Qualifizierte Interessenten direkt an den passenden Berater oder Makler übergeben — mit Kontext, nicht nur Kontaktdaten.</p></div></div>
+    <div class="step"><div class="dot">05</div><div><h3>Messung</h3><p>Auswerten, welche Kanäle tatsächlich zu Kunden führen — und das System entsprechend nachschärfen.</p></div></div>
+  </div>
+</div></section>
+
+<section id="stimmen" style="padding-left:0;padding-right:0"><div class="wrap">
+  <div class="head rv"><div class="eyebrow">Stimmen</div>
+    <h2 class="big">Was Kunden über die <span class="grad">Zusammenarbeit</span> sagen.</h2></div></div>
+  <div class="marq rv"><div class="track" id="vt"></div></div>
 </section>
 
-<section class="problem" id="problem">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Die Lücke im Markt</div>
-      <h2>Gute Berater haben keine Kunden-Lücke. Sie haben eine Übersetzungs-Lücke.</h2>
-      <p>Fachliche Exzellenz bei Finanzierung reicht heute nicht mehr — sie muss digital ankommen, bevor der erste Anruf stattfindet.</p>
-    </div>
-  </div>
-  <div class="wrap">
-    <div class="probgrid reveal">
-      <div class="probcard">
-        <div class="num">01 / EXPERTISE</div>
-        <h3>Ungenutztes Fachwissen</h3>
-        <p>Was in der Bank als Grundsatzentscheidung gilt, bleibt für Endkunden unsichtbar — Vertrauen entsteht dort, wo Wissen sichtbar wird.</p>
+<section class="veil" id="ueber-uns"><div class="wrap about">
+  <div class="rv"><div class="eyebrow">Über uns</div>
+    <h2 class="big" style="font-size:clamp(30px,3.6vw,46px);margin-bottom:28px">Kreditlogik von innen. Vertrieb von außen betrachtet.</h2>
+    <p>VON SCHWEINITZ entstand aus einer einfachen Beobachtung: Wer <strong>Grundsatzfragen zur Kreditvergabe</strong> aus der Bankperspektive versteht, sieht auch, warum viele Finanzierungsanfragen scheitern — lange bevor sie bei einer Bank landen.</p>
+    <p>Diese Perspektive verbinden wir mit einem klaren digitalen Vertriebsprozess. Kein Template-Marketing, sondern ein System, das auf echter Fachkenntnis über Bonität, Risiko und Antragslogik aufbaut.</p>
+    <blockquote>„Gute Beratung erklärt nicht nur, ob ein Kredit passt — sie zeigt, warum."<cite>— VON SCHWEINITZ</cite></blockquote></div>
+  <div class="rv">
+    <div class="cr"><div class="cl">Hintergrund</div>Grundsatzfragen Kredit, Bankpraxis</div>
+    <div class="cr"><div class="cl">Fokus</div>Finanzierungsberater & Immobilienmakler</div>
+    <div class="cr"><div class="cl">Region</div>Stuttgart · Deutschland</div>
       </div>
-      <div class="probcard">
-        <div class="num">02 / AKQUISE</div>
-        <h3>Zufällige Anfragen</h3>
-        <p>Ohne System kommen Anfragen unregelmäßig — meist über Empfehlung, selten über einen wiederholbaren Prozess.</p>
-      </div>
-      <div class="probcard">
-        <div class="num">03 / QUALITÄT</div>
-        <h3>Unpassende Leads</h3>
-        <p>Viele Anfragen kosten Zeit, ohne zur Zielgruppe zu passen — echte Qualifizierung findet vor dem Gespräch statt, nicht danach.</p>
-      </div>
-    </div>
-  </div>
-</section>
+</div></section>
 
-<section class="services" id="leistungen">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Leistungen</div>
-      <h2>Drei Disziplinen. Ein zusammenhängendes System.</h2>
-      <p>Jede Leistung steht für sich — die eigentliche Wirkung entsteht in der Kombination aus Kapitalexpertise und digitalem Vertrieb.</p>
-    </div>
-    <div class="servicelist reveal">
-      <div class="servicerow">
-        <div class="sindex">01</div>
-        <div class="sdesc">
-          <h3>Finanzierungsberatung</h3>
-          <p>Bankgeprüfte Einschätzung von Kreditanträgen, Fördermittelstrategie und Bonitätsstruktur — bevor der Antrag bei der Bank landet.</p>
-          <div class="taglist"><span class="tag">Kreditfähigkeit</span><span class="tag">Fördermittel</span><span class="tag">Antragsprüfung</span></div>
-        </div>
-        <div class="sdetail">Für <strong>Gründer und KMU</strong>, die verstehen wollen, wie eine Bank intern entscheidet — und ihre Unterlagen entsprechend aufstellen.</div>
-      </div>
-      <div class="servicerow">
-        <div class="sindex">02</div>
-        <div class="sdesc">
-          <h3>Digitale Vertriebssysteme</h3>
-          <p>Ein durchgängiger Prozess von Reichweite über Landingpage bis zur qualifizierten Terminvereinbarung — messbar und wiederholbar.</p>
-          <div class="taglist"><span class="tag">Lead-Qualifizierung</span><span class="tag">Landingpages</span><span class="tag">Tracking</span></div>
-        </div>
-        <div class="sdetail">Für <strong>Immobilienmakler und Finanzierungsberater</strong>, die planbar statt zufällig neue Interessenten gewinnen wollen.</div>
-      </div>
-      <div class="servicerow">
-        <div class="sindex">03</div>
-        <div class="sdesc">
-          <h3>Strategische Beratung</h3>
-          <p>Positionierung, Preislogik und Nischenwahl für Finanzdienstleister, die sich von generischen Anbietern abheben wollen.</p>
-          <div class="taglist"><span class="tag">Positionierung</span><span class="tag">Nischenwahl</span><span class="tag">Preislogik</span></div>
-        </div>
-        <div class="sdetail">Für <strong>Berater und kleine Teams</strong>, die ein zweites Standbein oder ein neues Angebot aufbauen wollen.</div>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="kontakt"><div class="wrap kg">
+  <div class="rv"><div class="eyebrow">Kontakt</div>
+    <h2 class="big" style="font-size:clamp(30px,3.6vw,46px);margin-bottom:22px">Lassen Sie uns herausfinden, ob es <span class="grad">passt.</span></h2>
+    <p>Kurzes, unverbindliches Erstgespräch. Wir schauen uns Ihre aktuelle Kundengewinnung oder Finanzierungsfrage an — ohne Verkaufsdruck.</p>
+    <div class="kc"><a href="mailto:Vincentgrafvonschweinitz@gmail.com?subject=Anfrage%20über%20die%20Website"><small>E-Mail</small>Vincentgrafvonschweinitz@gmail.com</a></div></div>
+  <div class="rv"><form id="kf">
+    <div class="f"><label for="fn">Name</label><input id="fn" placeholder="Vor- und Nachname" required></div>
+    <div class="f"><label for="fe">E-Mail</label><input id="fe" type="email" placeholder="name@unternehmen.de" required></div>
+    <div class="f"><label for="ft">Bereich</label><select id="ft"><option>Finanzierungsberatung</option><option>Digitale Vertriebssysteme</option><option>Strategische Beratung</option><option>Sonstiges</option></select></div>
+    <div class="f"><label for="fm">Nachricht</label><textarea id="fm" placeholder="Kurz beschreiben, worum es geht"></textarea></div>
+    <button class="sub">Gespräch anfragen</button>
+    <div class="note" id="note">Öffnet Ihr E-Mail-Programm mit vorausgefüllter Nachricht.</div>
+  </form></div>
+</div></section>
+</main>
 
-<section class="ansatz" id="ansatz">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Ansatz</div>
-      <h2>Von der ersten Anfrage bis zum Kundentermin.</h2>
-      <p>Ein Prozess in fünf Schritten — jeder baut auf dem vorherigen auf und ist einzeln messbar.</p>
-    </div>
-    <div class="steps reveal">
-      <div class="step">
-        <div class="stepdot">01</div>
-        <div class="stepbody"><h3>Reichweite</h3><p>Die passende Zielgruppe über digitale Kanäle erreichen — dort, wo Finanzierungsentscheidungen tatsächlich vorbereitet werden.</p></div>
-      </div>
-      <div class="step">
-        <div class="stepdot">02</div>
-        <div class="stepbody"><h3>Landingpage</h3><p>Ein klares, glaubwürdiges Angebot schafft Interesse — ohne Fachjargon, mit einer erkennbaren Handlung.</p></div>
-      </div>
-      <div class="step">
-        <div class="stepdot">03</div>
-        <div class="stepbody"><h3>Qualifizierung</h3><p>Relevante Informationen vor dem ersten Gespräch erfassen, damit jedes Gespräch mit Substanz beginnt.</p></div>
-      </div>
-      <div class="step">
-        <div class="stepdot">04</div>
-        <div class="stepbody"><h3>Termin</h3><p>Qualifizierte Interessenten direkt an den passenden Berater oder Makler übergeben — mit Kontext, nicht nur Kontaktdaten.</p></div>
-      </div>
-      <div class="step">
-        <div class="stepdot">05</div>
-        <div class="stepbody"><h3>Messung</h3><p>Auswerten, welche Kanäle tatsächlich zu Kunden führen — und das System entsprechend nachschärfen.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="ueber-uns">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="reveal">
-        <div class="eyebrow">Über uns</div>
-        <h2 style="font-size:clamp(26px,3vw,36px);margin-bottom:26px;">Kreditlogik von innen. Vertrieb von außen betrachtet.</h2>
-        <div class="about-copy">
-          <p>VON SCHWEINITZ entstand aus einer einfachen Beobachtung: Wer <strong>Grundsatzfragen zur Kreditvergabe</strong> aus der Bankperspektive versteht, sieht auch, warum viele Finanzierungsanfragen scheitern — lange bevor sie bei einer Bank landen.</p>
-          <p>Diese Perspektive verbinden wir mit einem klaren digitalen Vertriebsprozess. Kein Templat-Marketing, sondern ein System, das auf echter Fachkenntnis über Bonität, Risiko und Antragslogik aufbaut.</p>
-        </div>
-        <blockquote>„Gute Beratung erklärt nicht nur, ob ein Kredit passt — sie zeigt, warum."<cite>— VON SCHWEINITZ</cite></blockquote>
-      </div>
-      <div class="reveal">
-        <div class="credlist">
-          <div class="creditem"><div class="clabel">Hintergrund</div><div class="cval">Grundsatzfragen Kredit, Bankpraxis</div></div>
-          <div class="creditem"><div class="clabel">Fokus</div><div class="cval">Finanzierungsberater & Immobilienmakler</div></div>
-          <div class="creditem"><div class="clabel">Region</div><div class="cval">Stuttgart · Deutschland</div></div>
-          <div class="creditem"><div class="clabel">Arbeitsweise</div><div class="cval">Unverbindliches Erstgespräch, klare Angebotsstruktur</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="kontakt" id="kontakt">
-  <div class="wrap">
-    <div class="kgrid">
-      <div class="reveal">
-        <div class="eyebrow">Kontakt</div>
-        <h2 style="font-size:clamp(26px,3vw,36px);margin-bottom:20px;">Lassen Sie uns herausfinden, ob es passt.</h2>
-        <div class="kinfo">
-          <p>Kurzes, unverbindliches Erstgespräch. Wir schauen uns Ihre aktuelle Kundengewinnung oder Finanzierungsfrage an — ohne Verkaufsdruck.</p>
-        </div>
-        <div class="kchannel">
-          <a href="mailto:Vincentgrafvonschweinitz@gmail.com?subject=Anfrage%20über%20die%20Website"><span><span class="klabel">E-Mail</span>Vincentgrafvonschweinitz@gmail.com</span></a>
-          <a href="#leistungen"><span><span class="klabel">Leistungen</span>Alle drei Disziplinen ansehen</span></a>
-          <a href="#ansatz"><span><span class="klabel">Ansatz</span>Den Prozess im Detail verstehen</span></a>
-        </div>
-      </div>
-      <div class="reveal">
-        <form id="kontaktform">
-          <div class="field"><label for="fname">Name</label><input id="fname" type="text" placeholder="Vor- und Nachname" required></div>
-          <div class="field"><label for="femail">E-Mail</label><input id="femail" type="email" placeholder="name@unternehmen.de" required></div>
-          <div class="field"><label for="ftopic">Bereich</label>
-            <select id="ftopic">
-              <option>Finanzierungsberatung</option>
-              <option>Digitale Vertriebssysteme</option>
-              <option>Strategische Beratung</option>
-              <option>Sonstiges</option>
-            </select>
-          </div>
-          <div class="field"><label for="fmsg">Nachricht</label><textarea id="fmsg" placeholder="Kurz beschreiben, worum es geht"></textarea></div>
-          <button type="submit" class="submitbtn">Gespräch anfragen</button>
-          <div class="formnote" id="formnote">Öffnet Ihr E-Mail-Programm mit vorausgefüllter Nachricht.</div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="footgrid">
-      <div class="brand" style="font-size:16px;"><span class="mark"></span>VON SCHWEINITZ</div>
-      <div class="footlinks">
-        <a href="#leistungen">Leistungen</a>
-        <a href="#ansatz">Ansatz</a>
-        <a href="#ueber-uns">Über uns</a>
-        <a href="#kontakt">Kontakt</a>
-      </div>
-      <div class="footmeta">Stuttgart · Deutschland · © 2026</div>
-    </div>
-  </div>
-</footer>
+<footer><div class="wrap fg">
+  <div class="brand" style="font-size:16px"><span class="mark"></span>VON SCHWEINITZ</div>
+  <div class="fl"><a href="#leistungen">Leistungen</a><a href="#ansatz">Ansatz</a><a href="#ueber-uns">Über uns</a><a href="#kontakt">Kontakt</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
+  <div class="fm">Stuttgart · Deutschland · © 2026</div>
+</div></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-  // Nav scroll state + active link
-  const nav = document.getElementById('nav');
-  const sections = ['leistungen','ansatz','ueber-uns','kontakt'].map(id=>document.getElementById(id));
-  const navlinks = document.querySelectorAll('.navlinks a[data-sec]');
-  window.addEventListener('scroll', ()=>{
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-    let current = null;
-    sections.forEach(sec=>{
-      const r = sec.getBoundingClientRect();
-      if(r.top < 140 && r.bottom > 140) current = sec.id;
-    });
-    navlinks.forEach(a=>a.classList.toggle('active', a.dataset.sec === current));
-  }, {passive:true});
+// ===== NUR ECHTE BEWERTUNGEN EINTRAGEN (mit Erlaubnis der Person) =====
+const stimmen=[
+ {t:'[Platzhalter: echtes Kundenzitat einfügen]',n:'Vorname N.',r:'Immobilienmakler, Stuttgart',e:'Ergebnis in Zahlen'},
+ {t:'[Platzhalter: echtes Kundenzitat einfügen]',n:'Vorname N.',r:'Finanzierungsberater',e:'Ergebnis in Zahlen'},
+ {t:'[Platzhalter: echtes Kundenzitat einfügen]',n:'Vorname N.',r:'Gründer, KMU',e:'Ergebnis in Zahlen'},
+ {t:'[Platzhalter: echtes Kundenzitat einfügen]',n:'Vorname N.',r:'Immobilienmakler',e:'Ergebnis in Zahlen'}];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const card=s=>`<article class="vc"><div><div class="stars">★★★★★</div><p>„${esc(s.t)}“</p></div><div class="vm"><div class="av">${esc(s.n.split(' ').map(w=>w[0]).join('').slice(0,2))}</div><div><b>${esc(s.n)}</b><span>${esc(s.r)}</span></div><div class="vr">${esc(s.e)}</div></div></article>`;
+document.getElementById('vt').innerHTML=stimmen.map(card).join('').repeat(2);
 
-  // Scroll reveal
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// Nav
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>40),{passive:true});
 
-  // Contact form -> mailto
-  document.getElementById('kontaktform').addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('fname').value.trim();
-    const email = document.getElementById('femail').value.trim();
-    const topic = document.getElementById('ftopic').value;
-    const msg = document.getElementById('fmsg').value.trim();
-    const note = document.getElementById('formnote');
-    if(!name || !email){
-      note.textContent = 'Bitte Name und E-Mail ausfüllen.';
-      note.style.color = '#D4756B';
-      return;
-    }
-    const subject = encodeURIComponent('Anfrage: ' + topic);
-    const body = encodeURIComponent('Name: ' + name + '\nE-Mail: ' + email + '\nBereich: ' + topic + '\n\nNachricht:\n' + msg);
-    window.location.href = 'mailto:Vincentgrafvonschweinitz@gmail.com?subject=' + subject + '&body=' + body;
-    note.textContent = 'E-Mail-Programm wird geöffnet …';
-    note.style.color = '';
-  });
+// Reveal + Schritte
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const so=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('on',e.isIntersecting)),{rootMargin:'-40% 0px -40% 0px'});
+document.querySelectorAll('.step').forEach(s=>so.observe(s));
 
-  // 3D hero — rotating trust/network lattice
-  (function(){
-    const canvas = document.getElementById('hero-canvas');
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 100);
-    camera.position.set(0, 0, 9);
+// 3D-Tilt auf Karten
+if(matchMedia('(hover:hover)').matches)document.querySelectorAll('.tilt').forEach(c=>{
+ c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(8px)`});
+ c.addEventListener('mouseleave',()=>c.style.transform='')});
 
-    const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+// Formular -> mailto
+document.getElementById('kf').addEventListener('submit',e=>{e.preventDefault();
+ const v=id=>document.getElementById(id).value.trim(),n=v('fn'),m=v('fe'),t=v('ft'),x=v('fm'),note=document.getElementById('note');
+ if(!n||!m){note.textContent='Bitte Name und E-Mail ausfüllen.';note.style.color='#D4756B';return}
+ location.href='mailto:Vincentgrafvonschweinitz@gmail.com?subject='+encodeURIComponent('Anfrage: '+t)+'&body='+encodeURIComponent('Name: '+n+'\nE-Mail: '+m+'\nBereich: '+t+'\n\nNachricht:\n'+x);
+ note.textContent='E-Mail-Programm wird geöffnet …';note.style.color=''});
 
-    const group = new THREE.Group();
-    scene.add(group);
-
-    // Icosahedral node lattice
-    const icoGeo = new THREE.IcosahedronGeometry(3.1, 1);
-    const wireGeo = new THREE.WireframeGeometry(icoGeo);
-    const wireMat = new THREE.LineBasicMaterial({color: 0xC6A15B, transparent:true, opacity:0.35});
-    const lattice = new THREE.LineSegments(wireGeo, wireMat);
-    group.add(lattice);
-
-    // Nodes at vertices
-    const posAttr = icoGeo.attributes.position;
-    const nodeGeo = new THREE.SphereGeometry(0.045, 8, 8);
-    const nodeMat = new THREE.MeshBasicMaterial({color:0xE9C98A});
-    const nodeMatDim = new THREE.MeshBasicMaterial({color:0x6E93B8});
-    const seen = new Set();
-    for(let i=0;i<posAttr.count;i++){
-      const x = posAttr.getX(i), y = posAttr.getY(i), z = posAttr.getZ(i);
-      const key = x.toFixed(2)+','+y.toFixed(2)+','+z.toFixed(2);
-      if(seen.has(key)) continue;
-      seen.add(key);
-      const mesh = new THREE.Mesh(nodeGeo, Math.random() > 0.7 ? nodeMatDim : nodeMat);
-      mesh.position.set(x,y,z);
-      group.add(mesh);
-    }
-
-    // Inner core sphere, faint
-    const coreGeo = new THREE.IcosahedronGeometry(1.15, 0);
-    const coreWire = new THREE.WireframeGeometry(coreGeo);
-    const coreMat = new THREE.LineBasicMaterial({color:0x6E93B8, transparent:true, opacity:0.25});
-    const core = new THREE.LineSegments(coreWire, coreMat);
-    group.add(core);
-
-    group.rotation.x = 0.4;
-    group.position.x = 1.6;
-
-    let mouseX = 0, mouseY = 0;
-    window.addEventListener('mousemove', (e)=>{
-      mouseX = (e.clientX / window.innerWidth - 0.5);
-      mouseY = (e.clientY / window.innerHeight - 0.5);
-    });
-
-    function animate(){
-      requestAnimationFrame(animate);
-      group.rotation.y += 0.0022;
-      core.rotation.y -= 0.0035;
-      core.rotation.x += 0.0015;
-      camera.position.x += (mouseX*0.8 - camera.position.x)*0.02;
-      camera.position.y += (-mouseY*0.5 - camera.position.y)*0.02;
-      camera.lookAt(1.6,0,0);
-      renderer.render(scene, camera);
-    }
-    animate();
-
-    window.addEventListener('resize', ()=>{
-      camera.aspect = window.innerWidth/window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-  })();
+// ===== 3D-Szene: durchgehend, scrollgesteuert =====
+(function(){
+ if(typeof THREE==='undefined')return;
+ const cv=document.getElementById('bg'),sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(50,innerWidth/innerHeight,.1,200);cam.position.z=10;
+ const r=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio,2));r.setSize(innerWidth,innerHeight);
+ const g=new THREE.Group();sc.add(g);
+ const ico=new THREE.IcosahedronGeometry(3,1);
+ const lat=new THREE.LineSegments(new THREE.WireframeGeometry(ico),new THREE.LineBasicMaterial({color:0xC6A15B,transparent:true,opacity:.35}));g.add(lat);
+ const nm=[new THREE.MeshBasicMaterial({color:0xE9C98A}),new THREE.MeshBasicMaterial({color:0x6E93B8})],ng=new THREE.SphereGeometry(.05,8,8),pa=ico.attributes.position,seen=new Set();
+ for(let i=0;i<pa.count;i++){const k=[pa.getX(i),pa.getY(i),pa.getZ(i)].map(v=>v.toFixed(2)).join();if(seen.has(k))continue;seen.add(k);const m=new THREE.Mesh(ng,nm[Math.random()>.7?1:0]);m.position.set(pa.getX(i),pa.getY(i),pa.getZ(i));g.add(m)}
+ const core=new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(1.2,0)),new THREE.LineBasicMaterial({color:0x6E93B8,transparent:true,opacity:.4}));g.add(core);
+ const ring=new THREE.Mesh(new THREE.TorusGeometry(4.4,.012,8,160),new THREE.MeshBasicMaterial({color:0xC6A15B,transparent:true,opacity:.5}));ring.rotation.x=1.2;g.add(ring);
+ const N=500,pp=new Float32Array(N*3);for(let i=0;i<N;i++){const rad=5+Math.random()*16,a=Math.random()*6.283,b=Math.acos(2*Math.random()-1);pp[i*3]=rad*Math.sin(b)*Math.cos(a);pp[i*3+1]=rad*Math.sin(b)*Math.sin(a);pp[i*3+2]=rad*Math.cos(b)}
+ const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pp,3));
+ const pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0xE9C98A,size:.045,transparent:true,opacity:.6}));sc.add(pts);
+ let mx=0,my=0,p=0,tp=0;addEventListener('mousemove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+ const red=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ function loop(){requestAnimationFrame(loop);
+  const m=document.documentElement.scrollHeight-innerHeight;tp=m>0?scrollY/m:0;p+=(tp-p)*.06;
+  const wide=innerWidth>900;
+  g.position.x+=((wide?Math.cos(p*Math.PI*4)*2.6:0)-g.position.x)*.05;
+  g.position.y+=((wide?Math.sin(p*Math.PI*3)*.8:1.5)-g.position.y)*.05;
+  g.scale.setScalar(1+Math.sin(p*Math.PI)*.35);
+  g.rotation.y=p*Math.PI*3+(red?0:performance.now()*.00008);g.rotation.x=.4+p*1.2;
+  core.rotation.y-=red?0:.004;ring.rotation.z+=red?0:.003;
+  pts.rotation.y=p*1.5+(red?0:performance.now()*.00002);
+  lat.material.opacity=wide?.35:.2;
+  cam.position.x+=(mx*1.2-cam.position.x)*.03;cam.position.y+=(-my*.8-cam.position.y)*.03;cam.position.z=10-Math.sin(p*Math.PI)*2;
+  cam.lookAt(0,0,0);r.render(sc,cam)}
+ loop();
+ addEventListener('resize',()=>{cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();r.setSize(innerWidth,innerHeight)});
+})();
 </script>
 </body>
-</html
+</html>
